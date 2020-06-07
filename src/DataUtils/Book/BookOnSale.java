@@ -7,14 +7,12 @@ import java.time.Year;
 public class BookOnSale extends Book {
     int price;
     BookCondition condition;
-    User owner;
 
     public BookOnSale(String title, Year public_year, String publisher, String author, int price,
                BookCondition status, User owner) {
-        super(title, "123", public_year, publisher, author);
+        super(title, "123", public_year, publisher, author, owner);
         this.price = price;
         this.condition = status;
-        this.owner = owner;
     }
 
     public void setPrice(int price) {

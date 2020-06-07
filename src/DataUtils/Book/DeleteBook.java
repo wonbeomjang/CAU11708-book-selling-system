@@ -1,5 +1,7 @@
 package DataUtils.Book;
 
+import DataUtils.User.User;
+
 public class DeleteBook implements Layout.Interface.DeleteBook {
     BookSaleList bookSaleList;
 
@@ -8,7 +10,9 @@ public class DeleteBook implements Layout.Interface.DeleteBook {
     }
 
     @Override
-    public boolean deleteBook(Book book) {
+    public boolean deleteBook(User owner, Book book) {
+        if (!book.owner.equals(owner))
+            return false;
         bookSaleList.deleteBook(book);
         return true;
     }

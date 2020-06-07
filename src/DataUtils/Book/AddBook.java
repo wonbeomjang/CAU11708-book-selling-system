@@ -26,6 +26,7 @@ public class AddBook implements RegisterBook {
         this.author = author;
         this.price = price;
         this.condition = condition;
+        this.owner = owner;
 
         return addBook();
     }

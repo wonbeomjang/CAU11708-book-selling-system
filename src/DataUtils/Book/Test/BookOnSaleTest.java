@@ -24,21 +24,21 @@ class BookOnSaleTest {
     void setPrice() {
         int price = 10;
         bookOnSale.setPrice(price);
-        assertEquals(bookOnSale.getPrice(), price);
+        assertEquals(price, bookOnSale.getPrice());
     }
 
     @Test
     void setCondition() {
         BookCondition condition = BookCondition.Good;
         bookOnSale.setCondition(condition);
-        assertEquals(bookOnSale.getCondition(), condition);
+        assertEquals(condition, bookOnSale.getCondition());
     }
 
     @Test
     void setOwner() {
         newOwner = new EndUser("wonbeomang", "20182592", "장원범", "jtiger958", "01037937352");
         bookOnSale.setOwner(newOwner);
-        assertEquals(bookOnSale.getOwner(), newOwner);
-        assertNotEquals(bookOnSale.getOwner(), owner);
+        assertEquals(newOwner, bookOnSale.getOwner());
+        assertNotEquals(owner, bookOnSale.getOwner());
     }
 }

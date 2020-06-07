@@ -6,17 +6,18 @@ public class SearchBook implements Layout.Interface.SearchBook {
     BookSaleList bookSaleList;
     String key;
     BookKeyType keyType;
+    ArrayList<Book> books;
 
     public SearchBook(BookSaleList bookSaleList) {
         this.bookSaleList = bookSaleList;
+        this.books = new ArrayList<>();
     }
 
     public boolean compareByKey(Book book, String key, BookKeyType keyType) {
         if (keyType == BookKeyType.Title) return book.title.equals(key);
         if (keyType == BookKeyType.ISBN) return book.isbn.equals(key);
         if (keyType == BookKeyType.Author) return book.author.equals(key);
-        if (!(book instanceof BookOnSale)) return false;
-        if (keyType == BookKeyType.Username) return ((BookOnSale)book).owner.getUsername().equals(key);
+        if (keyType == BookKeyType.Username) return book.owner.getUsername().equals(key);
         return false;
     }
 
@@ -25,7 +26,7 @@ public class SearchBook implements Layout.Interface.SearchBook {
         this.key = key;
         this.keyType = keyType;
 
-        ArrayList<Book> books = new ArrayList<>();
+        books.clear();
         int numBooks = bookSaleList.getNumBooks();
         Book book;
         for(int i = 0; i < numBooks; i++) {
@@ -40,10 +41,9 @@ public class SearchBook implements Layout.Interface.SearchBook {
 
     @Override
     public String[] getInfo() {
-        BookOnSale[] books = (BookOnSale[])search(key, keyType);
-        String[] outputs = new String[books.length];
-        for(int i = 0; i < books.length; i++) {
-            outputs[i] = books[i].toString();
+        String[] outputs = new String[books.size()];
+        for(int i = 0; i < books.size(); i++) {
+            outputs[i] = books.get(i).toString();
         }
         return outputs;
     }

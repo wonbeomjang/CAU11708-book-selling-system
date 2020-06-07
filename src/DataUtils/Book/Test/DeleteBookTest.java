@@ -11,7 +11,7 @@ import java.time.Year;
 import static org.junit.jupiter.api.Assertions.*;
 
 class DeleteBookTest {
-    User owner;
+    User owner, other;
     DeleteBook deleteBook;
     BookSaleList bookSaleList;
     AddBook addBook;
@@ -24,6 +24,7 @@ class DeleteBookTest {
         addBook = new AddBook(bookSaleList);
         deleteBook = new DeleteBook(bookSaleList);
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
+        other = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         book = new BookOnSale("Ubuntu", Year.of(1999), "장원범", "장원범", 1000, BookCondition.Excellent, owner);
 
         addBook.addBook(book);
@@ -32,8 +33,9 @@ class DeleteBookTest {
     @Test
     void deleteBook() {
         numBooks = bookSaleList.getNumBooks();
-        deleteBook.deleteBook(book);
+        deleteBook.deleteBook(owner, book);
         assertEquals(numBooks - 1, bookSaleList.getNumBooks());
         assertFalse(bookSaleList.contain(book));
+        assertFalse(deleteBook.deleteBook(other, book));
     }
 }
