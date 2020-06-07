@@ -14,10 +14,10 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3" value="End User" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;html=1;outlineConnect=0;fontStyle=0" parent="1" vertex="1">
+                <mxCell id="3" value="End DataUtils.User.User" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;html=1;outlineConnect=0;fontStyle=0" parent="1" vertex="1">
                     <mxGeometry x="140" y="260" width="30" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="User" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
+                <mxCell id="13" value="DataUtils.User.User" style="shape=umlActor;verticalLabelPosition=bottom;labelBackgroundColor=none;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
                     <mxGeometry x="90" y="100" width="30" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="20" target="13" edge="1">
@@ -29,7 +29,7 @@
                 <mxCell id="22" value="System" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;" parent="1" vertex="1">
                     <mxGeometry x="380" y="50" width="40" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="28" value="Search Book Information" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="28" value="Search DataUtils.Book.Book Information" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="325" y="200" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="29" value="Sign In" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
@@ -50,13 +50,13 @@
                         </Array>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="34" value="Delete Book&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="34" value="Delete DataUtils.Book.Book&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="325" y="310" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="35" value="Sign Up" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="325" y="530" width="150" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="36" value="Manage User" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="36" value="Manage DataUtils.User.User" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="325" y="740" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="38" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" target="35" edge="1">
@@ -91,7 +91,7 @@
                 <mxCell id="46" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;dashed=1;labelPosition=right;verticalLabelPosition=middle;align=left;verticalAlign=middle;html=1;labelBackgroundColor=none;" parent="1" source="41" target="28" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="41" value="Buy Book" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="41" value="Buy DataUtils.Book.Book" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="325" y="420" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="42" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3" target="41" edge="1">
@@ -107,7 +107,7 @@
                 <mxCell id="43" value="2" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;fontSize=17;" parent="1" vertex="1">
                     <mxGeometry x="170" y="190" width="40" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="47" value="Register Book&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="47" value="Register DataUtils.Book.Book&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="325" y="640" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="48" value="" style="endArrow=none;html=1;fontSize=17;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="3" target="47" edge="1">
@@ -128,7 +128,7 @@
                         <mxPoint x="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="54" value="Change User&lt;br&gt;Status" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="54" value="Change DataUtils.User.User&lt;br&gt;Status" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="620" y="640" width="150" height="80" as="geometry"/>
                 </mxCell>
                 <mxCell id="60" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;labelBackgroundColor=none;fontSize=17;dashed=1;" parent="1" source="55" target="36" edge="1">
@@ -136,7 +136,7 @@
                         <mxPoint x="-1" as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="55" value="Delete User" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
+                <mxCell id="55" value="Delete DataUtils.User.User" style="ellipse;whiteSpace=wrap;html=1;labelBackgroundColor=none;fontSize=17;labelBorderColor=none;" parent="1" vertex="1">
                     <mxGeometry x="620" y="740" width="150" height="80" as="geometry"/>
                 </mxCell>
             </root>
