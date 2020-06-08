@@ -19,10 +19,7 @@ public class EndUser extends User {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        if(userState.equals("Activate"))
-            this.userState = UserState.Activate;
-        if(userState.equals("Deactivate"))
-            this.userState = UserState.Deactivate;
+        this.userState = UserState.valueOf(userState);
     }
 
     public String getName() {
@@ -47,10 +44,6 @@ public class EndUser extends User {
 
     @Override
     public String toString() {
-        String userState;
-        if(this.userState == UserState.Activate) userState = "Activate";
-        else if(this.userState == UserState.Deactivate) userState = "Deactivate";
-        else userState = "Deleted";
-        return name + ':' + email + ':' + phoneNumber + ':' + username + ':' + password + ':' + userState + '\n';
+        return name + ':' + email + ':' + phoneNumber + ':' + username + ':' + password + ':' + userState.toString() + '\n';
     }
 }
