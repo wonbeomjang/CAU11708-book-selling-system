@@ -14,6 +14,17 @@ public class EndUser extends User {
         this.userState = UserState.Activate;
     }
 
+    public EndUser(String username, String password, String name, String email, String phoneNumber, String userState) {
+        super(username, password);
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        if(userState.equals("Activate"))
+            this.userState = UserState.Activate;
+        if(userState.equals("Deactivate"))
+            this.userState = UserState.Deactivate;
+    }
+
     public String getName() {
         return name;
     }
@@ -36,12 +47,10 @@ public class EndUser extends User {
 
     @Override
     public String toString() {
-        return "EndUser{" +
-                "name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        String userState;
+        if(this.userState == UserState.Activate) userState = "Activate";
+        else if(this.userState == UserState.Deactivate) userState = "Deactivate";
+        else userState = "Deleted";
+        return name + ':' + email + ':' + phoneNumber + ':' + username + ':' + password + ':' + userState + '\n';
     }
 }

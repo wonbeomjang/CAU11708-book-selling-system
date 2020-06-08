@@ -3,7 +3,6 @@ package DataUtils.User.Test;
 import DataUtils.User.EndUser;
 import DataUtils.User.SearchUser;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +15,7 @@ class SearchUserTest {
 
     @BeforeEach
     void setUp() {
-        userList = new UserList();
+        userList = new UserList("test.txt");
         searchUser = new SearchUser(userList);
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
@@ -33,6 +32,7 @@ class SearchUserTest {
 
     @Test
     void getInfo() {
+        assertEquals(2, searchUser.search().length);
         String[] strings = searchUser.getInfo();
         assertEquals(2, strings.length);
     }
