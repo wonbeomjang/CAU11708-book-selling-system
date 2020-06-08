@@ -1,7 +1,7 @@
 package DataUtils.Book;
 
 public enum BookCondition {
-    Excellent("Excellent"), Good("Good"), Fair("Fair");
+    Excellent("Excellent"), Good("Good"), Fair("Fair"), None("");
     private String sting;
     BookCondition(String sting) {
         this.sting = sting;

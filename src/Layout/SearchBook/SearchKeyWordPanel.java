@@ -18,6 +18,17 @@ public class SearchKeyWordPanel extends JPanel {
         add(searchKeyType, BorderLayout.WEST);
         add(keyText, BorderLayout.CENTER);
         add(searchBtn, BorderLayout.EAST);
+    }
 
+    public JTextField getKeyText() {
+        return keyText;
+    }
+
+    public JButton getSearchBtn() {
+        return searchBtn;
+    }
+
+    public JComboBox<String> getSearchKeyType() {
+        return searchKeyType;
     }
 }

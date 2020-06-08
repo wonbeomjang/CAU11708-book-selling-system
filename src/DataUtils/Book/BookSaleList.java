@@ -52,6 +52,8 @@ public class BookSaleList {
         return books.get(index);
     }
 
+    public Book[] getBooks() {return books.toArray(Book[]::new);}
+
     public boolean contain(Book book) {
         return books.contains(book);
     }

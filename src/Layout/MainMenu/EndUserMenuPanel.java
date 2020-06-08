@@ -1,5 +1,7 @@
 package Layout.MainMenu;
 
+import ActionListener.MainMenu.BuyBookBtnActionLister;
+import ActionListener.MainMenu.SearchBookBtnActionLister;
 import DataUtils.User.User;
 
 import javax.swing.*;
@@ -10,23 +12,29 @@ public class EndUserMenuPanel extends JPanel {
     private SearchBookMenuPanel searchBookMenuPanel;
     private DeleteBookMenuPanel deleteBookMenuPanel;
     private RegisterBookMenuPanel registerBookMenuPanel;
+    private BuyBookMenuPanel buyBookMenuPanel;
 
     public EndUserMenuPanel(User user) {
         this.user = user;
 
-        searchBookMenuPanel = new SearchBookMenuPanel();
-        deleteBookMenuPanel = new DeleteBookMenuPanel();
         registerBookMenuPanel = new RegisterBookMenuPanel();
+        searchBookMenuPanel = new SearchBookMenuPanel();
+        buyBookMenuPanel = new BuyBookMenuPanel();
+        deleteBookMenuPanel = new DeleteBookMenuPanel();
 
-        setLayout(new GridLayout(1, 3));
+        setLayout(new GridLayout(1, 4));
 
-        add(searchBookMenuPanel);
         add(registerBookMenuPanel);
+        add(searchBookMenuPanel);
+        add(buyBookMenuPanel);
         add(deleteBookMenuPanel);
+
+        searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
+        buyBookMenuPanel.getBtn().addActionListener(new BuyBookBtnActionLister());
     }
 
     public static int getPanWidth() {
-        return 500;
+        return 800;
     }
 
     public static int getPanHeight() {

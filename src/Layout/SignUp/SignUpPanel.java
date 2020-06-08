@@ -1,6 +1,6 @@
 package Layout.SignUp;
 
-import Controller.SignUp.SignUpBtnActionListener;
+import ActionListener.SignUp.SignUpBtnActionListener;
 
 import javax.swing.*;
 import java.awt.*;

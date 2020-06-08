@@ -2,7 +2,7 @@ package DataUtils.Book;
 
 import java.util.ArrayList;
 
-public class SearchBook implements Layout.Interface.SearchBook {
+public class SearchBook extends Layout.Interface.SearchBook {
     BookSaleList bookSaleList;
     String key;
     BookKeyType keyType;
@@ -25,6 +25,7 @@ public class SearchBook implements Layout.Interface.SearchBook {
     public Book[] search(String key, BookKeyType keyType) {
         this.key = key;
         this.keyType = keyType;
+        Book[] bookArray;
 
         books.clear();
         int numBooks = bookSaleList.getNumBooks();
@@ -36,7 +37,12 @@ public class SearchBook implements Layout.Interface.SearchBook {
             }
         }
 
-        return books.toArray(new Book[0]);
+        bookArray = books.toArray(new Book[0]);
+
+        setChanged();
+        notifyObservers(bookArray);
+
+        return bookArray;
     }
 
     public String[] getInfo() {

@@ -1,4 +1,4 @@
-package Controller.SignUp;
+package ActionListener.SignUp;
 
 import DataUtils.User.UserList;
 import Layout.Interface.SignUp;
