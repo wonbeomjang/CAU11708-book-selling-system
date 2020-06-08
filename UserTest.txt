@@ -1,4 +1,4 @@
-asdf:asdf:asdf:asdf:sdfa:Activate
-asdf:asddf:asdf:asdf:sdfa:Activate
-asdfs:asdf
-12:12:12:12:12:Activate
+asdf: sdfa: asdf: asdf: asdf: Activate
+asdf: sdfa: asdf: asddf: asdf: Deactivate
+asdfs: asdf
+12: 12: 12: 12: 12: Activate

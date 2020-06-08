@@ -2,17 +2,15 @@ package DataUtils.Book;
 
 import DataUtils.User.User;
 
-import java.time.Year;
-
 public abstract class Book {
     protected final String title;
     protected final String isbn;
-    protected final Year public_year;
+    protected final String public_year;
     protected final String publisher;
     protected final String author;
     protected User owner;
 
-    Book(String title, String isbn, Year public_year, String publisher, String author, User owner) {
+    Book(String title, String isbn, String public_year, String publisher, String author, User owner) {
         this.title = title;
         this.isbn = isbn;
         this.public_year = public_year;
@@ -37,7 +35,7 @@ public abstract class Book {
         return isbn;
     }
 
-    public Year getPublic_year() {
+    public String getPublic_year() {
         return public_year;
     }
 
@@ -51,7 +49,7 @@ public abstract class Book {
 
     @Override
     public String toString() {
-        return title + ':' + isbn + ':' + public_year.toString() + ':' + publisher + ':' + author + ':' + " " + ':' + " " + ':' +
+        return title + ": " + isbn + ": " + public_year + ": " + publisher + ": " + author + ": " + " " + ": " + " " + ": " +
                 owner.getUsername() + '\n';
     }
 }

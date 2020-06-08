@@ -7,6 +7,6 @@ public class Admin extends User {
 
     @Override
     public String toString() {
-        return username + ':' + password + '\n';
+        return username + ": " + password + '\n';
     }
 }

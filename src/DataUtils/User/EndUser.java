@@ -44,6 +44,6 @@ public class EndUser extends User {
 
     @Override
     public String toString() {
-        return name + ':' + email + ':' + phoneNumber + ':' + username + ':' + password + ':' + userState.toString() + '\n';
+        return name + ": " + email + ": " + phoneNumber + ": " + username + ": " + password + ": " + userState.toString() + '\n';
     }
 }

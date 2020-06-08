@@ -7,8 +7,6 @@ import DataUtils.User.UserList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Year;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DeleteBookTest {
@@ -36,7 +34,7 @@ class DeleteBookTest {
         deleteBook = new DeleteBook(bookSaleList);
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         other = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", Year.of(1999), "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
 
         addBook.addBook(book);
     }

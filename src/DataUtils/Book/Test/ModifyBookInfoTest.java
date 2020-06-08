@@ -8,9 +8,8 @@ import DataUtils.User.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Year;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 class ModifyBookInfoTest {
     ModifyBookInfo modifyBookInfo;
@@ -22,7 +21,7 @@ class ModifyBookInfoTest {
     void setUp() {
         modifyBookInfo = new ModifyBookInfo();
         owner= new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", Year.of(1999), "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
         condition = BookCondition.Fair;
         price = 900;
 
