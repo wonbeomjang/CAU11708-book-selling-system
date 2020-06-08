@@ -1,7 +1,5 @@
 package DataUtils.User;
 
-import DataUtils.User.Test.UserList;
-
 import java.io.*;
 import java.util.ArrayList;
 
@@ -23,7 +21,7 @@ public class UserListFileManager {
             userInfo = line.split(":");
             if(userInfo.length < 6)
                 userList.add(new Admin(userInfo[0], userInfo[1]));
-            else
+            else if (!userInfo[5].equals("Deleted"))
                 userList.add(new EndUser(userInfo[0], userInfo[1], userInfo[2], userInfo[3], userInfo[4], userInfo[5]));
         }
         return userList;

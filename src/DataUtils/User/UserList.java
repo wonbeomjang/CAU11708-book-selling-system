@@ -1,7 +1,4 @@
-package DataUtils.User.Test;
-
-import DataUtils.User.User;
-import DataUtils.User.UserListFileManager;
+package DataUtils.User;
 
 import java.io.IOException;
 import java.util.ArrayList;

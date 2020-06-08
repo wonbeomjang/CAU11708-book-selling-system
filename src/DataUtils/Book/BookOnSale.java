@@ -9,10 +9,17 @@ public class BookOnSale extends Book {
     BookCondition condition;
 
     public BookOnSale(String title, Year public_year, String publisher, String author, int price,
-               BookCondition status, User owner) {
+               BookCondition condition, User owner) {
         super(title, "123", public_year, publisher, author, owner);
         this.price = price;
-        this.condition = status;
+        this.condition = condition;
+    }
+
+    public BookOnSale(String title, String public_year, String publisher, String author, String price,
+                      BookCondition condition, User owner) {
+        super(title, "123", Year.of(Integer.parseInt(public_year)), publisher, author, owner);
+        this.price = Integer.parseInt(price);
+        this.condition = condition;
     }
 
     public void setPrice(int price) {
@@ -33,15 +40,13 @@ public class BookOnSale extends Book {
 
     @Override
     public String toString() {
-        return "domain.BookOnSale{" +
-                "price=" + price +
-                ", condition=" + condition +
-                ", title='" + title + '\'' +
-                ", isbn='" + isbn + '\'' +
-                ", public_year=" + public_year +
-                ", publisher='" + publisher + '\'' +
-                ", author='" + author + '\'' +
-                '}';
+        String condition;
+        if(this.condition.equals(BookCondition.Excellent)) condition = "Excellent";
+        else if(this.condition.equals(BookCondition.Good)) condition = "Good";
+        else condition = "Fair";
+
+        return title + ':' + public_year.toString() + ':' + publisher + ':' + author + ':' + price + ':' + condition +
+                ':' + owner.getUsername() + '\n';
     }
 
     public User getOwner() {

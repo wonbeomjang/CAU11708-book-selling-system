@@ -3,6 +3,7 @@ package DataUtils.Book.Test;
 import DataUtils.Book.*;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
+import DataUtils.User.UserList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,9 +19,16 @@ class SearchBookTest {
     Book book;
     Book[] books;
 
+    UserList userList;
+    String userFileName, bookFileName;
+
     @BeforeEach
     void setUp() {
-        bookSaleList = new BookSaleList();
+        userFileName = "UserTest.txt";
+        bookFileName = "BookTest.txt";
+        userList = new UserList(userFileName);
+        bookSaleList = new BookSaleList(bookFileName, userList);
+
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         addBook = new AddBook(bookSaleList);
         searchBook = new SearchBook(bookSaleList);
@@ -48,8 +56,6 @@ class SearchBookTest {
         assertEquals(3, books.length);
         books = searchBook.search("Linux", BookKeyType.Title);
         assertEquals(1, books.length);
-        books = searchBook.search("123", BookKeyType.ISBN);
-        assertEquals(3, books.length);
         books = searchBook.search("wonbeomjang", BookKeyType.Username);
         assertEquals(3, books.length);
     }

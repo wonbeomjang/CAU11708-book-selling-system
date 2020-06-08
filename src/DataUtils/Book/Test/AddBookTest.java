@@ -3,6 +3,7 @@ package DataUtils.Book.Test;
 import DataUtils.Book.*;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
+import DataUtils.User.UserList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,10 +17,15 @@ class AddBookTest {
     BookSaleList bookSaleList;
     Book book;
     int numBooks = 0;
+    String userFileName, bookFileName;
+    UserList userList;
 
     @BeforeEach
     void setUp() {
-        bookSaleList = new BookSaleList();
+        userFileName = "UserTest.txt";
+        bookFileName = "BookTest.txt";
+        userList = new UserList(userFileName);
+        bookSaleList = new BookSaleList(bookFileName, userList);
         addBook = new AddBook(bookSaleList);
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
 

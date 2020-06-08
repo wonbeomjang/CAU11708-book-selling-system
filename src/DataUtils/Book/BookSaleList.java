@@ -1,10 +1,26 @@
 package DataUtils.Book;
 
+import DataUtils.User.UserList;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class BookSaleList {
-    private ArrayList<Book> books = new ArrayList<>();
-    private int numBooks = 0;
+    private ArrayList<Book> books;
+    private int numBooks;
+    String fileName;
+    BookSaleListFileManager bookSaleListFileManager;
+    public BookSaleList(String fileName, UserList userList) {
+        numBooks = 0;
+        bookSaleListFileManager = new BookSaleListFileManager(fileName, userList);
+        try {
+            books = bookSaleListFileManager.readData();
+        }
+        catch (IOException e) {
+            books = new ArrayList<>();
+        }
+        numBooks = books.size();
+    }
 
     public int getNumBooks() {
         return numBooks;
@@ -31,5 +47,18 @@ public class BookSaleList {
 
     public boolean contain(Book book) {
         return books.contains(book);
+    }
+
+    public void saveData() {
+        bookSaleListFileManager.saveData(this);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = 0; i < numBooks; i++) {
+            stringBuilder.append(books.get(i).toString());
+        }
+        return stringBuilder.toString();
     }
 }

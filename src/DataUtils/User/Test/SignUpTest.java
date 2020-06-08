@@ -14,7 +14,8 @@ class SignUpTest {
     int numUsers;
     @BeforeEach
     void setUp() {
-        userList = new UserList("test.txt");
+        String fileName = "UserTest.txt";
+        userList = new UserList(fileName);
         user = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         signUp = new SignUp(userList);
         signIn = new SignIn(userList);
