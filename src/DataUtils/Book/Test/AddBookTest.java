@@ -24,8 +24,10 @@ class AddBookTest {
     void setUp() {
         userFileName = "UserTest.txt";
         bookFileName = "BookTest.txt";
-        userList = new UserList(userFileName);
-        bookSaleList = new BookSaleList(bookFileName, userList);
+        userList = UserList.getInstance();
+        userList.init(userFileName);
+        bookSaleList = BookSaleList.getInstance();
+        bookSaleList.init(bookFileName, userList);
         addBook = new AddBook(bookSaleList);
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
 
@@ -63,10 +65,4 @@ class AddBookTest {
         assertEquals(numBooks + 1, bookSaleList.getNumBooks());
     }
 
-    @Test
-    void update() {
-        numBooks = bookSaleList.getNumBooks();
-        addBook.update();
-        assertEquals(numBooks + 1, bookSaleList.getNumBooks());
-    }
 }

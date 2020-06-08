@@ -23,11 +23,6 @@ public class Sale implements BuyBook {
         return true;
     }
 
-    @Override
-    public boolean update() {
-        return buyBook();
-    }
-
     public void setSeller(User seller) {
         this.seller = seller;
     }

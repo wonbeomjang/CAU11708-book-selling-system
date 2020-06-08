@@ -54,13 +54,4 @@ class SaleTest {
         assertEquals(book.getOwner(), buyer);
         assertNotEquals(book.getOwner(), seller);
     }
-
-    @Test
-    void updateTest() {
-        book.setOwner(buyer);
-        sale.update();
-
-        assertEquals(book.getOwner(), buyer);
-        assertNotEquals(book.getOwner(), seller);
-    }
 }

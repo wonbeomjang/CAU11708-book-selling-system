@@ -15,7 +15,9 @@ class ManageUserTest {
     @BeforeEach
     void setUp() {
         String fileName = "UserTest.txt";
-        userList = new UserList(fileName);
+        userList = UserList.getInstance();
+        userList.init(fileName);
+
         manageUser = new ManageUser(userList);
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
@@ -40,10 +42,4 @@ class ManageUserTest {
         assertFalse(manageUser.delete(user3));
     }
 
-    @Test
-    void update() {
-        assertTrue(manageUser.change(user1, userState));
-        assertTrue(manageUser.update());
-        assertFalse(manageUser.change(user3, userState));
-    }
 }

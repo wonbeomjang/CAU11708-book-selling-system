@@ -26,8 +26,11 @@ class SearchBookTest {
     void setUp() {
         userFileName = "UserTest.txt";
         bookFileName = "BookTest.txt";
-        userList = new UserList(userFileName);
-        bookSaleList = new BookSaleList(bookFileName, userList);
+        userList = UserList.getInstance();
+        userList.init(userFileName);
+
+        bookSaleList = BookSaleList.getInstance();
+        bookSaleList.init(bookFileName, userList);
 
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         addBook = new AddBook(bookSaleList);

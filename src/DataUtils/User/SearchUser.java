@@ -29,7 +29,6 @@ public class SearchUser implements Layout.Interface.SearchUser {
         return search(null);
     }
 
-    @Override
     public String[] getInfo() {
         String[] outputs = new String[users.size()];
         for(int i = 0; i < users.size(); i++) {

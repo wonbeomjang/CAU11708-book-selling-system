@@ -8,7 +8,16 @@ public class UserList {
     ArrayList<User> userList;
     UserListFileManager userListFileManager;
 
-    public UserList(String fileName) {
+    private static final UserList instance = new UserList();
+    private static  User SystemUser = null;
+
+    private UserList() {};
+
+    public static UserList getInstance() {
+        return instance;
+    }
+
+    public void init(String fileName) {
         numUsers = 0;
         this.userListFileManager = new UserListFileManager(fileName);
         try {
@@ -57,5 +66,13 @@ public class UserList {
             stringBuilder.append(userList.get(i).toString());
         }
         return stringBuilder.toString();
+    }
+
+    public static User getSystemUser() {
+        return SystemUser;
+    }
+
+    public static void setSystemUser(User systemUser) {
+        SystemUser = systemUser;
     }
 }

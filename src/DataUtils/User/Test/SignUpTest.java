@@ -12,10 +12,13 @@ class SignUpTest {
     SignIn signIn;
     User user;
     int numUsers;
+
     @BeforeEach
     void setUp() {
         String fileName = "UserTest.txt";
-        userList = new UserList(fileName);
+        userList = UserList.getInstance();
+        userList.init(fileName);
+
         user = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         signUp = new SignUp(userList);
         signIn = new SignIn(userList);

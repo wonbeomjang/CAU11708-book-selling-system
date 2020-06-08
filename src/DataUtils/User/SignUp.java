@@ -39,11 +39,6 @@ public class SignUp implements Layout.Interface.SignUp {
         return true;
     }
 
-    @Override
-    public boolean update() {
-        return signUp(username, password, name, email, phoneNumber);
-    }
-
     public void setUsername(String username) {
         this.username = username;
     }

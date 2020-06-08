@@ -15,10 +15,13 @@ class SearchUserTest {
     User user1, user2;
     int wonbeomLen;
     int userLen;
+
     @BeforeEach
     void setUp() {
         String fileName = "UserTest.txt";
-        userList = new UserList(fileName);
+        userList = UserList.getInstance();
+        userList.init(fileName);
+
         searchUser = new SearchUser(userList);
 
         wonbeomLen = searchUser.search("wonbeomjang").length;

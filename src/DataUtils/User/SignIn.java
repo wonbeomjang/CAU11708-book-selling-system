@@ -14,8 +14,10 @@ public class SignIn implements Layout.Interface.SignIn {
         for(int i = 0; i < numUser; i++) {
             user = userList.getUser(i);
             if(password.equals(user.getPassword()) && username.equals(user.getUsername())) {
-                if(user instanceof EndUser && !((EndUser)user).getUserState().equals(UserState.Activate))
+                if(user instanceof EndUser && !((EndUser)user).getUserState().equals(UserState.Activate)) {
                     return null;
+                }
+                UserList.setSystemUser(user);
                 return user;
             }
         }

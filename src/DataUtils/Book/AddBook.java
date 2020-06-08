@@ -42,11 +42,6 @@ public class AddBook implements RegisterBook {
         return true;
     }
 
-    @Override
-    public boolean update() {
-        return addBook();
-    }
-
     public void setTitle(String title) {
         this.title = title;
     }

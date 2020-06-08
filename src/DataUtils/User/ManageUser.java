@@ -32,9 +32,4 @@ public class ManageUser implements ChangeUserState, DeleteUser {
         }
         return false;
     }
-
-    @Override
-    public boolean update() {
-        return  change(user, userState);
-    }
 }

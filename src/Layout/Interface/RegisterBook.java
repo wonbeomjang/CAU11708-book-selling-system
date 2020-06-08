@@ -5,6 +5,6 @@ import DataUtils.User.User;
 
 import java.time.Year;
 
-public interface RegisterBook extends UpdateUnit {
+public interface RegisterBook  {
   boolean addBook(String title, Year publicYear, String publisher, String author, int price, BookCondition condition, User owner);
 }

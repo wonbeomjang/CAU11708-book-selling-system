@@ -10,7 +10,11 @@ public class BookSaleList {
     private int numBooks;
     String fileName;
     BookSaleListFileManager bookSaleListFileManager;
-    public BookSaleList(String fileName, UserList userList) {
+    private static final BookSaleList instance = new BookSaleList();
+
+    private BookSaleList() {};
+
+    public void init(String fileName, UserList userList) {
         numBooks = 0;
         bookSaleListFileManager = new BookSaleListFileManager(fileName, userList);
         try {
@@ -20,6 +24,10 @@ public class BookSaleList {
             books = new ArrayList<>();
         }
         numBooks = books.size();
+    }
+
+    public static BookSaleList getInstance() {
+        return instance;
     }
 
     public int getNumBooks() {

@@ -9,12 +9,6 @@ public class ModifyBookInfo implements Layout.Interface.ModifyBookInfo {
     BookCondition condition;
 
     @Override
-    public boolean update() {
-        return (modifyPrice(owner, book, price) && modifyCondition(owner, book, condition));
-    }
-
-
-    @Override
     public boolean modifyPrice(User owner, BookOnSale book, int price) {
         if (!book.getOwner().equals(owner)) {
             return false;

@@ -26,8 +26,11 @@ class DeleteBookTest {
     void setUp() {
         userFileName = "UserTest.txt";
         bookFileName = "BookTest.txt";
-        userList = new UserList(userFileName);
-        bookSaleList = new BookSaleList(bookFileName, userList);
+        userList = UserList.getInstance();
+        userList.init(userFileName);
+
+        bookSaleList = BookSaleList.getInstance();
+        bookSaleList.init(bookFileName, userList);
 
         addBook = new AddBook(bookSaleList);
         deleteBook = new DeleteBook(bookSaleList);

@@ -33,10 +33,6 @@ class ModifyBookInfoTest {
     }
 
     @Test
-    void update() {
-    }
-
-    @Test
     void modifyPrice() {
         BookCondition pastCondition = book.getCondition();
         modifyBookInfo.modifyCondition(owner, book, condition);

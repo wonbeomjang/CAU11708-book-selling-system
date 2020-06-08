@@ -18,7 +18,9 @@ class UserListTest {
     @BeforeEach
     void setUp() {
         fileName = "UserTest.txt";
-        userList = new UserList(fileName);
+        userList = UserList.getInstance();
+        userList.init(fileName);
+
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         numUsers = 0;
 

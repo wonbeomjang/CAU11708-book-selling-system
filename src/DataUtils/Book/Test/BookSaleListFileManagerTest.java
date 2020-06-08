@@ -38,7 +38,8 @@ class BookSaleListFileManagerTest {
         bufferedWriter.write("asdf:18:asdf:sdfa:12:Excellent:asdfs\n");
         bufferedWriter.close();
 
-        userList = new UserList(userFileName);
+        userList = UserList.getInstance();
+        userList.init(userFileName);
         bookSaleListFileManager = new BookSaleListFileManager(bookFileName, userList);
 
 
@@ -53,7 +54,8 @@ class BookSaleListFileManagerTest {
     @Test
     void saveData() throws IOException {
         ArrayList<Book> bookOnSaleArrayList;
-        BookSaleList bookSaleList = new BookSaleList(bookFileName, userList);
+        BookSaleList bookSaleList = BookSaleList.getInstance();
+        bookSaleList.init(bookFileName, userList);
         bookSaleList.saveData();
         bookOnSaleArrayList = bookSaleListFileManager.readData();
         assertEquals(3, bookOnSaleArrayList.size());

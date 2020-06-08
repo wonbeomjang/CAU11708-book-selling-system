@@ -39,7 +39,6 @@ public class SearchBook implements Layout.Interface.SearchBook {
         return books.toArray(new Book[0]);
     }
 
-    @Override
     public String[] getInfo() {
         String[] outputs = new String[books.size()];
         for(int i = 0; i < books.size(); i++) {

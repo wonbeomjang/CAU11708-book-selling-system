@@ -17,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class UserListFileManagerTest {
     UserListFileManager userListFileManager;
     String fileName;
+
     @BeforeEach
     void setUp() throws IOException {
         fileName = "UserTest.txt";
@@ -40,7 +41,8 @@ class UserListFileManagerTest {
     @Test
     void saveData() throws IOException {
         ArrayList<User> userArrayList;
-        UserList userList = new UserList(fileName);
+        UserList userList = UserList.getInstance();
+        userList.init(fileName);
         userList.saveData();
         userArrayList = userListFileManager.readData();
         assertEquals(3, userArrayList.size());
