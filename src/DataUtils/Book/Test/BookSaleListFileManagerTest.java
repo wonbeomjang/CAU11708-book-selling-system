@@ -33,9 +33,9 @@ class BookSaleListFileManagerTest {
         bufferedWriter.close();
 
         bufferedWriter = new BufferedWriter(new FileWriter(new File(bookFileName)));
-        bufferedWriter.write("asdf:18:asdf:sdfa:12:Good:asdfs\n");
-        bufferedWriter.write("asdf:18:asdf:sdfa:12:Fair:asdfs\n");
-        bufferedWriter.write("asdf:18:asdf:sdfa:12:Excellent:asdfs\n");
+        bufferedWriter.write("asdf:123:18:asdf:sdfa:12:Good:asdfs\n");
+        bufferedWriter.write("asdf:123:18:asdf:sdfa:12:Fair:asdfs\n");
+        bufferedWriter.write("asdf:123:18:asdf:sdfa:12:Excellent:asdfs\n");
         bufferedWriter.close();
 
         userList = UserList.getInstance();

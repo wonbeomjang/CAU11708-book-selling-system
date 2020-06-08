@@ -1,6 +1,6 @@
 package Controller.SignIn;
 
-import Layout.SignUpFrame;
+import Layout.SignUp.SignUpFrame;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

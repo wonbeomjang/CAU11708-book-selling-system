@@ -1,6 +1,4 @@
-package Layout;
-
-import Layout.SignUp.SignUpPanel;
+package Layout.SignUp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +21,7 @@ public class SignUpFrame extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println(arg);
+        JOptionPane.showMessageDialog(null, "정상적으로 회원가입이 되었습니다.");
         dispose();
     }
 }

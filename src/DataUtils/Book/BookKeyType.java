@@ -1,5 +1,5 @@
 package DataUtils.Book;
 
 public enum BookKeyType {
-    Title, ISBN, Author, Username, Price, BookCondition
+    Title, ISBN, Author, Username
 }

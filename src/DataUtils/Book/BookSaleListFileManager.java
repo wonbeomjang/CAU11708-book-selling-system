@@ -27,14 +27,11 @@ public class BookSaleListFileManager {
         while ((line = bufferedReader.readLine()) != null){
             line = line.replaceAll(" ", "");
             bookInfo = line.split(":");
-            owner = searchUser.search(bookInfo[6]);
+            owner = searchUser.search(bookInfo[7]);
             if (owner.length == 0)
                 continue;
 
-            if(bookInfo[5].equals("Good")) bookCondition = BookCondition.Good;
-            else if(bookInfo[5].equals("Excellent")) bookCondition = BookCondition.Excellent;
-            else bookCondition = BookCondition.Fair;
-            bookList.add(new BookOnSale(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4], bookCondition, owner[0]));
+            bookList.add(new BookOnSale(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4], bookInfo[5], BookCondition.valueOf(bookInfo[6]), owner[0]));
         }
         return bookList;
     }

@@ -28,4 +28,30 @@ public abstract class Book {
     public User getOwner() {
         return owner;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public Year getPublic_year() {
+        return public_year;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    @Override
+    public String toString() {
+        return title + ':' + isbn + ':' + public_year.toString() + ':' + publisher + ':' + author + ':' + " " + ':' + " " + ':' +
+                owner.getUsername() + '\n';
+    }
 }
