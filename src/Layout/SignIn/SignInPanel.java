@@ -1,13 +1,34 @@
 package Layout.SignIn;
 
+import Controller.SignIn.SigInBtnActionListener;
+import Controller.SignIn.SignInBtnKeyListener;
+import Controller.SignIn.SignUpBtnActionListener;
+
 import javax.swing.*;
+import java.awt.*;
+import java.util.Observer;
 
 public class SignInPanel extends JPanel {
-    SignInTextPanel signInTextPanel;
-    SignInBtnPanel signInBtnPanel;
+    private final SignInTextPanel signInTextPanel = new SignInTextPanel();
+    private final SignInBtnPanel signInBtnPanel = new SignInBtnPanel();
 
-    public SignInPanel() {
-        signInTextPanel = new SignInTextPanel();
-        signInBtnPanel = new SignInBtnPanel();
+    public SignInPanel(Observer observer) {
+        setLayout(new BorderLayout());
+
+        add(new SignInInfoPanel(), BorderLayout.WEST);
+        add(signInTextPanel, BorderLayout.CENTER);
+        add(signInBtnPanel, BorderLayout.EAST);
+
+        signInBtnPanel.getSignInBtn().addKeyListener(new SignInBtnKeyListener(observer, signInTextPanel));
+        signInBtnPanel.getSignInBtn().addActionListener(new SigInBtnActionListener(observer, signInTextPanel));
+        signInBtnPanel.getSignUpBtn().addActionListener(new SignUpBtnActionListener());
+    }
+
+    public SignInTextPanel getSignInTextPanel() {
+        return signInTextPanel;
+    }
+
+    public SignInBtnPanel getSignInBtnPanel() {
+        return signInBtnPanel;
     }
 }

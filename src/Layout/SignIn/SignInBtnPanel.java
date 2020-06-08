@@ -4,10 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SignInBtnPanel extends JPanel {
-    private JButton signInBtn;
-    private JButton signUpBtn;
+    private final JButton signInBtn = new JButton("SignIn");
+    private final JButton signUpBtn = new JButton("SignUp");
     public SignInBtnPanel() {
-        setLayout(new GridLayout(1, 2));
+        setLayout(new GridLayout(2, 1));
         add(signInBtn);
         add(signUpBtn);
     }

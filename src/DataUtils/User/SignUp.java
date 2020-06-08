@@ -1,6 +1,6 @@
 package DataUtils.User;
 
-public class SignUp implements Layout.Interface.SignUp {
+public class SignUp extends Layout.Interface.SignUp {
     String username;
     String password;
     String email;
@@ -32,10 +32,19 @@ public class SignUp implements Layout.Interface.SignUp {
         this.phoneNumber = phoneNumber;
         this.name = name;
 
+        if (username.equals("") || password.equals("") || email.equals("") || phoneNumber.equals("") || name.equals(""))
+            return false;
+
         if(!checkUniqueUserName(username))
             return false;
 
-        userList.addUser(new EndUser(username, password, name, email, phoneNumber));
+        User newUser = new EndUser(username, password, name, email, phoneNumber);
+        userList.addUser(newUser);
+        userList.saveData();
+
+        setChanged();
+        notifyObservers(newUser);
+
         return true;
     }
 

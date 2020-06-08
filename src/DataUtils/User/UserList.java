@@ -9,9 +9,9 @@ public class UserList {
     UserListFileManager userListFileManager;
 
     private static final UserList instance = new UserList();
-    private static  User SystemUser = null;
+    private static User systemUser = null;
 
-    private UserList() {};
+    private UserList() {}
 
     public static UserList getInstance() {
         return instance;
@@ -69,10 +69,10 @@ public class UserList {
     }
 
     public static User getSystemUser() {
-        return SystemUser;
+        return systemUser;
     }
 
     public static void setSystemUser(User systemUser) {
-        SystemUser = systemUser;
+        UserList.systemUser = systemUser;
     }
 }

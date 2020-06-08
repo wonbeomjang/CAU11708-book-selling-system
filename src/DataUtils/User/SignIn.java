@@ -1,6 +1,6 @@
 package DataUtils.User;
 
-public class SignIn implements Layout.Interface.SignIn {
+public class SignIn extends Layout.Interface.SignIn {
     UserList userList;
 
     public SignIn(UserList userList) {
@@ -11,6 +11,10 @@ public class SignIn implements Layout.Interface.SignIn {
     public User signIn(String username, String password) {
         int numUser = userList.getNumUsers();
         User user;
+
+        if (username.equals("") || password.equals(""))
+            return null;
+
         for(int i = 0; i < numUser; i++) {
             user = userList.getUser(i);
             if(password.equals(user.getPassword()) && username.equals(user.getUsername())) {
@@ -18,9 +22,12 @@ public class SignIn implements Layout.Interface.SignIn {
                     return null;
                 }
                 UserList.setSystemUser(user);
+                setChanged();
+                notifyObservers(user);
                 return user;
             }
         }
         return null;
     }
+
 }

@@ -1,10 +1,15 @@
-import DataUtils.Book.AddBook;
 import DataUtils.Book.BookSaleList;
-
-import java.awt.print.Book;
-import java.sql.*;
+import DataUtils.User.UserList;
+import Layout.MainFrame;
 
 public class Main {
     public static void main(String[] args) {
+        UserList userList = UserList.getInstance();
+        BookSaleList bookSaleList = BookSaleList.getInstance();
+
+        userList.init("UserTest.txt");
+        bookSaleList.init("BookTest.txt", userList);
+
+        new MainFrame();
     }
 }

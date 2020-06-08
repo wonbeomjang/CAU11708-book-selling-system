@@ -1,5 +1,7 @@
 package Layout.Interface;
 
-public interface SignUp{
-    boolean signUp(String username, String password, String email, String phoneNumber, String name);
+import java.util.Observable;
+
+public abstract class SignUp extends Observable {
+    public abstract boolean signUp(String username, String password, String email, String phoneNumber, String name);
 }

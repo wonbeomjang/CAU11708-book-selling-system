@@ -8,14 +8,12 @@ public class SignInTextPanel extends JPanel {
     private final JPasswordField password;
 
     public SignInTextPanel() {
-        setLayout(new GridLayout(2, 2));
+        setLayout(new GridLayout(2, 1));
 
         username = new JTextField();
         password = new JPasswordField();
 
-        add(new JLabel("username"));
         add(username);
-        add(new JLabel("password"));
         add(password);
     }
 
