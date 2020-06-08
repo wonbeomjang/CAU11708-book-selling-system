@@ -9,10 +9,11 @@ import java.awt.*;
 import java.util.Observer;
 
 public class SignInPanel extends JPanel {
-    private final SignInTextPanel signInTextPanel = new SignInTextPanel();
-    private final SignInBtnPanel signInBtnPanel = new SignInBtnPanel();
 
     public SignInPanel(Observer observer) {
+        SignInTextPanel signInTextPanel = new SignInTextPanel();
+        SignInBtnPanel signInBtnPanel = new SignInBtnPanel();
+
         setLayout(new BorderLayout());
 
         add(new SignInInfoPanel(), BorderLayout.WEST);
@@ -22,13 +23,5 @@ public class SignInPanel extends JPanel {
         signInBtnPanel.getSignInBtn().addKeyListener(new SignInBtnKeyListener(observer, signInTextPanel));
         signInBtnPanel.getSignInBtn().addActionListener(new SigInBtnActionListener(observer, signInTextPanel));
         signInBtnPanel.getSignUpBtn().addActionListener(new SignUpBtnActionListener());
-    }
-
-    public SignInTextPanel getSignInTextPanel() {
-        return signInTextPanel;
-    }
-
-    public SignInBtnPanel getSignInBtnPanel() {
-        return signInBtnPanel;
     }
 }
