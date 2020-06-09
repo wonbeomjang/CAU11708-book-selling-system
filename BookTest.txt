@@ -3,3 +3,4 @@
 23: 8328: : : : : None: 3
 2: 267: 2: d: d: 2: Good: 2
 4: 269: : : : : None: 2
+Ubuntu: -1249: 2020: 장원범: 장원범: 1000: Excellent: wonbeomjang

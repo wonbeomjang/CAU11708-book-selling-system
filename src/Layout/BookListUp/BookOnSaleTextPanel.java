@@ -11,7 +11,7 @@ import java.awt.*;
 public class BookOnSaleTextPanel extends JPanel {
     BookOnSale bookOnSale;
     JTextField title;
-    JTextField isbn;
+    JLabel isbn;
     JTextField publicYear;
     JTextField publisher;
     JTextField author;
@@ -24,7 +24,7 @@ public class BookOnSaleTextPanel extends JPanel {
         setLayout(new GridLayout(1, 7));
 
         title = new JTextField(book.getTitle());
-        isbn = new JTextField(book.getIsbn());
+        isbn = new JLabel(book.getIsbn());
         publicYear = new JTextField(book.getPublic_year());
         publisher = new JTextField(book.getPublisher());
         author = new JTextField(book.getAuthor());
@@ -78,7 +78,7 @@ public class BookOnSaleTextPanel extends JPanel {
         return condition.getSelectedItem().toString();
     }
 
-    public Book getNewBook() {;
+    public Book getNewBook() {
         return new BookOnSale(getTitle(), getIsbn(), getPublicYear(), getPublisher(), getAuthor(),
                 getPrice(), BookCondition.valueOf(getCondition()), new Admin("",""));
     }
