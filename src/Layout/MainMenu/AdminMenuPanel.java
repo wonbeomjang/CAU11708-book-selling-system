@@ -1,5 +1,6 @@
 package Layout.MainMenu;
 
+import ActionListener.MainMenu.DeleteBookBtnActionListener;
 import ActionListener.MainMenu.ManageUserBtnActionListener;
 import ActionListener.MainMenu.SearchBookBtnActionLister;
 import DataUtils.User.User;
@@ -8,16 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class AdminMenuPanel extends JPanel {
-    private SearchBookMenuPanel searchBookMenuPanel;
-    private DeleteBookMenuPanel deleteBookMenuPanel;
-    private ManageUserMenuPanel manageUserMenuPanel;
-    private User user;
     public AdminMenuPanel(User user) {
-        this.user = user;
 
-        searchBookMenuPanel = new SearchBookMenuPanel();
-        deleteBookMenuPanel = new DeleteBookMenuPanel();
-        manageUserMenuPanel = new ManageUserMenuPanel();
+        SearchBookMenuPanel searchBookMenuPanel = new SearchBookMenuPanel();
+        DeleteBookMenuPanel deleteBookMenuPanel = new DeleteBookMenuPanel();
+        ManageUserMenuPanel manageUserMenuPanel = new ManageUserMenuPanel();
 
         setLayout(new GridLayout(1, 3));
 
@@ -27,6 +23,7 @@ public class AdminMenuPanel extends JPanel {
 
         searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
         manageUserMenuPanel.getBtn().addActionListener(new ManageUserBtnActionListener(user));
+        deleteBookMenuPanel.getBtn().addActionListener(new DeleteBookBtnActionListener(user));
     }
 
     public static int getPanWidth() {

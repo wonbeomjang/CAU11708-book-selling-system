@@ -3,8 +3,8 @@ package Layout.DeleteBook;
 import DataUtils.Book.*;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
-import Layout.SearchBook.BookInfoLabelPanel;
-import Layout.SearchBook.BookInfoPanel;
+import Layout.SearchBook.BookOnSaleInfoLabelPanel;
+import Layout.SearchBook.BookOnSaleInfoPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class DeleteBookListPanel extends JPanel {
     SearchBook searchBook = new SearchBook(BookSaleList.getInstance());
-    ArrayList<BookInfoPanel> bookInfoPanels = new ArrayList<>();
-    BookInfoPanel bookInfoPanel;
+    ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = new ArrayList<>();
+    BookOnSaleInfoPanel bookOnSaleInfoPanel;
     Book[] books;
     public DeleteBookListPanel(User user) {
         if (user instanceof EndUser) {
@@ -24,17 +24,27 @@ public class DeleteBookListPanel extends JPanel {
         }
         setLayout(new GridLayout(books.length + 1, 1));
 
-        add(new BookInfoLabelPanel());
+        add(new BookOnSaleInfoLabelPanel());
 
         for(Book book: books) {
             if(book instanceof BookOnSale) {
-                bookInfoPanel = new BookInfoPanel(book.getTitle(), book.getIsbn(), book.getIsbn(), book.getPublisher(),
-                        book.getAuthor(), ((BookOnSale)book).getPrice(), ((BookOnSale)book).getCondition().toString(),
-                        book.getOwner().getUsername());
+                bookOnSaleInfoPanel = new BookOnSaleInfoPanel((BookOnSale)book);
 
-                bookInfoPanels.add(bookInfoPanel);
-                add(bookInfoPanel);
+                bookOnSaleInfoPanels.add(bookOnSaleInfoPanel);
+                add(bookOnSaleInfoPanel);
             }
         }
+    }
+
+    public ArrayList<BookOnSaleInfoPanel> getBookOnSaleInfoPanels() {
+        return bookOnSaleInfoPanels;
+    }
+
+    public Book[] getBooks() {
+        return books;
+    }
+
+    public int getLength() {
+        return bookOnSaleInfoPanels.size();
     }
 }

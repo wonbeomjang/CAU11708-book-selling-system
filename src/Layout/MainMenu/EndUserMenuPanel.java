@@ -1,6 +1,7 @@
 package Layout.MainMenu;
 
 import ActionListener.MainMenu.BuyBookBtnActionLister;
+import ActionListener.MainMenu.DeleteBookBtnActionListener;
 import ActionListener.MainMenu.RegisterBookBtnActionListener;
 import ActionListener.MainMenu.SearchBookBtnActionLister;
 import DataUtils.User.User;
@@ -29,6 +30,7 @@ public class EndUserMenuPanel extends JPanel {
         registerBookMenuPanel.getBtn().addActionListener(new RegisterBookBtnActionListener(user));
         searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
         buyBookMenuPanel.getBtn().addActionListener(new BuyBookBtnActionLister());
+        deleteBookMenuPanel.getBtn().addActionListener(new DeleteBookBtnActionListener(user));
     }
 
     public static int getPanWidth() {

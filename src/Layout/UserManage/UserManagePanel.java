@@ -22,11 +22,11 @@ public class UserManagePanel extends JPanel {
         saveBtn.addActionListener(new SaveBtnActionListener(userListPanel, observer));
     }
 
-    static int getPanWidth() {
+    public static int getPanWidth() {
         return 800;
     }
 
-    static int getPanHeight() {
+    public static int getPanHeight() {
         return UserList.getInstance().getNumUsers() * 30 + 30;
     }
 }

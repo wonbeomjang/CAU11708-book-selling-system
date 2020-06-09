@@ -3,8 +3,8 @@ package Layout.SearchBook;
 import javax.swing.*;
 import java.awt.*;
 
-public class BookInfoLabelPanel extends JPanel {
-    public BookInfoLabelPanel() {
+public class BookOnSaleInfoLabelPanel extends JPanel {
+    public BookOnSaleInfoLabelPanel() {
         setLayout(new GridLayout(1, 8));
         add(new JLabel("    "));
         add(new JLabel(" 제목 "));

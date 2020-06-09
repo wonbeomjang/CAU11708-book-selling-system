@@ -39,7 +39,6 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
 
             return true;
         }
-        System.out.println(user);
         return false;
     }
 }

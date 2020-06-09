@@ -1,5 +1,6 @@
 package Layout.SearchBook;
 
+import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -10,10 +11,11 @@ public class SearchBookPanelWoChkBox extends SearchBookPanel {
     }
 
     private void removeChkBox() {
-        bookInfoLabelPanel.remove(0);
-
-        for(BookInfoPanel panel: bookInfoPanels) {
-            panel.remove(0);
+        bookOnSaleInfoLabelPanel.remove(0);
+        Component[] components = getComponents();
+        for(Component component: components) {
+            if(component instanceof BookOnSaleInfoPanel)
+                ((BookOnSaleInfoPanel)component).remove(0);
         }
     }
 

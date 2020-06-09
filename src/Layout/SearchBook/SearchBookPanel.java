@@ -2,6 +2,7 @@ package Layout.SearchBook;
 
 import ActionListener.SearchBook.SearchBtnActionListener;
 import DataUtils.Book.Book;
+import DataUtils.Book.BookOnSale;
 import DataUtils.Book.BookSaleList;
 
 import javax.swing.*;
@@ -11,9 +12,8 @@ import java.util.Observer;
 
 public class SearchBookPanel extends JPanel implements Observer {
     SearchKeyWordPanel searchKeyWordPanel;
-    BookInfoLabelPanel bookInfoLabelPanel;
-    BookInfoPanel[] bookInfoPanels;
-    BookInfoPanel bookInfoPanel;
+    BookOnSaleInfoLabelPanel bookOnSaleInfoLabelPanel;
+    BookOnSaleInfoPanel bookOnSaleInfoPanel;
     Book[] books;
     Observer observer;
     static int panWidth = 800;
@@ -27,17 +27,13 @@ public class SearchBookPanel extends JPanel implements Observer {
         setLayout(new GridLayout(books.length + 2, 1));
 
         searchKeyWordPanel = new SearchKeyWordPanel();
-        bookInfoLabelPanel = new BookInfoLabelPanel();
-        bookInfoPanels = new BookInfoPanel[books.length];
+        bookOnSaleInfoLabelPanel = new BookOnSaleInfoLabelPanel();
 
         add(searchKeyWordPanel);
-        add(bookInfoLabelPanel);
+        add(bookOnSaleInfoLabelPanel);
 
-        for(int i = 0; i < books.length; i++) {
-            bookInfo = books[i].toString().split(":");
-            bookInfoPanel = new BookInfoPanel(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4], bookInfo[5], bookInfo[6], bookInfo[7]);
-            bookInfoPanels[i] = bookInfoPanel;
-            add(bookInfoPanel);
+        for(Book book: books) {
+            add(new BookOnSaleInfoPanel((BookOnSale) book));
         }
 
         Observer[] observers = { this, this.observer };
