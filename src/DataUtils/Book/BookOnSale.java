@@ -3,12 +3,13 @@ package DataUtils.Book;
 import DataUtils.User.User;
 
 public class BookOnSale extends Book {
-    int price;
+    String price;
     BookCondition condition;
 
-    public BookOnSale(String title, String public_year, String publisher, String author, int price,
+    public BookOnSale(String title, String public_year, String publisher, String author, String price,
                BookCondition condition, User owner) {
         super(title, "123", public_year, publisher, author, owner);
+        if(!price.equals("")) Integer.parseInt(price);
         this.price = price;
         this.condition = condition;
     }
@@ -16,11 +17,11 @@ public class BookOnSale extends Book {
     public BookOnSale(String title, String isbn, String public_year, String publisher, String author, String price,
                       BookCondition condition, User owner) {
         super(title, isbn, public_year, publisher, author, owner);
-        this.price = Integer.parseInt(price);
+        this.price = price;
         this.condition = condition;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -28,7 +29,7 @@ public class BookOnSale extends Book {
         this.condition = condition;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 

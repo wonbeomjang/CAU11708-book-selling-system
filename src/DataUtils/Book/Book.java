@@ -11,6 +11,7 @@ public abstract class Book {
     protected User owner;
 
     Book(String title, String isbn, String public_year, String publisher, String author, User owner) {
+        if(!public_year.equals("")) Integer.parseInt(public_year);
         this.title = title;
         this.isbn = isbn;
         this.public_year = public_year;

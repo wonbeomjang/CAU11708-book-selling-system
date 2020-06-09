@@ -23,7 +23,7 @@ class SaleTest {
     void setUp() {
         buyer = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         seller = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, seller);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, seller);
 
         sale = new Sale();
 

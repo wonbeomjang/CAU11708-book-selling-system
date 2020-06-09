@@ -51,7 +51,7 @@ public class RegisterBtnActionListener implements ActionListener {
             JOptionPane.showMessageDialog(null,"정확한 년도가 아닙니다");
             return;
         }
-        registerBook.addBook(title, publicYear, publisher, author, Integer.parseInt(price), BookCondition.valueOf(condition), user);
+        registerBook.addBook(title, publicYear, publisher, author, price, BookCondition.valueOf(condition), user);
     }
 
     private boolean checkInt(String number) {

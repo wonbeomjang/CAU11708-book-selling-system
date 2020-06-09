@@ -16,19 +16,14 @@ class ModifyBookInfoTest {
     BookCondition condition;
     User owner;
     BookOnSale book;
-    int price;
+    String price;
     @BeforeEach
     void setUp() {
         modifyBookInfo = new ModifyBookInfo();
         owner= new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
         condition = BookCondition.Fair;
-        price = 900;
-
-        modifyBookInfo.setOwner(owner);
-        modifyBookInfo.setBook(book);
-        modifyBookInfo.setCondition(condition);
-        modifyBookInfo.setPrice(price);
+        price = "900";
     }
 
     @Test
@@ -42,7 +37,7 @@ class ModifyBookInfoTest {
 
     @Test
     void modifyCondition() {
-        int pastPrice = book.getPrice();
+        String pastPrice = book.getPrice();
         modifyBookInfo.modifyPrice(owner, book, price);
 
         assertEquals(price, book.getPrice());

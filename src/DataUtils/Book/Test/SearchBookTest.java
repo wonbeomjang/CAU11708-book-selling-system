@@ -33,11 +33,11 @@ class SearchBookTest {
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         addBook = new AddBook(bookSaleList);
         searchBook = new SearchBook(bookSaleList);
-        book = new BookOnSale("DB", "123", "2", "장원범", 65000, BookCondition.Fair, owner);
+        book = new BookOnSale("DB", "123", "2", "장원범", "65000", BookCondition.Fair, owner);
 
         addBook.addBook(book);
-        addBook.addBook("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
-        addBook.addBook("Linux", "2020", "장원범", "장원범", 6000, BookCondition.Fair, owner);
+        addBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
+        addBook.addBook("Linux", "2020", "장원범", "장원범", "6000", BookCondition.Fair, owner);
     }
 
     @Test

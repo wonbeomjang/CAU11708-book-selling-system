@@ -16,12 +16,12 @@ class BookOnSaleTest {
     @BeforeEach
     void setUp() {
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        bookOnSale = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        bookOnSale = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
     }
 
     @Test
     void setPrice() {
-        int price = 10;
+        String price = "10";
         bookOnSale.setPrice(price);
         assertEquals(price, bookOnSale.getPrice());
     }

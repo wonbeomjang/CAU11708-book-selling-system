@@ -34,13 +34,13 @@ class AddBookTest {
     @Test
     void addBookWithParam() {
         numBooks = bookSaleList.getNumBooks();
-        addBook.addBook("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        addBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
         assertEquals(numBooks + 1, bookSaleList.getNumBooks());
     }
 
     @Test
     void addBookWithBookObject() {
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
 
         numBooks = bookSaleList.getNumBooks();
         addBook.addBook(book);

@@ -33,7 +33,7 @@ class BookSaleListTest {
         bookSaleList.init(bookFileName, userList);
 
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book1 = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book1 = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
 
         bookSaleList.addBook(book1);
     }
@@ -41,7 +41,7 @@ class BookSaleListTest {
     @Test
     void addBook() {
         int numBooks = bookSaleList.getNumBooks();
-        book2 = new BookOnSale("Ubunu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book2 = new BookOnSale("Ubunu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
         bookSaleList.addBook(book2);
         assertEquals(numBooks + 1, bookSaleList.getNumBooks());
         assertEquals(book2, bookSaleList.getBook(numBooks));
@@ -53,7 +53,7 @@ class BookSaleListTest {
         bookSaleList.deleteBook(book1);
         assertEquals(num_books - 1, bookSaleList.getNumBooks());
 
-        book3 = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", 1000, BookCondition.Excellent, owner);
+        book3 = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
         assertFalse(bookSaleList.deleteBook(book3));
     }
 }
