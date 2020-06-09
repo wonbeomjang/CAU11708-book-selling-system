@@ -11,7 +11,5 @@ public class Main {
         bookSaleList.init("BookTest.txt", userList);
 
         new MainFrame();
-
-        System.out.println("::::".split(":").length);
     }
 }

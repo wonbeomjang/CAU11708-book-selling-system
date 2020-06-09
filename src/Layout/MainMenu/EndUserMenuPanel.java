@@ -1,6 +1,7 @@
 package Layout.MainMenu;
 
 import ActionListener.MainMenu.BuyBookBtnActionLister;
+import ActionListener.MainMenu.RegisterBookBtnActionListener;
 import ActionListener.MainMenu.SearchBookBtnActionLister;
 import DataUtils.User.User;
 
@@ -9,18 +10,14 @@ import java.awt.*;
 
 public class EndUserMenuPanel extends JPanel {
     private User user;
-    private SearchBookMenuPanel searchBookMenuPanel;
-    private DeleteBookMenuPanel deleteBookMenuPanel;
-    private RegisterBookMenuPanel registerBookMenuPanel;
-    private BuyBookMenuPanel buyBookMenuPanel;
 
     public EndUserMenuPanel(User user) {
         this.user = user;
 
-        registerBookMenuPanel = new RegisterBookMenuPanel();
-        searchBookMenuPanel = new SearchBookMenuPanel();
-        buyBookMenuPanel = new BuyBookMenuPanel();
-        deleteBookMenuPanel = new DeleteBookMenuPanel();
+        RegisterBookMenuPanel registerBookMenuPanel = new RegisterBookMenuPanel();
+        SearchBookMenuPanel searchBookMenuPanel = new SearchBookMenuPanel();
+        BuyBookMenuPanel buyBookMenuPanel = new BuyBookMenuPanel();
+        DeleteBookMenuPanel deleteBookMenuPanel = new DeleteBookMenuPanel();
 
         setLayout(new GridLayout(1, 4));
 
@@ -29,6 +26,7 @@ public class EndUserMenuPanel extends JPanel {
         add(buyBookMenuPanel);
         add(deleteBookMenuPanel);
 
+        registerBookMenuPanel.getBtn().addActionListener(new RegisterBookBtnActionListener(user));
         searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
         buyBookMenuPanel.getBtn().addActionListener(new BuyBookBtnActionLister());
     }

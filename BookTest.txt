@@ -1,3 +1,4 @@
-asdf:123:18:asdf:sdfa:12:Good:asdfs
-asdf:123:18:asdf:sdfa:12:Fair:asdfs
-asdf:123:18:asdf:sdfa:12:Excellent:asdfs
+asdf: 123: 18: asdf: sdfa: 12: Good: asdfs
+asdf: 123: 18: asdf: sdfa: 12: Fair: asdfs
+asdf: 123: 18: asdf: sdfa: 12: Excellent: asdfs
+2: 123: 2: 2: 2: 2: None: 12
