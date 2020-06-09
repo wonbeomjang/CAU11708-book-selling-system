@@ -55,6 +55,10 @@ public class UserList {
         return userList.get(index);
     }
 
+    public User[] getUsers() {
+        return userList.toArray(User[]::new);
+    }
+
     public void saveData() {
         userListFileManager.saveData(this);
     }
@@ -62,7 +66,9 @@ public class UserList {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
+        User user;
         for(int i = 0; i < numUsers; i++) {
+            user = userList.get(i);
             stringBuilder.append(userList.get(i).toString());
         }
         return stringBuilder.toString();

@@ -1,5 +1,6 @@
 package Layout.MainMenu;
 
+import ActionListener.MainMenu.ManageUserBtnActionListener;
 import ActionListener.MainMenu.SearchBookBtnActionLister;
 import DataUtils.User.User;
 
@@ -25,6 +26,7 @@ public class AdminMenuPanel extends JPanel {
         add(manageUserMenuPanel);
 
         searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
+        manageUserMenuPanel.getBtn().addActionListener(new ManageUserBtnActionListener(user));
     }
 
     public static int getPanWidth() {

@@ -1,6 +1,6 @@
 import DataUtils.Book.BookSaleList;
 import DataUtils.User.UserList;
-import Layout.MainFrame;
+import Layout.ExampleFrame;
 
 public class Main {
     public static void main(String[] args) {
@@ -10,6 +10,7 @@ public class Main {
         userList.init("UserTest.txt");
         bookSaleList.init("BookTest.txt", userList);
 
-        new MainFrame();
+//        new MainFrame();
+        new ExampleFrame();
     }
 }

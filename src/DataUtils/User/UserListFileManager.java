@@ -27,9 +27,18 @@ public class UserListFileManager {
         return userList;
     }
     public void saveData(UserList userList) {
+        User[] users = userList.getUsers();
+        StringBuilder string = new StringBuilder();
+
+        for(User user: users) {
+            if(user instanceof EndUser && ((EndUser)user).getUserState().equals(UserState.Deleted))
+                continue;
+            string.append(user.toString());
+        }
+
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileName)));
-            bufferedWriter.write(userList.toString());
+            bufferedWriter.write(string.toString());
             bufferedWriter.close();
         } catch (IOException e){
             System.out.println("Unknown FIle");

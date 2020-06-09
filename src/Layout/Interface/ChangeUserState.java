@@ -3,6 +3,8 @@ package Layout.Interface;
 import DataUtils.User.User;
 import DataUtils.User.UserState;
 
-public interface ChangeUserState {
-    boolean change(User user, UserState userState);
+import java.util.Observable;
+
+public abstract class ChangeUserState extends Observable {
+    public abstract boolean change(User user, UserState userState);
 }
