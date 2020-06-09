@@ -3,8 +3,8 @@ package DataUtils.User;
 public class SignIn extends Layout.Interface.SignIn {
     UserList userList;
 
-    public SignIn(UserList userList) {
-        this.userList = userList;
+    public SignIn() {
+        this.userList = UserList.getInstance();
     }
 
     @Override
@@ -21,7 +21,6 @@ public class SignIn extends Layout.Interface.SignIn {
                 if(user instanceof EndUser && !((EndUser)user).getUserState().equals(UserState.Activate)) {
                     return null;
                 }
-                UserList.setSystemUser(user);
                 setChanged();
                 notifyObservers(user);
                 return user;

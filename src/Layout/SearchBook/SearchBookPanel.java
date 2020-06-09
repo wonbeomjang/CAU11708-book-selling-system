@@ -2,47 +2,56 @@ package Layout.SearchBook;
 
 import ActionListener.SearchBook.SearchBtnActionListener;
 import DataUtils.Book.Book;
+import DataUtils.Book.BookKeyType;
 import DataUtils.Book.BookOnSale;
-import DataUtils.Book.BookSaleList;
+import Layout.Interface.SearchBook;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
 public class SearchBookPanel extends JPanel implements Observer {
     SearchKeyWordPanel searchKeyWordPanel;
     BookOnSaleInfoLabelPanel bookOnSaleInfoLabelPanel;
-    BookOnSaleInfoPanel bookOnSaleInfoPanel;
-    Book[] books;
+    SearchBook searchBook = new DataUtils.Book.SearchBook();
+    ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = new ArrayList<>();
     Observer observer;
-    static int panWidth = 800;
-    static int panHeight = 80;
+    int panWidth = 800;
+    int panHeight = 80;
 
-    private void organizePanel(Book[] books) {
-        this.books = books;
-        panHeight = getPanHeight(books.length);
-        String[] bookInfo;
+    protected void organizePanel(Book[] books) {
+        searchKeyWordPanel = new SearchKeyWordPanel();
+        bookOnSaleInfoLabelPanel = new BookOnSaleInfoLabelPanel();
 
         setLayout(new GridLayout(books.length + 2, 1));
 
-        searchKeyWordPanel = new SearchKeyWordPanel();
-        bookOnSaleInfoLabelPanel = new BookOnSaleInfoLabelPanel();
+
+        panHeight = getPanHeight(books.length);
 
         add(searchKeyWordPanel);
         add(bookOnSaleInfoLabelPanel);
 
+        BookOnSaleInfoPanel bookOnSaleInfoPanel;
+
         for(Book book: books) {
-            add(new BookOnSaleInfoPanel((BookOnSale) book));
+            bookOnSaleInfoPanel = new BookOnSaleInfoPanel((BookOnSale) book);
+            bookOnSaleInfoPanels.add(bookOnSaleInfoPanel);
+            add(bookOnSaleInfoPanel);
         }
 
         Observer[] observers = { this, this.observer };
         searchKeyWordPanel.getSearchBtn().addActionListener(new SearchBtnActionListener(searchKeyWordPanel, observers));
     }
 
+    protected void organizePanel() {
+        organizePanel(searchBook.search(null, BookKeyType.Title));
+    }
+
     @Override
     public void update(Observable o, Object arg) {
-        books = (Book[])arg;
+        Book[] books = (Book[])arg;
         panHeight = getPanHeight(books.length);
 
         Component component = getComponent(0);
@@ -56,20 +65,22 @@ public class SearchBookPanel extends JPanel implements Observer {
 
     public SearchBookPanel(Observer observer) {
         this.observer = observer;
-        books = BookSaleList.getInstance().getBooks();
-        organizePanel(books);
+        organizePanel();
     }
 
-    public static int getPanWidth() {
+    public int getPanWidth() {
         return panWidth;
     }
 
-    public static int getPanHeight() {
+    public int getPanHeight() {
         return panHeight;
     }
 
-    public static int getPanHeight(int numBooks) {
+    public int getPanHeight(int numBooks) {
         return 30 * numBooks + 100;
     }
 
+    public ArrayList<BookOnSaleInfoPanel> getBookOnSaleInfoPanels() {
+        return bookOnSaleInfoPanels;
+    }
 }

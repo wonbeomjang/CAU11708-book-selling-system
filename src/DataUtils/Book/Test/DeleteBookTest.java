@@ -30,8 +30,8 @@ class DeleteBookTest {
         bookSaleList = BookSaleList.getInstance();
         bookSaleList.init(bookFileName, userList);
 
-        addBook = new AddBook(bookSaleList);
-        deleteBook = new DeleteBook(bookSaleList);
+        addBook = new AddBook();
+        deleteBook = new DeleteBook();
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         other = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);

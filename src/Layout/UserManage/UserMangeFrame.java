@@ -11,9 +11,10 @@ public class UserMangeFrame extends JFrame implements Observer {
     public UserMangeFrame(User systemUser) {
         if(systemUser instanceof EndUser) dispose();
 
-        add(new UserManagePanel(this));
+        UserManagePanel userManagePanel = new UserManagePanel(this);
+        add(userManagePanel);
 
-        setSize(UserManagePanel.getPanWidth(), UserManagePanel.getPanHeight());
+        setSize(userManagePanel.getPanWidth(), userManagePanel.getPanHeight());
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);

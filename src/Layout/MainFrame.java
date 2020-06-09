@@ -34,20 +34,22 @@ public class MainFrame extends JFrame implements Observer {
         systemUser = (User) arg;
         remove(signInPanel);
         if(arg instanceof EndUser) {
-            add(new EndUserMenuPanel(systemUser));
+            EndUserMenuPanel endUserMenuPanel = new EndUserMenuPanel(systemUser);
+            add(endUserMenuPanel);
 
-            width = EndUserMenuPanel.getPanWidth();
-            height = EndUserMenuPanel.getPanHeight();
+            width = endUserMenuPanel.getPanWidth();
+            height = endUserMenuPanel.getPanHeight();
 
             setSize(width, height);
             revalidate();
             repaint();
         }
         else if(arg instanceof Admin) {
-            add(new AdminMenuPanel(systemUser));
+            AdminMenuPanel adminMenuPanel = new AdminMenuPanel(systemUser);
+            add(adminMenuPanel);
 
-            width = AdminMenuPanel.getPanWidth();
-            height = AdminMenuPanel.getPanHeight();
+            width = adminMenuPanel.getPanWidth();
+            height = adminMenuPanel.getPanHeight();
 
             setSize(width, height);
             revalidate();

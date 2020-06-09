@@ -8,8 +8,8 @@ public class SignUp extends Layout.Interface.SignUp {
     String name;
     UserList userList;
 
-    public SignUp(UserList userList) {
-        this.userList = userList;
+    public SignUp() {
+        this.userList = UserList.getInstance();
     }
 
     public boolean checkUniqueUserName(String username) {

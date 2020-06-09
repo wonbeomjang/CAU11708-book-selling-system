@@ -19,7 +19,7 @@ class SignInTest {
 
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
-        signIn = new SignIn(userList);
+        signIn = new SignIn();
 
         userList.addUser(user1);
         userList.addUser(user2);

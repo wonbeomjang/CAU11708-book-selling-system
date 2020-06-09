@@ -27,12 +27,10 @@ class SearchBookTest {
         userList = UserList.getInstance();
         userList.init(userFileName);
 
-        bookSaleList = BookSaleList.getInstance();
-        bookSaleList.init(bookFileName, userList);
 
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        addBook = new AddBook(bookSaleList);
-        searchBook = new SearchBook(bookSaleList);
+        addBook = new AddBook();
+        searchBook = new SearchBook();
         book = new BookOnSale("DB", "123", "2", "장원범", "65000", BookCondition.Fair, owner);
 
         addBook.addBook(book);
@@ -61,11 +59,4 @@ class SearchBookTest {
         assertEquals(3, books.length);
     }
 
-    @Test
-    void getInfo() {
-        String[] strings;
-        searchBook.search("장원범", BookKeyType.Author);
-        strings = searchBook.getInfo();
-        assertEquals(3, strings.length);
-    }
 }

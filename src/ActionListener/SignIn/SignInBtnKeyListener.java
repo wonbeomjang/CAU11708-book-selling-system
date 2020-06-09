@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 import java.util.Observer;
 
 public class SignInBtnKeyListener extends KeyAdapter {
-    private final SignIn signIn = new DataUtils.User.SignIn(UserList.getInstance());
+    private final SignIn signIn = new DataUtils.User.SignIn();
     private final SignInTextPanel signInTextPanel;
 
     public SignInBtnKeyListener(Observer observer, SignInTextPanel signInTextPanel) {

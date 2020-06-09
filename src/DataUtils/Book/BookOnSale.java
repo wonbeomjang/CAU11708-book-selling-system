@@ -1,6 +1,7 @@
 package DataUtils.Book;
 
 import DataUtils.User.User;
+import Utils.HashFunction;
 
 public class BookOnSale extends Book {
     String price;
@@ -8,7 +9,8 @@ public class BookOnSale extends Book {
 
     public BookOnSale(String title, String public_year, String publisher, String author, String price,
                BookCondition condition, User owner) {
-        super(title, "123", public_year, publisher, author, owner);
+        //ISBN설정해야함
+        super(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author, owner);
         if(!price.equals("")) Integer.parseInt(price);
         this.price = price;
         this.condition = condition;

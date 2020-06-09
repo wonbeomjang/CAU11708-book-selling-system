@@ -2,7 +2,6 @@ package ActionListener.SearchBook;
 
 import DataUtils.Book.Book;
 import DataUtils.Book.BookKeyType;
-import DataUtils.Book.BookSaleList;
 import Layout.Interface.SearchBook;
 import Layout.SearchBook.SearchKeyWordPanel;
 
@@ -15,7 +14,7 @@ public class SearchBtnActionListener implements ActionListener {
     SearchBook searchBook;
     public SearchBtnActionListener(SearchKeyWordPanel searchKeyWordPanel, Observer[] observers) {
         this.searchKeyWordPanel = searchKeyWordPanel;
-        this.searchBook = new DataUtils.Book.SearchBook(BookSaleList.getInstance());
+        this.searchBook = new DataUtils.Book.SearchBook();
         for (Observer observer: observers)
             this.searchBook.addObserver(observer);
 

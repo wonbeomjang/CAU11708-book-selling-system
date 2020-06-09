@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-class BookSaleListTest {
+class BookBuyBookListTest {
     BookSaleList bookSaleList;
     User owner;
     Book book1;

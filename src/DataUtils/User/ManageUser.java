@@ -9,8 +9,8 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
     User user;
     UserState userState;
 
-    public ManageUser(UserList userList) {
-        this.userList = userList;
+    public ManageUser() {
+        this.userList = UserList.getInstance();
     }
 
     @Override

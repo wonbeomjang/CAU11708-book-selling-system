@@ -1,7 +1,6 @@
 package ActionListener.ManageUser;
 
 import DataUtils.User.ManageUser;
-import DataUtils.User.UserList;
 import DataUtils.User.UserState;
 import Layout.Interface.ChangeUserState;
 import Layout.Interface.DeleteUser;
@@ -16,8 +15,8 @@ import java.util.Observer;
 public class SaveBtnActionListener implements ActionListener {
     ArrayList<UserInfoPanel> userInfoPanels;
     UserListPanel userListPanel;
-    DeleteUser deleteUser = new ManageUser(UserList.getInstance());
-    ChangeUserState changeUserState = new ManageUser(UserList.getInstance());
+    DeleteUser deleteUser = new ManageUser();
+    ChangeUserState changeUserState = new ManageUser();
 
     public SaveBtnActionListener(UserListPanel userListPanel, Observer observer) {
         this.userListPanel = userListPanel;

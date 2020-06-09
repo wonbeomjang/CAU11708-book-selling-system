@@ -11,6 +11,5 @@ public class Main {
         bookSaleList.init("BookTest.txt", userList);
 
         new MainFrame();
-//        new ExampleFrame();
     }
 }

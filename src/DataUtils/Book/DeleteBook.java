@@ -6,8 +6,8 @@ import DataUtils.User.User;
 public class DeleteBook extends Layout.Interface.DeleteBook {
     BookSaleList bookSaleList;
 
-    public DeleteBook(BookSaleList bookSaleList) {
-        this.bookSaleList = bookSaleList;
+    public DeleteBook() {
+        this.bookSaleList = BookSaleList.getInstance();
     }
 
     @Override

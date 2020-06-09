@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.Observer;
 
 public class SigInBtnActionListener implements ActionListener {
-    private final SignIn signIn = new DataUtils.User.SignIn(UserList.getInstance());
+    private final SignIn signIn = new DataUtils.User.SignIn();
     private final SignInTextPanel signInTextPanel;
 
     public SigInBtnActionListener(Observer observer, SignInTextPanel signInTextPanel) {

@@ -27,7 +27,7 @@ class AddBookTest {
         userList.init(userFileName);
         bookSaleList = BookSaleList.getInstance();
         bookSaleList.init(bookFileName, userList);
-        addBook = new AddBook(bookSaleList);
+        addBook = new AddBook();
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
     }
 

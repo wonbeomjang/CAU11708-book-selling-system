@@ -26,8 +26,9 @@ public class UserListFileManager {
         }
         return userList;
     }
-    public void saveData(UserList userList) {
-        User[] users = userList.getUsers();
+
+    public void saveData() {
+        User[] users = UserList.getInstance().getUsers();
         StringBuilder string = new StringBuilder();
 
         for(User user: users) {

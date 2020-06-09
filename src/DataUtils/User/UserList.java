@@ -60,25 +60,15 @@ public class UserList {
     }
 
     public void saveData() {
-        userListFileManager.saveData(this);
+        userListFileManager.saveData();
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        User user;
         for(int i = 0; i < numUsers; i++) {
-            user = userList.get(i);
             stringBuilder.append(userList.get(i).toString());
         }
         return stringBuilder.toString();
-    }
-
-    public static User getSystemUser() {
-        return systemUser;
-    }
-
-    public static void setSystemUser(User systemUser) {
-        UserList.systemUser = systemUser;
     }
 }

@@ -6,8 +6,8 @@ public class SearchUser implements Layout.Interface.SearchUser {
     ArrayList<User> users;
     UserList userList;
 
-    public SearchUser(UserList userList) {
-        this.userList = userList;
+    public SearchUser() {
+        this.userList = UserList.getInstance();
         users = new ArrayList<>();
     }
 

@@ -2,14 +2,15 @@ package Layout.UserManage;
 
 import ActionListener.ManageUser.SaveBtnActionListener;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
+import Layout.Interface.SearchUser;
 
 import javax.swing.*;
 import java.awt.*;
 import java.util.Observer;
 
 public class UserManagePanel extends JPanel {
-    User[] users = UserList.getInstance().getUsers();
+    SearchUser searchUser = new DataUtils.User.SearchUser();
+    User[] users = searchUser.search(null);
     public UserManagePanel(Observer observer) {
         JButton saveBtn = new JButton("저장");
         UserListPanel userListPanel = new UserListPanel(users);
@@ -22,11 +23,11 @@ public class UserManagePanel extends JPanel {
         saveBtn.addActionListener(new SaveBtnActionListener(userListPanel, observer));
     }
 
-    public static int getPanWidth() {
+    public int getPanWidth() {
         return 800;
     }
 
-    public static int getPanHeight() {
-        return UserList.getInstance().getNumUsers() * 30 + 30;
+    public int getPanHeight() {
+        return users.length * 30 + 30;
     }
 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Observer;
 
 public class SaveBtnActionListener implements ActionListener {
-    DeleteBook deleteBook = new DataUtils.Book.DeleteBook(BookSaleList.getInstance());
+    DeleteBook deleteBook = new DataUtils.Book.DeleteBook();
     DeleteBookListPanel deleteBookListPanel;
     User systemUser;
 

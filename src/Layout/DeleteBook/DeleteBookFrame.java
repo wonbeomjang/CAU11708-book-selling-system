@@ -1,6 +1,5 @@
 package Layout.DeleteBook;
 
-import DataUtils.Book.BookSaleList;
 import DataUtils.User.User;
 import Layout.Interface.SearchBook;
 
@@ -10,7 +9,7 @@ import java.util.Observer;
 
 public class DeleteBookFrame extends JFrame implements Observer {
     User systemUser;
-    SearchBook searchBook = new DataUtils.Book.SearchBook(BookSaleList.getInstance());
+    SearchBook searchBook = new DataUtils.Book.SearchBook();
     DeleteBookPanel deleteBookPanel;
     int height;
 

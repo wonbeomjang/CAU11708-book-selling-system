@@ -17,7 +17,7 @@ public class BookSaleListFileManager {
     }
     public ArrayList<Book> readData() throws IOException {
         ArrayList<Book> bookList = new ArrayList<>();
-        SearchUser searchUser = new SearchUser(userList);
+        SearchUser searchUser = new SearchUser();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileName)));
 
         String line;

@@ -26,11 +26,11 @@ public class AdminMenuPanel extends JPanel {
         deleteBookMenuPanel.getBtn().addActionListener(new DeleteBookBtnActionListener(user));
     }
 
-    public static int getPanWidth() {
+    public int getPanWidth() {
         return 600;
     }
 
-    public static int getPanHeight() {
+    public int getPanHeight() {
         return 150;
     }
 }

@@ -2,7 +2,6 @@ package ActionListener.RegisterBook;
 
 import DataUtils.Book.AddBook;
 import DataUtils.Book.BookCondition;
-import DataUtils.Book.BookSaleList;
 import DataUtils.User.User;
 import Layout.Interface.RegisterBook;
 import Layout.RegisterBook.RegisterBookTextPanel;
@@ -26,7 +25,7 @@ public class RegisterBtnActionListener implements ActionListener {
 
     public RegisterBtnActionListener(RegisterBookTextPanel registerBookTextPanel, User user, Observer observer) {
         this.registerBookTextPanel = registerBookTextPanel;
-        this.registerBook = new AddBook(BookSaleList.getInstance());
+        this.registerBook = new AddBook();
         this.user = user;
         this.registerBook.addObserver(observer);
     }
@@ -60,7 +59,6 @@ public class RegisterBtnActionListener implements ActionListener {
                 Integer.parseInt(number);
             }
             catch (Exception exception) {
-                System.out.println(exception);
                 return false;
             }
         }

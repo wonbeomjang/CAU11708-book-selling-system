@@ -18,7 +18,7 @@ class ManageUserTest {
         userList = UserList.getInstance();
         userList.init(fileName);
 
-        manageUser = new ManageUser(userList);
+        manageUser = new ManageUser();
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
         user3 = new Admin("asdf", "Aasdf");

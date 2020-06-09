@@ -1,5 +1,7 @@
 package Layout.BuyBook;
 
+import ActionListener.BuyBook.BuyBtnActionListener;
+import DataUtils.User.User;
 import Layout.SearchBook.SearchBookPanel;
 
 import javax.swing.*;
@@ -9,7 +11,7 @@ import java.util.Observer;
 public class BuyBookPanel extends JPanel {
     SearchBookPanel searchBookPanel;
     JButton buyBtn;
-    public BuyBookPanel(Observer observer) {
+    public BuyBookPanel(User systemUser, Observer observer) {
         searchBookPanel = new SearchBookPanel(observer);
         buyBtn = new JButton("사기");
 
@@ -17,17 +19,19 @@ public class BuyBookPanel extends JPanel {
 
         add(searchBookPanel, BorderLayout.CENTER);
         add(buyBtn, BorderLayout.EAST);
+
+        buyBtn.addActionListener(new BuyBtnActionListener(searchBookPanel, systemUser, observer));
     }
 
-    public static int getPanWidth() {
-        return SearchBookPanel.getPanWidth() + 50;
+    public int getPanWidth() {
+        return searchBookPanel.getPanWidth() + 50;
     }
 
-    public static int getPanHeight() {
-        return SearchBookPanel.getPanHeight();
+    public int getPanHeight() {
+        return searchBookPanel.getPanHeight();
     }
 
-    public static int getPanHeight(int numBooks) {
-        return SearchBookPanel.getPanHeight(numBooks);
+    public int getPanHeight(int numBooks) {
+        return searchBookPanel.getPanHeight(numBooks);
     }
 }

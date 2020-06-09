@@ -22,7 +22,7 @@ class SearchUserTest {
         userList = UserList.getInstance();
         userList.init(fileName);
 
-        searchUser = new SearchUser(userList);
+        searchUser = new SearchUser();
 
         wonbeomLen = searchUser.search("wonbeomjang").length;
         userLen = searchUser.search().length;

@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class DeleteBookListPanel extends JPanel {
-    SearchBook searchBook = new SearchBook(BookSaleList.getInstance());
+    SearchBook searchBook = new SearchBook();
     ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = new ArrayList<>();
     BookOnSaleInfoPanel bookOnSaleInfoPanel;
     Book[] books;

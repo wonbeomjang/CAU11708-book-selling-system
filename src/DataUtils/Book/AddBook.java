@@ -6,8 +6,8 @@ import Layout.Interface.RegisterBook;
 public class AddBook extends RegisterBook {
     BookSaleList bookSaleList;
 
-    public AddBook(BookSaleList bookSaleList) {
-        this.bookSaleList = bookSaleList;
+    public AddBook() {
+        this.bookSaleList = BookSaleList.getInstance();
     }
 
     @Override

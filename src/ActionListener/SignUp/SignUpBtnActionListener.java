@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.util.Observer;
 
 public class SignUpBtnActionListener implements ActionListener {
-    private final SignUp signUp = new DataUtils.User.SignUp(UserList.getInstance());
+    private final SignUp signUp = new DataUtils.User.SignUp();
     SignUpTextPanel signUpTextPanel;
     public SignUpBtnActionListener(Observer observer, SignUpTextPanel signUpTextPanel) {
         this.signUpTextPanel = signUpTextPanel;

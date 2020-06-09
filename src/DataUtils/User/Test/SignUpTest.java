@@ -20,8 +20,8 @@ class SignUpTest {
         userList.init(fileName);
 
         user = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        signUp = new SignUp(userList);
-        signIn = new SignIn(userList);
+        signUp = new SignUp();
+        signIn = new SignIn();
 
         userList.addUser(user);
         signUp.setUsername("wonbeomjang");
