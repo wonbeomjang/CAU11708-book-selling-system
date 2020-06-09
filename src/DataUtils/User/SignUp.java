@@ -1,11 +1,6 @@
 package DataUtils.User;
 
 public class SignUp extends Layout.Interface.SignUp {
-    String username;
-    String password;
-    String email;
-    String phoneNumber;
-    String name;
     UserList userList;
 
     public SignUp() {
@@ -26,11 +21,6 @@ public class SignUp extends Layout.Interface.SignUp {
 
     @Override
     public boolean signUp(String username, String password, String email, String phoneNumber, String name) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.name = name;
 
         if (username.equals("") || password.equals("") || email.equals("") || phoneNumber.equals("") || name.equals(""))
             return false;
@@ -46,25 +36,5 @@ public class SignUp extends Layout.Interface.SignUp {
         notifyObservers(newUser);
 
         return true;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

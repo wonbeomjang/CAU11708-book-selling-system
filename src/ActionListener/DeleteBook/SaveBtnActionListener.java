@@ -1,10 +1,9 @@
 package ActionListener.DeleteBook;
 
-import DataUtils.Book.BookSaleList;
 import DataUtils.User.User;
+import Layout.BookListUp.BookOnSaleLabelPanel;
 import Layout.DeleteBook.DeleteBookListPanel;
 import Layout.Interface.DeleteBook;
-import Layout.SearchBook.BookOnSaleInfoPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,11 +23,11 @@ public class SaveBtnActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = deleteBookListPanel.getBookOnSaleInfoPanels();
+        ArrayList<BookOnSaleLabelPanel> bookOnSaleLabelPanels = deleteBookListPanel.getBookOnSaleLabelPanels();
 
-        for (BookOnSaleInfoPanel bookOnSaleInfoPanel: bookOnSaleInfoPanels) {
-            if(bookOnSaleInfoPanel.isChecked()) {
-                deleteBook.deleteBook(systemUser, bookOnSaleInfoPanel.getBook());
+        for (BookOnSaleLabelPanel bookOnSaleLabelPanel : bookOnSaleLabelPanels) {
+            if(bookOnSaleLabelPanel.isChecked()) {
+                deleteBook.deleteBook(systemUser, bookOnSaleLabelPanel.getBook());
             }
         }
     }

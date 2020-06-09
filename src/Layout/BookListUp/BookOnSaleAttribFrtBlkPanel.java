@@ -1,10 +1,10 @@
-package Layout.SearchBook;
+package Layout.BookListUp;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BookOnSaleInfoLabelPanel extends JPanel {
-    public BookOnSaleInfoLabelPanel() {
+public class BookOnSaleAttribFrtBlkPanel extends JPanel {
+    public BookOnSaleAttribFrtBlkPanel() {
         setLayout(new GridLayout(1, 8));
         add(new JLabel("    "));
         add(new JLabel(" 제목 "));

@@ -6,8 +6,6 @@ import Layout.Interface.DeleteUser;
 
 public class ManageUser extends ChangeUserState implements DeleteUser {
     UserList userList;
-    User user;
-    UserState userState;
 
     public ManageUser() {
         this.userList = UserList.getInstance();
@@ -15,9 +13,6 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
 
     @Override
     public boolean change(User user, UserState userState) {
-        this.user = user;
-        this.userState = userState;
-
         if(user instanceof EndUser) {
             ((EndUser)user).setUserState(userState);
             userList.saveData();

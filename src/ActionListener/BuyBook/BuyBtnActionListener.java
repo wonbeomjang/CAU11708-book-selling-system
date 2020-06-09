@@ -2,8 +2,8 @@ package ActionListener.BuyBook;
 
 import DataUtils.Book.Book;
 import DataUtils.User.User;
+import Layout.BookListUp.BookOnSaleLabelPanel;
 import Layout.Interface.BuyBook;
-import Layout.SearchBook.BookOnSaleInfoPanel;
 import Layout.SearchBook.SearchBookPanel;
 
 import java.awt.event.ActionEvent;
@@ -26,9 +26,9 @@ public class BuyBtnActionListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = searchBookPanel.getBookOnSaleInfoPanels();
+        ArrayList<BookOnSaleLabelPanel> bookOnSaleLabelPanels = searchBookPanel.getBookOnSaleLabelPanels();
 
-        for(BookOnSaleInfoPanel panel: bookOnSaleInfoPanels) {
+        for(BookOnSaleLabelPanel panel: bookOnSaleLabelPanels) {
             if(panel.isChecked()) {
                 Book book = panel.getBook();
                 buyBook.buyBook(systemUser, book);

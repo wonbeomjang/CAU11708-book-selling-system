@@ -24,11 +24,6 @@ class SignUpTest {
         signIn = new SignIn();
 
         userList.addUser(user);
-        signUp.setUsername("wonbeomjang");
-        signUp.setPassword("20182592");
-        signUp.setName("장원범");
-        signUp.setEmail("jtiger958");
-        signUp.setPhoneNumber("01037937352");
     }
 
     @Test

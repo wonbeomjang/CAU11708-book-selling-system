@@ -2,6 +2,7 @@ package Layout.MainMenu;
 
 import ActionListener.MainMenu.BuyBookBtnActionLister;
 import ActionListener.MainMenu.DeleteBookBtnActionListener;
+import ActionListener.MainMenu.ModifyBookBtnActionListener;
 import ActionListener.MainMenu.RegisterBookBtnActionListener;
 import DataUtils.User.User;
 
@@ -15,30 +16,25 @@ public class EndUserMenuPanel extends JPanel {
         this.systemUser = systemUser;
 
         RegisterBookMenuPanel registerBookMenuPanel = new RegisterBookMenuPanel();
-//        SearchBookMenuPanel searchBookMenuPanel = new SearchBookMenuPanel();
+        ModifyBookMenuPanel modifyBookMenuPanel = new ModifyBookMenuPanel();
         BuyBookMenuPanel buyBookMenuPanel = new BuyBookMenuPanel();
         DeleteBookMenuPanel deleteBookMenuPanel = new DeleteBookMenuPanel();
 
-        setLayout(new GridLayout(1, 3));
-//        setLayout(new GridLayout(1, 4));
+        setLayout(new GridLayout(1, 4));
 
         add(registerBookMenuPanel);
-//        add(searchBookMenuPanel);
+        add(modifyBookMenuPanel);
         add(buyBookMenuPanel);
         add(deleteBookMenuPanel);
 
+        modifyBookMenuPanel.getBtn().addActionListener(new ModifyBookBtnActionListener(systemUser));
         registerBookMenuPanel.getBtn().addActionListener(new RegisterBookBtnActionListener(systemUser));
-//        searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
         buyBookMenuPanel.getBtn().addActionListener(new BuyBookBtnActionLister(systemUser));
         deleteBookMenuPanel.getBtn().addActionListener(new DeleteBookBtnActionListener(systemUser));
     }
 
-//    public int getPanWidth() {
-//        return 800;
-//    }
-
     public int getPanWidth() {
-        return 600;
+        return 700;
     }
 
     public int getPanHeight() {

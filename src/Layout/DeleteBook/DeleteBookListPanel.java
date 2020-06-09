@@ -3,8 +3,8 @@ package Layout.DeleteBook;
 import DataUtils.Book.*;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
-import Layout.SearchBook.BookOnSaleInfoLabelPanel;
-import Layout.SearchBook.BookOnSaleInfoPanel;
+import Layout.BookListUp.BookOnSaleAttribFrtBlkPanel;
+import Layout.BookListUp.BookOnSaleLabelPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +12,8 @@ import java.util.ArrayList;
 
 public class DeleteBookListPanel extends JPanel {
     SearchBook searchBook = new SearchBook();
-    ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = new ArrayList<>();
-    BookOnSaleInfoPanel bookOnSaleInfoPanel;
+    ArrayList<BookOnSaleLabelPanel> bookOnSaleLabelPanels = new ArrayList<>();
+    BookOnSaleLabelPanel bookOnSaleLabelPanel;
     Book[] books;
     public DeleteBookListPanel(User user) {
         if (user instanceof EndUser) {
@@ -24,20 +24,20 @@ public class DeleteBookListPanel extends JPanel {
         }
         setLayout(new GridLayout(books.length + 1, 1));
 
-        add(new BookOnSaleInfoLabelPanel());
+        add(new BookOnSaleAttribFrtBlkPanel());
 
         for(Book book: books) {
             if(book instanceof BookOnSale) {
-                bookOnSaleInfoPanel = new BookOnSaleInfoPanel((BookOnSale)book);
+                bookOnSaleLabelPanel = new BookOnSaleLabelPanel((BookOnSale)book);
 
-                bookOnSaleInfoPanels.add(bookOnSaleInfoPanel);
-                add(bookOnSaleInfoPanel);
+                bookOnSaleLabelPanels.add(bookOnSaleLabelPanel);
+                add(bookOnSaleLabelPanel);
             }
         }
     }
 
-    public ArrayList<BookOnSaleInfoPanel> getBookOnSaleInfoPanels() {
-        return bookOnSaleInfoPanels;
+    public ArrayList<BookOnSaleLabelPanel> getBookOnSaleLabelPanels() {
+        return bookOnSaleLabelPanels;
     }
 
     public Book[] getBooks() {
@@ -45,6 +45,6 @@ public class DeleteBookListPanel extends JPanel {
     }
 
     public int getLength() {
-        return bookOnSaleInfoPanels.size();
+        return bookOnSaleLabelPanels.size();
     }
 }

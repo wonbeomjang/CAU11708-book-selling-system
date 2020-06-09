@@ -1,14 +1,14 @@
-package Layout.SearchBook;
+package Layout.BookListUp;
 
 import DataUtils.Book.BookOnSale;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class BookOnSaleInfoPanel extends JPanel {
+public class BookOnSaleLabelPanel extends JPanel {
     JCheckBox buyChk;
     BookOnSale bookOnSale;
-    public BookOnSaleInfoPanel(BookOnSale book) {
+    public BookOnSaleLabelPanel(BookOnSale book) {
         bookOnSale = book;
         buyChk = new JCheckBox();
 

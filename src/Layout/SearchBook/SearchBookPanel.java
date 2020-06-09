@@ -4,6 +4,8 @@ import ActionListener.SearchBook.SearchBtnActionListener;
 import DataUtils.Book.Book;
 import DataUtils.Book.BookKeyType;
 import DataUtils.Book.BookOnSale;
+import Layout.BookListUp.BookOnSaleAttribFrtBlkPanel;
+import Layout.BookListUp.BookOnSaleLabelPanel;
 import Layout.Interface.SearchBook;
 
 import javax.swing.*;
@@ -14,16 +16,16 @@ import java.util.Observer;
 
 public class SearchBookPanel extends JPanel implements Observer {
     SearchKeyWordPanel searchKeyWordPanel;
-    BookOnSaleInfoLabelPanel bookOnSaleInfoLabelPanel;
+    BookOnSaleAttribFrtBlkPanel bookOnSaleAttribFrtBlkPanel;
     SearchBook searchBook = new DataUtils.Book.SearchBook();
-    ArrayList<BookOnSaleInfoPanel> bookOnSaleInfoPanels = new ArrayList<>();
+    ArrayList<BookOnSaleLabelPanel> bookOnSaleLabelPanels = new ArrayList<>();
     Observer observer;
     int panWidth = 800;
     int panHeight = 80;
 
     protected void organizePanel(Book[] books) {
         searchKeyWordPanel = new SearchKeyWordPanel();
-        bookOnSaleInfoLabelPanel = new BookOnSaleInfoLabelPanel();
+        bookOnSaleAttribFrtBlkPanel = new BookOnSaleAttribFrtBlkPanel();
 
         setLayout(new GridLayout(books.length + 2, 1));
 
@@ -31,14 +33,14 @@ public class SearchBookPanel extends JPanel implements Observer {
         panHeight = getPanHeight(books.length);
 
         add(searchKeyWordPanel);
-        add(bookOnSaleInfoLabelPanel);
+        add(bookOnSaleAttribFrtBlkPanel);
 
-        BookOnSaleInfoPanel bookOnSaleInfoPanel;
+        BookOnSaleLabelPanel bookOnSaleLabelPanel;
 
         for(Book book: books) {
-            bookOnSaleInfoPanel = new BookOnSaleInfoPanel((BookOnSale) book);
-            bookOnSaleInfoPanels.add(bookOnSaleInfoPanel);
-            add(bookOnSaleInfoPanel);
+            bookOnSaleLabelPanel = new BookOnSaleLabelPanel((BookOnSale) book);
+            bookOnSaleLabelPanels.add(bookOnSaleLabelPanel);
+            add(bookOnSaleLabelPanel);
         }
 
         Observer[] observers = { this, this.observer };
@@ -80,7 +82,7 @@ public class SearchBookPanel extends JPanel implements Observer {
         return 30 * numBooks + 100;
     }
 
-    public ArrayList<BookOnSaleInfoPanel> getBookOnSaleInfoPanels() {
-        return bookOnSaleInfoPanels;
+    public ArrayList<BookOnSaleLabelPanel> getBookOnSaleLabelPanels() {
+        return bookOnSaleLabelPanels;
     }
 }
