@@ -3,20 +3,15 @@ package DataUtils.User;
 import java.util.ArrayList;
 
 public class SearchUser implements Layout.Interface.SearchUser {
-    ArrayList<User> users;
-    UserList userList;
-
-    public SearchUser() {
-        this.userList = UserList.getInstance();
-        users = new ArrayList<>();
-    }
+    private final UserList userList = UserList.getInstance();
 
     @Override
     public User[] search(String username) {
         int numUser = userList.getNumUsers();
         User user;
 
-        users.clear();
+        ArrayList<User> users = new ArrayList<>();
+
         for(int i = 0; i < numUser; i++) {
             user = userList.getUser(i);
             if(username == null || username.equals(user.username))
@@ -27,13 +22,5 @@ public class SearchUser implements Layout.Interface.SearchUser {
 
     public User[] search() {
         return search(null);
-    }
-
-    public String[] getInfo() {
-        String[] outputs = new String[users.size()];
-        for(int i = 0; i < users.size(); i++) {
-            outputs[i] = users.get(i).toString();
-        }
-        return outputs;
     }
 }

@@ -34,16 +34,28 @@ public class EndUser extends User {
         return phoneNumber;
     }
 
-    public void setUserState(UserState userState) {
-        this.userState = userState;
-    }
-
     public UserState getUserState() {
         return userState;
     }
 
+    public void setUserState(UserState userState) {
+        this.userState = userState;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
     public String toString() {
-        return name + ": " + email + ": " + phoneNumber + ": " + username + ": " + password + ": " + userState.toString() + '\n';
+        return username + ": " + password + ": " + email + ": " + phoneNumber + ": " + name + ": " + userState.toString() + '\n';
     }
 }

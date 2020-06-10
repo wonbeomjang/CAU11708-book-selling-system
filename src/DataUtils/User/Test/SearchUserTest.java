@@ -4,6 +4,7 @@ import DataUtils.User.EndUser;
 import DataUtils.User.SearchUser;
 import DataUtils.User.User;
 import DataUtils.User.UserList;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,9 +19,8 @@ class SearchUserTest {
 
     @BeforeEach
     void setUp() {
-        String fileName = "UserTest.txt";
+        SetUp.setup();
         userList = UserList.getInstance();
-        userList.init(fileName);
 
         searchUser = new SearchUser();
 
@@ -38,12 +38,5 @@ class SearchUserTest {
     void search() {
         assertEquals(wonbeomLen + 1, searchUser.search("wonbeomjang").length);
         assertEquals(userLen + 2, searchUser.search().length);
-    }
-
-    @Test
-    void getInfo() {
-        assertEquals(userLen + 2, searchUser.search().length);
-        String[] strings = searchUser.getInfo();
-        assertEquals(userLen + 2, strings.length);
     }
 }

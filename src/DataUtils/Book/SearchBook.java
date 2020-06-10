@@ -3,9 +3,7 @@ package DataUtils.Book;
 import java.util.ArrayList;
 
 public class SearchBook extends Layout.Interface.SearchBook {
-    BookSaleList bookSaleList;
-    String key;
-    BookKeyType keyType;
+    private final BookSaleList bookSaleList;
 
     public SearchBook() {
         this.bookSaleList = BookSaleList.getInstance();
@@ -21,8 +19,6 @@ public class SearchBook extends Layout.Interface.SearchBook {
 
     @Override
     public Book[] search(String key, BookKeyType keyType) {
-        this.key = key;
-        this.keyType = keyType;
         Book[] bookArray;
         ArrayList<Book> books = new ArrayList<>();
 

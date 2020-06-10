@@ -1,6 +1,7 @@
 package DataUtils.User.Test;
 
 import DataUtils.User.*;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,9 +15,8 @@ class ManageUserTest {
 
     @BeforeEach
     void setUp() {
-        String fileName = "UserTest.txt";
+        SetUp.setup();
         userList = UserList.getInstance();
-        userList.init(fileName);
 
         manageUser = new ManageUser();
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
@@ -38,7 +38,7 @@ class ManageUserTest {
     @Test
     void delete() {
         assertTrue(manageUser.delete(user2));
-        assertEquals(((EndUser)user2).getUserState(), UserState.Deleted);
+        assertFalse(userList.contain(user2));
         assertFalse(manageUser.delete(user3));
     }
 

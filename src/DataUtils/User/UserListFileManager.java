@@ -4,7 +4,8 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class UserListFileManager {
-    String fileName;
+    private final String fileName;
+
     public UserListFileManager(String fileName) {
         this.fileName = fileName;
     }

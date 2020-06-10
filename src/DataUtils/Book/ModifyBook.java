@@ -1,7 +1,7 @@
 package DataUtils.Book;
 
 public class ModifyBook extends Layout.Interface.ModifyBook {
-    BookSaleList bookSaleList;
+    private BookSaleList bookSaleList;
     @Override
     public boolean modify(Book oldBook, Book newBook) {
         bookSaleList = BookSaleList.getInstance();

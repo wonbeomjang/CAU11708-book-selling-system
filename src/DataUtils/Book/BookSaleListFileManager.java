@@ -9,11 +9,10 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class BookSaleListFileManager {
-    String fileName;
-    UserList userList;
+    private final String fileName;
+
     public BookSaleListFileManager(String fileName, UserList userList) {
         this.fileName = fileName;
-        this.userList = userList;
     }
     public ArrayList<Book> readData() throws IOException {
         ArrayList<Book> bookList = new ArrayList<>();

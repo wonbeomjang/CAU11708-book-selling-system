@@ -4,7 +4,7 @@ import DataUtils.User.Admin;
 import DataUtils.User.User;
 
 public class DeleteBook extends Layout.Interface.DeleteBook {
-    BookSaleList bookSaleList;
+    private final BookSaleList bookSaleList;
 
     public DeleteBook() {
         this.bookSaleList = BookSaleList.getInstance();

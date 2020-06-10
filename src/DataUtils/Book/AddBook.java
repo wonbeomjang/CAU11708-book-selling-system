@@ -4,7 +4,7 @@ import DataUtils.User.User;
 import Layout.Interface.RegisterBook;
 
 public class AddBook extends RegisterBook {
-    BookSaleList bookSaleList;
+    private final BookSaleList bookSaleList;
 
     public AddBook() {
         this.bookSaleList = BookSaleList.getInstance();

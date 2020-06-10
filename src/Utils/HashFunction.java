@@ -7,6 +7,7 @@ public class HashFunction {
         for (int i = 0; i < string.length(); i++) {
             hash = hash * 31 + string.charAt(i);
         }
-        return String.valueOf(hash % mod);
+
+        return String.valueOf(Math.abs(hash) % mod);
     }
 }

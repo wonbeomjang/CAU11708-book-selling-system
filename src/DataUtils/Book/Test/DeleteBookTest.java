@@ -3,11 +3,12 @@ package DataUtils.Book.Test;
 import DataUtils.Book.*;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class DeleteBookTest {
     User owner, other;
@@ -17,18 +18,13 @@ class DeleteBookTest {
     Book book;
 
     int numBooks;
-    UserList userList;
-    String userFileName, bookFileName;
 
     @BeforeEach
     void setUp() {
-        userFileName = "UserTest.txt";
-        bookFileName = "BookTest.txt";
-        userList = UserList.getInstance();
-        userList.init(userFileName);
+
+        SetUp.setup();
 
         bookSaleList = BookSaleList.getInstance();
-        bookSaleList.init(bookFileName, userList);
 
         addBook = new AddBook();
         deleteBook = new DeleteBook();

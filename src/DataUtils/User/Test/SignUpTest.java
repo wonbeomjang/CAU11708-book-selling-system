@@ -1,6 +1,7 @@
 package DataUtils.User.Test;
 
 import DataUtils.User.*;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -15,9 +16,9 @@ class SignUpTest {
 
     @BeforeEach
     void setUp() {
-        String fileName = "UserTest.txt";
+        SetUp.setup();
+
         userList = UserList.getInstance();
-        userList.init(fileName);
 
         user = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         signUp = new SignUp();
@@ -29,14 +30,17 @@ class SignUpTest {
     @Test
     void checkUniqueUserName() {
         assertFalse(signUp.checkUniqueUserName("wonbeomjang"));
-        assertTrue(signUp.checkUniqueUserName("wonbeom"));
+        assertTrue(signUp.checkUniqueUserName("###########"));
     }
 
     @Test
     void signUp() {
         numUsers = userList.getNumUsers();
         signUp.signUp("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
-        assertEquals(numUsers + 1, userList.getNumUsers());
+        if(signUp.checkUniqueUserName("wonbeom"))
+            assertEquals(numUsers + 1, userList.getNumUsers());
+        else
+            assertNotEquals(numUsers + 1, userList.getNumUsers());
         assertNotNull(signIn.signIn("wonbeom", "20182592"));
         assertFalse(signUp.signUp("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352"));
     }

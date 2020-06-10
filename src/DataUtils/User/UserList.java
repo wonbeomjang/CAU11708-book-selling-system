@@ -9,7 +9,6 @@ public class UserList {
     UserListFileManager userListFileManager;
 
     private static final UserList instance = new UserList();
-    private static User systemUser = null;
 
     private UserList() {}
 

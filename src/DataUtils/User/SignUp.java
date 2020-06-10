@@ -1,7 +1,7 @@
 package DataUtils.User;
 
 public class SignUp extends Layout.Interface.SignUp {
-    UserList userList;
+    private final UserList userList;
 
     public SignUp() {
         this.userList = UserList.getInstance();

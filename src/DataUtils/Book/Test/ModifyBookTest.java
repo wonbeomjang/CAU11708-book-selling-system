@@ -7,7 +7,7 @@ import DataUtils.Book.ModifyBook;
 import DataUtils.User.Admin;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,13 +20,10 @@ class ModifyBookTest {
     BookOnSale oldBook;
     @BeforeEach
     void setUp() {
-        String userFileName = "UserTest.txt";
-        String bookFileName = "BookTest.txt";
-        UserList userList = UserList.getInstance();
-        userList.init(userFileName);
+
+        SetUp.setup();
 
         BookSaleList bookSaleList = BookSaleList.getInstance();
-        bookSaleList.init(bookFileName, userList);
 
         modifyBook = new ModifyBook();
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");

@@ -8,9 +8,10 @@ import java.util.ArrayList;
 public class BookSaleList {
     private ArrayList<Book> books;
     private int numBooks;
-    BookSaleListFileManager bookSaleListFileManager;
+    private BookSaleListFileManager bookSaleListFileManager;
+    private String fileName;
     private static final BookSaleList instance = new BookSaleList();
-    String fileName;
+
     private BookSaleList() {}
 
     public void init(String fileName, UserList userList) {

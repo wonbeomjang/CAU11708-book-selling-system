@@ -1,7 +1,7 @@
 package DataUtils.User;
 
 public class SignIn extends Layout.Interface.SignIn {
-    UserList userList;
+    private final UserList userList;
 
     public SignIn() {
         this.userList = UserList.getInstance();
@@ -14,6 +14,7 @@ public class SignIn extends Layout.Interface.SignIn {
 
         if (username.equals("") || password.equals(""))
             return null;
+
 
         for(int i = 0; i < numUser; i++) {
             user = userList.getUser(i);

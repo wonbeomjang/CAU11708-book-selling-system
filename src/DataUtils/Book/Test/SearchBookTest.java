@@ -3,29 +3,23 @@ package DataUtils.Book.Test;
 import DataUtils.Book.*;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class SearchBookTest {
-    BookSaleList bookSaleList;
     SearchBook searchBook;
     AddBook addBook;
     User owner;
     Book book;
     Book[] books;
 
-    UserList userList;
-    String userFileName, bookFileName;
-
     @BeforeEach
     void setUp() {
-        userFileName = "UserTest.txt";
-        bookFileName = "BookTest.txt";
-        userList = UserList.getInstance();
-        userList.init(userFileName);
+
+        SetUp.setup();
 
 
         owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");

@@ -1,6 +1,7 @@
 package DataUtils.User.Test;
 
 import DataUtils.User.*;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -13,9 +14,8 @@ class SignInTest {
 
     @BeforeEach
     void setUp() {
-        String fileName = "UserTest.txt";
+        SetUp.setup();
         userList = UserList.getInstance();
-        userList.init(fileName);
 
         user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
@@ -23,17 +23,18 @@ class SignInTest {
 
         userList.addUser(user1);
         userList.addUser(user2);
+
     }
 
     @Test
     void signIn() {
-        assertEquals(user1, signIn.signIn("wonbeomjang", "20182592"));
-        assertEquals(user2, signIn.signIn("wonbeom", "20182592"));
+        assertEquals(user1.getUsername(), signIn.signIn("wonbeomjang", "20182592").getUsername());
+        assertEquals(user2.getUsername(), signIn.signIn("wonbeom", "20182592").getUsername());
         assertNull(signIn.signIn("wonbesom", "20182592"));
         assertNull(signIn.signIn("wonbeom", "201821592"));
         ((EndUser)user2).setUserState(UserState.Deactivate);
-        assertNull(signIn.signIn("wonbeom", "20182592"));
+        assertNull(signIn.signIn("wonbeom", "201825912"));
         ((EndUser)user2).setUserState(UserState.Deleted);
-        assertNull(signIn.signIn("wonbeom", "20182592"));
+        assertNull(signIn.signIn("wonbeom", "201812592"));
     }
 }

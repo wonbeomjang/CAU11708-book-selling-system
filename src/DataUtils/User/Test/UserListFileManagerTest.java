@@ -3,6 +3,7 @@ package DataUtils.User.Test;
 import DataUtils.User.User;
 import DataUtils.User.UserList;
 import DataUtils.User.UserListFileManager;
+import Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +21,9 @@ class UserListFileManagerTest {
 
     @BeforeEach
     void setUp() throws IOException {
-        fileName = "UserTest.txt";
+        SetUp.setup();
+
+        fileName = SetUp.userDataFile;
 
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(fileName)));
         bufferedWriter.write("asdf:asdf:asdf:sdfa:asdf:Activate\n");
@@ -42,9 +45,9 @@ class UserListFileManagerTest {
     void saveData() throws IOException {
         ArrayList<User> userArrayList;
         UserList userList = UserList.getInstance();
-        userList.init(fileName);
+        int len = userList.getNumUsers();
         userList.saveData();
         userArrayList = userListFileManager.readData();
-        assertEquals(3, userArrayList.size());
+        assertEquals(len, userArrayList.size());
     }
 }

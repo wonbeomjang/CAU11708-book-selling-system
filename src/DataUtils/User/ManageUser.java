@@ -5,7 +5,8 @@ import Layout.Interface.ChangeUserState;
 import Layout.Interface.DeleteUser;
 
 public class ManageUser extends ChangeUserState implements DeleteUser {
-    UserList userList;
+    private final UserList userList;
+    BookSaleList bookSaleList = BookSaleList.getInstance();
 
     public ManageUser() {
         this.userList = UserList.getInstance();
@@ -31,7 +32,7 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
             userList.deleteUser(user);
             userList.saveData();
 
-            BookSaleList.getInstance().refresh(userList);
+            bookSaleList.refresh(userList);
 
             setChanged();
             notifyObservers(user);

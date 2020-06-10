@@ -1,9 +1,12 @@
 package DataUtils.Book.Test;
 
-import DataUtils.Book.*;
+import DataUtils.Book.Book;
+import DataUtils.Book.BookCondition;
+import DataUtils.Book.BookOnSale;
+import DataUtils.Book.BuyBook;
 import DataUtils.User.EndUser;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
+import Utils.SetUp;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -19,11 +22,7 @@ class BuyBookTest {
 
     @BeforeEach
     void setUp() {
-        String userFileName = "UserTest.txt";
-        String bookFileName = "BookTest.txt";
-        UserList userList = UserList.getInstance();
-        BookSaleList bookSaleList = BookSaleList.getInstance();
-        bookSaleList.init(bookFileName, userList);
+        SetUp.setup();
 
         buyer = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
         seller = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
