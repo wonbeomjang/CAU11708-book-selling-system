@@ -10,10 +10,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class EndUserMenuPanel extends JPanel {
-    private User systemUser;
 
     public EndUserMenuPanel(User systemUser) {
-        this.systemUser = systemUser;
 
         RegisterBookMenuPanel registerBookMenuPanel = new RegisterBookMenuPanel();
         ModifyBookMenuPanel modifyBookMenuPanel = new ModifyBookMenuPanel();
