@@ -28,9 +28,10 @@ public class BuyBookFrame extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        if (arg instanceof Book) {
-            String msg = "책 제목: " + ((Book) arg).getOwner() + "\n구매자 이메일: " + systemUser.getEmail() + "\n판매자 이메일: " +
-                    (((EndUser)((Book) arg).getOwner()).getEmail()) + "\n구매 이메일을 전송했습니다.";
+        if (arg instanceof String[]) {
+            String[] strings = (String[])arg;
+            String msg = "책 제목: " + strings[0]  + "\n구매자 이메일: " + strings[2] + "\n판매자 이메일: " +
+                    strings[1] + "\n구매 이메일을 전송했습니다.";
 
             JOptionPane.showMessageDialog(null, msg);
             dispose();

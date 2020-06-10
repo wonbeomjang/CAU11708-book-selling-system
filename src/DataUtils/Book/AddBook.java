@@ -12,7 +12,7 @@ public class AddBook extends RegisterBook {
 
     @Override
     public boolean addBook(String title, String publicYear, String publisher, String author, String price, BookCondition condition, User owner) {
-        Book book = new BookOnSale(title, publicYear, publisher, author, price, condition, owner);
+        Book book = new BookOnSale(title, publicYear, publisher, author, price, condition, owner.getUsername());
         bookSaleList.addBook(book);
         bookSaleList.saveData();
 

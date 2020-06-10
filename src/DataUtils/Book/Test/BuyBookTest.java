@@ -24,9 +24,9 @@ class BuyBookTest {
     void setUp() {
         SetUp.setup();
 
-        buyer = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
+        buyer = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         seller = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, seller);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, seller.getUsername());
 
         buyBook = new BuyBook();
     }
@@ -37,10 +37,10 @@ class BuyBookTest {
 
     @Test
     void buy() {
-        book.setOwner(buyer);
+        book.setOwner(buyer.getUsername());
         buyBook.buyBook(buyer, book);
 
-        assertEquals(book.getOwner(), buyer);
+        assertEquals(book.getOwner(), buyer.getUsername());
         assertNotEquals(book.getOwner(), seller);
     }
 }

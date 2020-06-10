@@ -3,7 +3,6 @@ package Layout.BookListUp;
 import DataUtils.Book.Book;
 import DataUtils.Book.BookCondition;
 import DataUtils.Book.BookOnSale;
-import DataUtils.User.Admin;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,7 +38,7 @@ public class BookOnSaleTextPanel extends JPanel {
         add(author);
         add(price);
         add(condition);
-        add(new JLabel(book.getOwner().getUsername()));
+        add(new JLabel(book.getOwner()));
     }
 
     public BookOnSale getBook() {
@@ -80,6 +79,6 @@ public class BookOnSaleTextPanel extends JPanel {
 
     public Book getNewBook() {
         return new BookOnSale(getTitle(), getIsbn(), getPublicYear(), getPublisher(), getAuthor(),
-                getPrice(), BookCondition.valueOf(getCondition()), new Admin("",""));
+                getPrice(), BookCondition.valueOf(getCondition()), "");
     }
 }

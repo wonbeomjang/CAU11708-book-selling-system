@@ -1,16 +1,14 @@
 package DataUtils.Book;
 
-import DataUtils.User.User;
-
 public abstract class Book {
     protected String title;
     protected String isbn;
     protected String public_year;
     protected String publisher;
     protected String author;
-    protected User owner;
+    protected String owner;
 
-    Book(String title, String isbn, String public_year, String publisher, String author, User owner) {
+    Book(String title, String isbn, String public_year, String publisher, String author, String owner) {
         if(!public_year.equals("")) Integer.parseInt(public_year);
         this.title = title;
         this.isbn = isbn;
@@ -20,7 +18,7 @@ public abstract class Book {
         this.owner = owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 
@@ -44,7 +42,7 @@ public abstract class Book {
         this.author = author;
     }
 
-    public User getOwner() {
+    public String getOwner() {
         return owner;
     }
 
@@ -73,6 +71,6 @@ public abstract class Book {
     @Override
     public String toString() {
         return title + ": " + isbn + ": " + public_year + ": " + publisher + ": " + author + ": " + " " + ": " + " " + ": " +
-                owner.getUsername() + '\n';
+                owner + '\n';
     }
 }

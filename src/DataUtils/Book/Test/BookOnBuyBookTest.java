@@ -15,8 +15,8 @@ class BookOnBuyBookTest {
     User owner, newOwner;
     @BeforeEach
     void setUp() {
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        bookOnSale = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
+        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        bookOnSale = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
     }
 
     @Test
@@ -36,8 +36,8 @@ class BookOnBuyBookTest {
     @Test
     void setOwner() {
         newOwner = new EndUser("wonbeomang", "20182592", "장원범", "jtiger958", "01037937352");
-        bookOnSale.setOwner(newOwner);
-        assertEquals(newOwner, bookOnSale.getOwner());
+        bookOnSale.setOwner(newOwner.getUsername());
+        assertEquals(newOwner.getUsername(), bookOnSale.getOwner());
         assertNotEquals(owner, bookOnSale.getOwner());
     }
 }

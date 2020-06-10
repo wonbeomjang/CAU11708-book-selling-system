@@ -27,7 +27,7 @@ public class SaveBtnActionListener implements ActionListener {
         BookOnSale oldBook = null;
         for (BookOnSaleTextPanel bookOnSaleLabelPanel : bookOnSaleLabelPanels) {
             try {
-                oldBook = (BookOnSale)bookOnSaleLabelPanel.getBook();
+                oldBook = bookOnSaleLabelPanel.getBook();
                 newBook = (BookOnSale)bookOnSaleLabelPanel.getNewBook();
 
                 if(!newBook.getIsbn().equals(""))
@@ -36,7 +36,17 @@ public class SaveBtnActionListener implements ActionListener {
                 if(!newBook.getPrice().equals(""))
                     Integer.parseInt(newBook.getPrice());
 
-                modifyBook.modify(oldBook, newBook);
+                if(oldBook.getTitle().equals(newBook.getTitle())
+                && oldBook.getIsbn().equals(newBook.getIsbn())
+                && oldBook.getPublic_year().equals(newBook.getPublic_year())
+                && oldBook.getPublisher().equals(newBook.getPublisher())
+                && oldBook.getAuthor().equals(newBook.getAuthor())
+                && oldBook.getPrice().equals(newBook.getPrice())
+                && oldBook.getCondition().equals(newBook.getCondition()));
+                else {
+                    modifyBook.modify(oldBook, newBook);
+                }
+
             }
             catch (Exception error) {
                 System.out.println(error);

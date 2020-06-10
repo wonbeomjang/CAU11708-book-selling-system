@@ -28,9 +28,9 @@ class DeleteBookTest {
 
         addBook = new AddBook();
         deleteBook = new DeleteBook();
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        other = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
+        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        other = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
 
         addBook.addBook(book);
     }

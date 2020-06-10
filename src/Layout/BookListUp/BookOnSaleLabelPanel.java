@@ -22,7 +22,7 @@ public class BookOnSaleLabelPanel extends JPanel {
         add(new JLabel(book.getAuthor()));
         add(new JLabel(book.getPrice()));
         add(new JLabel(book.getCondition().toString()));
-        add(new JLabel(book.getOwner().getUsername()));
+        add(new JLabel(book.getOwner()));
     }
 
     public JCheckBox getBuyChk() {

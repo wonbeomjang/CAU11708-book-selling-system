@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class SignUpTextPanel extends JPanel {
     JTextField username = new JTextField();
-    JTextField password = new JTextField();
+    JPasswordField password = new JPasswordField();
     JTextField email = new JTextField();
     JTextField phoneNumber = new JTextField();
     JTextField name = new JTextField();
@@ -24,7 +24,7 @@ public class SignUpTextPanel extends JPanel {
     }
 
     public String getPassword() {
-        return password.getText();
+        return String.valueOf(password.getPassword());
     }
 
     public String getEmail() {

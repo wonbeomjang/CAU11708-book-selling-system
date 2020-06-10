@@ -12,7 +12,7 @@ public class DeleteBook extends Layout.Interface.DeleteBook {
 
     @Override
     public boolean deleteBook(User owner, Book book) {
-        if (book.owner.equals(owner) || owner instanceof Admin) {
+        if (book.owner.equals(owner.getUsername()) || owner instanceof Admin) {
             bookSaleList.deleteBook(book);
             setChanged();
             notifyObservers(book);

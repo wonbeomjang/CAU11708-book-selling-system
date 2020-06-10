@@ -1,7 +1,6 @@
 package DataUtils.Book;
 
 
-import DataUtils.User.SearchUser;
 import DataUtils.User.User;
 
 import java.io.*;
@@ -15,7 +14,6 @@ public class BookSaleListFileManager {
     }
     public ArrayList<Book> readData() throws IOException {
         ArrayList<Book> bookList = new ArrayList<>();
-        SearchUser searchUser = new SearchUser();
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(fileName)));
 
         String line;
@@ -24,11 +22,8 @@ public class BookSaleListFileManager {
         while ((line = bufferedReader.readLine()) != null){
             line = line.replaceAll(" ", "");
             bookInfo = line.split(":");
-            owner = searchUser.search(bookInfo[7]);
-            if (owner.length == 0)
-                continue;
 
-            bookList.add(new BookOnSale(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4], bookInfo[5], BookCondition.valueOf(bookInfo[6]), owner[0]));
+            bookList.add(new BookOnSale(bookInfo[0], bookInfo[1], bookInfo[2], bookInfo[3], bookInfo[4], bookInfo[5], BookCondition.valueOf(bookInfo[6]), bookInfo[7]));
         }
         return bookList;
     }

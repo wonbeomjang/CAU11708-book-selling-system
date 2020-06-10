@@ -32,7 +32,7 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
             userList.deleteUser(user);
             userList.saveData();
 
-            bookSaleList.refresh();
+            bookSaleList.refresh(user);
 
             setChanged();
             notifyObservers(user);

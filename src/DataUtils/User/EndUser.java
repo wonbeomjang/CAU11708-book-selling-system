@@ -6,7 +6,7 @@ public class EndUser extends User {
     private String phoneNumber;
     private UserState userState;
 
-    public EndUser(String username, String password, String name, String email, String phoneNumber) {
+    public EndUser(String username, String password, String email, String name, String phoneNumber) {
         super(username, password);
         this.name = name;
         this.email = email;
@@ -14,7 +14,7 @@ public class EndUser extends User {
         this.userState = UserState.Activate;
     }
 
-    public EndUser(String username, String password, String name, String email, String phoneNumber, String userState) {
+    public EndUser(String username, String password, String name, String phoneNumber, String email, String userState) {
         super(username, password);
         this.name = name;
         this.email = email;
@@ -56,6 +56,7 @@ public class EndUser extends User {
 
     @Override
     public String toString() {
-        return username + ": " + password + ": " + email + ": " + phoneNumber + ": " + name + ": " + userState.toString() + '\n';
+
+        return username + ": " + password + ": " + name + ": " + phoneNumber + ": " + email + ": " + userState.toString() + '\n';
     }
 }

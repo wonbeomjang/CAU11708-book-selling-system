@@ -24,7 +24,7 @@ class AddBookTest {
         bookSaleList = BookSaleList.getInstance();
 
         addBook = new AddBook();
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
+        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
     }
 
     @Test
@@ -36,7 +36,7 @@ class AddBookTest {
 
     @Test
     void addBookWithBookObject() {
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
+        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
 
         numBooks = bookSaleList.getNumBooks();
         addBook.addBook(book);

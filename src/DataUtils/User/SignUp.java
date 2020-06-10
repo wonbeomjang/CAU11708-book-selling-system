@@ -28,7 +28,7 @@ public class SignUp extends Layout.Interface.SignUp {
         if(!checkUniqueUserName(username))
             return false;
 
-        User newUser = new EndUser(username, password, name, email, phoneNumber);
+        User newUser = new EndUser(username, password, name, phoneNumber, email);
         userList.addUser(newUser);
         userList.saveData();
 

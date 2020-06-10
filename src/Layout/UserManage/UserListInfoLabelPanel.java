@@ -8,8 +8,8 @@ public class UserListInfoLabelPanel extends JPanel {
         setLayout(new GridLayout());
 
         add(new JLabel("아이디"));
-        add(new JLabel("전화번호"));
         add(new JLabel("이메일"));
+        add(new JLabel("전화번호"));
         add(new JLabel("이름"));
         add(new JLabel("회원상태"));
     }

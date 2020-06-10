@@ -1,11 +1,12 @@
 package DataUtils.Book;
 
+import DataUtils.User.User;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class BookSaleList {
     private ArrayList<Book> books;
-    private int numBooks;
     private BookSaleListFileManager bookSaleListFileManager;
     private String fileName;
     private static final BookSaleList instance = new BookSaleList();
@@ -14,7 +15,6 @@ public class BookSaleList {
 
     public void init(String fileName) {
         this.fileName = fileName;
-        numBooks = 0;
         bookSaleListFileManager = new BookSaleListFileManager(fileName);
         try {
             books = bookSaleListFileManager.readData();
@@ -22,12 +22,12 @@ public class BookSaleList {
         catch (IOException e) {
             books = new ArrayList<>();
         }
-        numBooks = books.size();
     }
 
-    public void refresh() {
-        init(fileName);
+    public void refresh(User user) {
+        books.removeIf(book -> book.getOwner().equals(user.getUsername()));
         saveData();
+        init(fileName);
     }
 
     public static BookSaleList getInstance() {
@@ -35,12 +35,11 @@ public class BookSaleList {
     }
 
     public int getNumBooks() {
-        return numBooks;
+        return books.size();
     }
 
     public boolean addBook(Book book) {
         books.add(book);
-        numBooks++;
         return true;
     }
 
@@ -49,7 +48,6 @@ public class BookSaleList {
             return false;
         }
         books.remove(book);
-        numBooks--;
         return true;
     }
 
@@ -70,8 +68,8 @@ public class BookSaleList {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < numBooks; i++) {
-            stringBuilder.append(books.get(i).toString());
+        for (Book book : books) {
+            stringBuilder.append(book.toString());
         }
         return stringBuilder.toString();
     }

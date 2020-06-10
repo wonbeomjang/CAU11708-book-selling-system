@@ -8,7 +8,7 @@ public class BookOnSale extends Book {
     BookCondition condition;
 
     public BookOnSale(String title, String public_year, String publisher, String author, String price,
-               BookCondition condition, User owner) {
+               BookCondition condition, String owner) {
         //ISBN설정해야함
         super(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author, owner);
         if(!price.equals("")) Integer.parseInt(price);
@@ -17,7 +17,7 @@ public class BookOnSale extends Book {
     }
 
     public BookOnSale(String title, String isbn, String public_year, String publisher, String author, String price,
-                      BookCondition condition, User owner) {
+                      BookCondition condition, String owner) {
         super(title, isbn, public_year, publisher, author, owner);
         this.price = price;
         this.condition = condition;
@@ -43,14 +43,14 @@ public class BookOnSale extends Book {
     public String toString() {
 
         return title + ": " + isbn +": " + public_year + ": " + publisher + ": " + author + ": " + price + ": " + condition.toString() +
-                ": " + owner.getUsername() + '\n';
+                ": " + owner + '\n';
     }
 
-    public User getOwner() {
+    public String getOwner() {
         return owner;
     }
 
     public void setOwner(User owner) {
-        this.owner = owner;
+        this.owner = owner.toString();
     }
 }

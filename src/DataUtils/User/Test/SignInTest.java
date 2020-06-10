@@ -17,7 +17,7 @@ class SignInTest {
         SetUp.setup();
         userList = UserList.getInstance();
 
-        user1 = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
+        user1 = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
         signIn = new SignIn();
 

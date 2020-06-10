@@ -22,10 +22,10 @@ class SearchBookTest {
         SetUp.setup();
 
 
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "jtiger958", "01037937352");
+        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         addBook = new AddBook();
         searchBook = new SearchBook();
-        book = new BookOnSale("DB", "123", "2", "장원범", "65000", BookCondition.Fair, owner);
+        book = new BookOnSale("DB", "123", "2", "장원범", "65000", BookCondition.Fair, owner.getUsername());
 
         addBook.addBook(book);
         addBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
@@ -46,11 +46,13 @@ class SearchBookTest {
     @Test
     void search() {
         books = searchBook.search("장원범", BookKeyType.Author);
-        assertEquals(3, books.length);
+        for(Book book: books) assertEquals("장원범", book.getAuthor());
+
         books = searchBook.search("Linux", BookKeyType.Title);
-        assertEquals(1, books.length);
+        for(Book book: books) assertEquals("Linux", book.getTitle());
+
         books = searchBook.search("wonbeomjang", BookKeyType.Username);
-        assertEquals(3, books.length);
+        for(Book book: books) assertEquals("wonbeomjang", book.getOwner());
     }
 
 }

@@ -13,7 +13,7 @@ public class SearchBook extends Layout.Interface.SearchBook {
         if (keyType == BookKeyType.Title) return book.title.equals(key);
         if (keyType == BookKeyType.ISBN) return book.isbn.equals(key);
         if (keyType == BookKeyType.Author) return book.author.equals(key);
-        if (keyType == BookKeyType.Username) return book.owner.getUsername().equals(key);
+        if (keyType == BookKeyType.Username) return book.owner.equals(key);
         return false;
     }
 
