@@ -1,7 +1,5 @@
 package DataUtils.Book;
 
-import DataUtils.User.UserList;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,10 +12,10 @@ public class BookSaleList {
 
     private BookSaleList() {}
 
-    public void init(String fileName, UserList userList) {
+    public void init(String fileName) {
         this.fileName = fileName;
         numBooks = 0;
-        bookSaleListFileManager = new BookSaleListFileManager(fileName, userList);
+        bookSaleListFileManager = new BookSaleListFileManager(fileName);
         try {
             books = bookSaleListFileManager.readData();
         }
@@ -27,8 +25,8 @@ public class BookSaleList {
         numBooks = books.size();
     }
 
-    public void refresh(UserList userList) {
-        init(fileName, userList);
+    public void refresh() {
+        init(fileName);
         saveData();
     }
 

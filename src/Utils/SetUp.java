@@ -12,6 +12,6 @@ public class SetUp {
         BookSaleList bookSaleList = BookSaleList.getInstance();
 
         userList.init(userDataFile);
-        bookSaleList.init(bookDataFile, userList);
+        bookSaleList.init(bookDataFile);
     }
 }

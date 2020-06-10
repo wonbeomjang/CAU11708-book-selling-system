@@ -3,7 +3,6 @@ package DataUtils.Book;
 
 import DataUtils.User.SearchUser;
 import DataUtils.User.User;
-import DataUtils.User.UserList;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 public class BookSaleListFileManager {
     private final String fileName;
 
-    public BookSaleListFileManager(String fileName, UserList userList) {
+    public BookSaleListFileManager(String fileName) {
         this.fileName = fileName;
     }
     public ArrayList<Book> readData() throws IOException {
@@ -22,7 +21,6 @@ public class BookSaleListFileManager {
         String line;
         String[] bookInfo;
         User[] owner;
-        BookCondition bookCondition;
         while ((line = bufferedReader.readLine()) != null){
             line = line.replaceAll(" ", "");
             bookInfo = line.split(":");
