@@ -1,10 +1,8 @@
 package DataUtils.User;
 
 import DataUtils.Book.BookSaleList;
-import Layout.Interface.ChangeUserState;
-import Layout.Interface.DeleteUser;
 
-public class ManageUser extends ChangeUserState implements DeleteUser {
+public class ManageUser extends Layout.Interface.ManageUser {
     private final UserList userList;
     BookSaleList bookSaleList = BookSaleList.getInstance();
 
@@ -19,6 +17,7 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
             userList.saveData();
             setChanged();
             notifyObservers(user);
+            clearChanged();
 
             return true;
         }
@@ -29,13 +28,12 @@ public class ManageUser extends ChangeUserState implements DeleteUser {
     @Override
     public boolean delete(User user) {
         if(user instanceof EndUser) {
-            userList.deleteUser(user);
+            ((EndUser)user).setUserState(UserState.Deleted);
             userList.saveData();
-
-            bookSaleList.refresh(user);
 
             setChanged();
             notifyObservers(user);
+            clearChanged();
 
             return true;
         }
