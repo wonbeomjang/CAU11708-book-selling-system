@@ -3,7 +3,9 @@ package DataUtils.Book;
 import DataUtils.User.User;
 import Utils.HashFunction;
 
-public class BookOnSale extends Book {
+import java.io.Serializable;
+
+public class BookOnSale extends Book implements Serializable {
     String price;
     BookCondition condition;
 

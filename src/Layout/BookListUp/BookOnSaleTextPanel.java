@@ -10,7 +10,7 @@ import java.awt.*;
 public class BookOnSaleTextPanel extends JPanel {
     BookOnSale bookOnSale;
     JTextField title;
-    JLabel isbn;
+    JTextField isbn;
     JTextField publicYear;
     JTextField publisher;
     JTextField author;
@@ -23,7 +23,7 @@ public class BookOnSaleTextPanel extends JPanel {
         setLayout(new GridLayout(1, 7));
 
         title = new JTextField(book.getTitle());
-        isbn = new JLabel(book.getIsbn());
+        isbn = new JTextField(book.getIsbn());
         publicYear = new JTextField(book.getPublic_year());
         publisher = new JTextField(book.getPublisher());
         author = new JTextField(book.getAuthor());

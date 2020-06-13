@@ -12,7 +12,7 @@ public class BuyBookPanel extends JPanel {
     SearchBookPanel searchBookPanel;
     JButton buyBtn;
     public BuyBookPanel(User systemUser, Observer observer) {
-        searchBookPanel = new SearchBookPanel(observer);
+        searchBookPanel = new SearchBookPanel(systemUser, observer);
         buyBtn = new JButton("사기");
 
         setLayout(new BorderLayout());

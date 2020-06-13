@@ -4,6 +4,7 @@ import ActionListener.SearchBook.SearchBtnActionListener;
 import DataUtils.Book.Book;
 import DataUtils.Book.BookKeyType;
 import DataUtils.Book.BookOnSale;
+import DataUtils.User.User;
 import Layout.BookListUp.BookOnSaleAttribFrtBlkPanel;
 import Layout.BookListUp.BookOnSaleLabelPanel;
 import Layout.Interface.SearchBook;
@@ -20,10 +21,11 @@ public class SearchBookPanel extends JPanel implements Observer {
     SearchBook searchBook = new DataUtils.Book.SearchBook();
     ArrayList<BookOnSaleLabelPanel> bookOnSaleLabelPanels = new ArrayList<>();
     Observer observer;
+    User systemUser;
     int panWidth = 800;
     int panHeight = 80;
 
-    protected void organizePanel(Book[] books) {
+    protected void organizePanel(User systemUser, Book[] books) {
         searchKeyWordPanel = new SearchKeyWordPanel();
         bookOnSaleAttribFrtBlkPanel = new BookOnSaleAttribFrtBlkPanel();
 
@@ -39,6 +41,10 @@ public class SearchBookPanel extends JPanel implements Observer {
 
         for(Book book: books) {
             bookOnSaleLabelPanel = new BookOnSaleLabelPanel((BookOnSale) book);
+            if(systemUser.getUsername().equals(book.getOwner())) {
+                bookOnSaleLabelPanel.remove(0);
+                bookOnSaleLabelPanel.add(new JLabel(" "), 0);
+            }
             bookOnSaleLabelPanels.add(bookOnSaleLabelPanel);
             add(bookOnSaleLabelPanel);
         }
@@ -48,7 +54,7 @@ public class SearchBookPanel extends JPanel implements Observer {
     }
 
     protected void organizePanel() {
-        organizePanel(searchBook.search(null, BookKeyType.Title));
+        organizePanel(systemUser, searchBook.search(null, BookKeyType.Title));
     }
 
     @Override
@@ -58,14 +64,15 @@ public class SearchBookPanel extends JPanel implements Observer {
 
         Component component = getComponent(0);
         removeAll();
-        organizePanel(books);
+        organizePanel(systemUser, books);
         remove(0);
         add(component, 0);
         revalidate();
         repaint();
     }
 
-    public SearchBookPanel(Observer observer) {
+    public SearchBookPanel(User systemUser, Observer observer) {
+        this.systemUser = systemUser;
         this.observer = observer;
         organizePanel();
     }

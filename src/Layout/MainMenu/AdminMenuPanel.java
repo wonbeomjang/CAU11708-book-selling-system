@@ -21,7 +21,7 @@ public class AdminMenuPanel extends JPanel {
         add(deleteBookMenuPanel);
         add(manageUserMenuPanel);
 
-        searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister());
+        searchBookMenuPanel.getBtn().addActionListener(new SearchBookBtnActionLister(user));
         manageUserMenuPanel.getBtn().addActionListener(new ManageUserBtnActionListener(user));
         deleteBookMenuPanel.getBtn().addActionListener(new DeleteBookBtnActionListener(user));
     }

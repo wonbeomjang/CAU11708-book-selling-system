@@ -1,9 +1,10 @@
 package DataUtils.User;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class UserList {
+public class UserList implements Serializable {
     private int numUsers;
     ArrayList<User> userList;
     UserListFileManager userListFileManager;

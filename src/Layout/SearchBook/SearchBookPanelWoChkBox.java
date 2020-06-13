@@ -1,5 +1,6 @@
 package Layout.SearchBook;
 
+import DataUtils.User.User;
 import Layout.BookListUp.BookOnSaleLabelPanel;
 
 import java.awt.*;
@@ -7,8 +8,8 @@ import java.util.Observable;
 import java.util.Observer;
 
 public class SearchBookPanelWoChkBox extends SearchBookPanel {
-    public SearchBookPanelWoChkBox(Observer observer) {
-        super(observer);
+    public SearchBookPanelWoChkBox(User systemUser, Observer observer) {
+        super(systemUser, observer);
         removeChkBox();
     }
 

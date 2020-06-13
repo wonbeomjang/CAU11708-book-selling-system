@@ -3,9 +3,10 @@ package DataUtils.Book;
 import DataUtils.User.User;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BookSaleList {
+public class BookSaleList  implements Serializable {
     private ArrayList<Book> books;
     private BookSaleListFileManager bookSaleListFileManager;
     private String fileName;

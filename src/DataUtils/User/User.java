@@ -1,6 +1,8 @@
 package DataUtils.User;
 
-public abstract class User {
+import java.io.Serializable;
+
+public abstract class User  implements Serializable {
     protected String username;
     protected String password;
     public User(String username, String password) {

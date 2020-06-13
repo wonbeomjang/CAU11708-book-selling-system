@@ -1,6 +1,7 @@
 package Layout.SearchBook;
 
 import DataUtils.Book.Book;
+import DataUtils.User.User;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +10,8 @@ import java.util.Observer;
 
 public class SearchBookFrame extends JFrame implements Observer {
     SearchBookPanelWoChkBox searchBookPanelWoChkBox;
-    public SearchBookFrame() {
-        searchBookPanelWoChkBox = new SearchBookPanelWoChkBox(this);
+    public SearchBookFrame(User systemUser) {
+        searchBookPanelWoChkBox = new SearchBookPanelWoChkBox(systemUser, this);
 
         setLayout(new BorderLayout());
         add(searchBookPanelWoChkBox);
