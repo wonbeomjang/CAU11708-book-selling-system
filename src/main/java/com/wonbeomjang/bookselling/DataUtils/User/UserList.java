@@ -47,6 +47,7 @@ public class UserList implements Serializable {
         if (!userList.contains(user))
             return false;
         userList.remove(user);
+        bookSaleList.refresh(user);
         return true;
     }
 
@@ -63,12 +64,6 @@ public class UserList implements Serializable {
     }
 
     public void saveData() {
-        for(User user: userList) {
-            if(user.getUserState().equals(UserState.Deleted)) {
-                userList.remove(user);
-                bookSaleList.refresh(user);
-            }
-        }
         try {
             mapper.writeValue(new File(userDatafile), userList);
         } catch (IOException e) {

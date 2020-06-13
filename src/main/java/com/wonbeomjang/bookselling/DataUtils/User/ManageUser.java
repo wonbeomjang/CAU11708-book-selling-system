@@ -30,7 +30,8 @@ public class ManageUser extends com.wonbeomjang.bookselling.Layout.Interface.Man
         if(user.getUserState().equals(UserState.Deleted))
             return false;
         if(user.getUserRank().equals(UserRank.EndUser)) {
-            user.setUserState(UserState.Deleted);
+
+            userList.deleteUser(user);
             userList.saveData();
 
             setChanged();
