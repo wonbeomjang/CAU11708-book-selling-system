@@ -1,5 +1,8 @@
 package com.wonbeomjang.bookselling.DataUtils.Book;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class Book {
     protected String title;
     protected String isbn;
@@ -8,7 +11,9 @@ public abstract class Book {
     protected String author;
     protected String owner;
 
-    Book(String title, String isbn, String public_year, String publisher, String author, String owner) {
+    @JsonCreator
+    Book(@JsonProperty("title") String title, @JsonProperty("isbn") String isbn, @JsonProperty("public_year") String public_year,
+         @JsonProperty("publisher") String publisher, @JsonProperty("author") String author, @JsonProperty("owner") String owner) {
         if(!public_year.equals("")) Integer.parseInt(public_year);
         this.title = title;
         this.isbn = isbn;

@@ -1,7 +1,7 @@
 package com.wonbeomjang.bookselling.Layout.UserManage;
 
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 
 import javax.swing.*;
 import java.util.Observable;
@@ -9,7 +9,7 @@ import java.util.Observer;
 
 public class UserMangeFrame extends JFrame implements Observer {
     public UserMangeFrame(User systemUser) {
-        if(systemUser instanceof EndUser) dispose();
+        if(systemUser.getUserRank().equals(UserRank.EndUser)) dispose();
 
         UserManagePanel userManagePanel = new UserManagePanel(this);
         add(userManagePanel);

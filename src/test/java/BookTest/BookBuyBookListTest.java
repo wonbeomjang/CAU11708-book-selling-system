@@ -4,7 +4,6 @@ import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookCondition;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookSaleList;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,11 +22,11 @@ class BookBuyBookListTest {
     @BeforeEach
     void setUp() {
 
-        SetUp.setup();
+        SetUp.setup(true);
 
         bookSaleList = BookSaleList.getInstance();
 
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        owner = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         book1 = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
 
         bookSaleList.addBook(book1);

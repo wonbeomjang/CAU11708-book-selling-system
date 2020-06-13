@@ -1,8 +1,8 @@
 package com.wonbeomjang.bookselling.Layout.DeleteBook;
 
 import com.wonbeomjang.bookselling.DataUtils.Book.*;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleAttribFrtBlkPanel;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleLabelPanel;
 
@@ -16,7 +16,7 @@ public class DeleteBookListPanel extends JPanel {
     BookOnSaleLabelPanel bookOnSaleLabelPanel;
     Book[] books;
     public DeleteBookListPanel(User user) {
-        if (user instanceof EndUser) {
+        if (user.getUserRank().equals(UserRank.EndUser)) {
             books = searchBook.search(user.getUsername(), BookKeyType.Username);
         }
         else {

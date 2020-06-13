@@ -49,6 +49,9 @@ public class RegisterBtnActionListener implements ActionListener {
         } else if(!checkInt(publicYear)) {
             JOptionPane.showMessageDialog(null,"정확한 년도가 아닙니다");
             return;
+        } else if(!checkInt(isbn)) {
+            JOptionPane.showMessageDialog(null,"정확한 ISBN이 아닙니다");
+            return;
         }
         System.out.println(isbn);
         registerBook.addBook(title, isbn, publicYear, publisher, author, price, BookCondition.valueOf(condition), user);

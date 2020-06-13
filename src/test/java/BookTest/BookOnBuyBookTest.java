@@ -2,7 +2,6 @@ package BookTest;
 
 import com.wonbeomjang.bookselling.DataUtils.Book.BookCondition;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +14,7 @@ class BookOnBuyBookTest {
     User owner, newOwner;
     @BeforeEach
     void setUp() {
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        owner = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         bookOnSale = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
     }
 
@@ -35,7 +34,7 @@ class BookOnBuyBookTest {
 
     @Test
     void setOwner() {
-        newOwner = new EndUser("wonbeomang", "20182592", "장원범", "jtiger958", "01037937352");
+        newOwner = new User("wonbeomang", "20182592", "장원범", "jtiger958", "01037937352");
         bookOnSale.setOwner(newOwner.getUsername());
         assertEquals(newOwner.getUsername(), bookOnSale.getOwner());
         assertNotEquals(owner, bookOnSale.getOwner());

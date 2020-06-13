@@ -1,7 +1,7 @@
 package com.wonbeomjang.bookselling.Layout.UserManage;
 
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 import com.wonbeomjang.bookselling.DataUtils.User.UserState;
 
 import javax.swing.*;
@@ -23,13 +23,12 @@ public class UserInfoPanel extends JPanel {
         this.username = new JLabel(user.getUsername());
         add(this.username, 0);
 
-        if(user instanceof EndUser) {
-            EndUser endUser = (EndUser) user;
+        if(user.getUserRank().equals(UserRank.EndUser)) {
 
-            this.email = new JLabel(endUser.getEmail());
-            this.phoneNumber = new JLabel(endUser.getPhoneNumber());
-            this.name = new JLabel(endUser.getName());
-            this.userState.setSelectedItem(endUser.getUserState());
+            this.email = new JLabel(user.getEmail());
+            this.phoneNumber = new JLabel(user.getPhoneNumber());
+            this.name = new JLabel(user.getName());
+            this.userState.setSelectedItem(user.getUserState());
 
             add(this.email);
             add(this.phoneNumber);

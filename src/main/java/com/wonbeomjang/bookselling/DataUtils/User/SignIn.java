@@ -1,5 +1,7 @@
 package com.wonbeomjang.bookselling.DataUtils.User;
 
+import com.wonbeomjang.bookselling.Utils.SHA256;
+
 public class SignIn extends com.wonbeomjang.bookselling.Layout.Interface.SignIn {
     private final UserList userList;
 
@@ -18,8 +20,8 @@ public class SignIn extends com.wonbeomjang.bookselling.Layout.Interface.SignIn 
 
         for(int i = 0; i < numUser; i++) {
             user = userList.getUser(i);
-            if(password.equals(user.getPassword()) && username.equals(user.getUsername())) {
-                if(user instanceof EndUser && !((EndUser)user).getUserState().equals(UserState.Activate)) {
+            if(SHA256.encryption(password).equals(user.getPassword()) && username.equals(user.getUsername())) {
+                if(!user.getUserState().equals(UserState.Activate)) {
                     return null;
                 }
                 setChanged();

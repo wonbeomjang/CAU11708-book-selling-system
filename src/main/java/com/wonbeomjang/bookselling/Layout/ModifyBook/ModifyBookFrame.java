@@ -1,8 +1,8 @@
 package com.wonbeomjang.bookselling.Layout.ModifyBook;
 
 import com.wonbeomjang.bookselling.DataUtils.Book.Book;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 
 import javax.swing.*;
 import java.util.Observable;
@@ -14,11 +14,11 @@ public class ModifyBookFrame extends JFrame implements Observer {
     int height;
 
     public ModifyBookFrame(User systemUser) {
-        if(!(systemUser instanceof EndUser))
+        if(systemUser.getUserRank().equals(UserRank.Admin))
             dispose();
         this.systemUser = systemUser;
 
-        modifyBookPanel = new ModifyBookPanel((EndUser) systemUser, this);
+        modifyBookPanel = new ModifyBookPanel((User) systemUser, this);
         add(modifyBookPanel);
         height = modifyBookPanel.getLength() * 40 + 70;
 

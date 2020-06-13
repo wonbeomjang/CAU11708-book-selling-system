@@ -1,7 +1,6 @@
 package BookTest;
 
 import com.wonbeomjang.bookselling.DataUtils.Book.*;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,10 +18,10 @@ class SearchBookTest {
     @BeforeEach
     void setUp() {
 
-        SetUp.setup();
+        SetUp.setup(true);
 
 
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        owner = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         addBook = new AddBook();
         searchBook = new SearchBook();
         book = new BookOnSale("DB", "123", "2", "장원범", "65000", BookCondition.Fair, owner.getUsername());

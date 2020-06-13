@@ -1,7 +1,6 @@
 package BookTest;
 
 import com.wonbeomjang.bookselling.DataUtils.Book.*;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,14 +21,14 @@ class DeleteBookTest {
     @BeforeEach
     void setUp() {
 
-        SetUp.setup();
+        SetUp.setup(true);
 
         bookSaleList = BookSaleList.getInstance();
 
         addBook = new AddBook();
         deleteBook = new DeleteBook();
-        owner = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
-        other = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
+        owner = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        other = new User("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
         book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
 
         addBook.addBook(book);

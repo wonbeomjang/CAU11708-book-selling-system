@@ -1,25 +1,24 @@
 package UserTest;
 
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.SearchUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.DataUtils.User.UserList;
 import com.wonbeomjang.bookselling.Utils.SetUp;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SearchUserTest {
-    UserList userList;
-    SearchUser searchUser;
-    User user1, user2;
-    int wonbeomLen;
-    int userLen;
+    static UserList userList;
+    static SearchUser searchUser;
+    static User user1, user2;
+    static int wonbeomLen;
+    static int userLen;
 
-    @BeforeEach
-    void setUp() {
-        SetUp.setup();
+    @BeforeAll
+    static void setUp() {
+        SetUp.setup(true);
         userList = UserList.getInstance();
 
         searchUser = new SearchUser();
@@ -27,8 +26,8 @@ class SearchUserTest {
         wonbeomLen = searchUser.search("wonbeomjang").length;
         userLen = searchUser.search().length;
 
-        user1 = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
-        user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
+        user1 = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        user2 = new User("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
 
         userList.addUser(user1);
         userList.addUser(user2);

@@ -1,5 +1,7 @@
 package com.wonbeomjang.bookselling.DataUtils.User;
 
+import com.wonbeomjang.bookselling.Utils.SHA256;
+
 public class SignUp extends com.wonbeomjang.bookselling.Layout.Interface.SignUp {
     private final UserList userList;
 
@@ -28,7 +30,7 @@ public class SignUp extends com.wonbeomjang.bookselling.Layout.Interface.SignUp 
         if(!checkUniqueUserName(username))
             return false;
 
-        User newUser = new EndUser(username, password, name, phoneNumber, email);
+        User newUser = new User(username, SHA256.encryption(password), name, phoneNumber, email);
         userList.addUser(newUser);
         userList.saveData();
 

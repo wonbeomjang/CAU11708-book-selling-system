@@ -1,7 +1,7 @@
 package com.wonbeomjang.bookselling.DataUtils.Book;
 
-import com.wonbeomjang.bookselling.DataUtils.User.Admin;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 
 public class DeleteBook extends com.wonbeomjang.bookselling.Layout.Interface.DeleteBook {
     private final BookSaleList bookSaleList;
@@ -12,7 +12,7 @@ public class DeleteBook extends com.wonbeomjang.bookselling.Layout.Interface.Del
 
     @Override
     public boolean deleteBook(User owner, Book book) {
-        if (book.owner.equals(owner.getUsername()) || owner instanceof Admin) {
+        if (book.owner.equals(owner.getUsername()) || owner.getUserRank().equals(UserRank.Admin)) {
             bookSaleList.deleteBook(book);
             setChanged();
             notifyObservers(book);

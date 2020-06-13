@@ -1,7 +1,7 @@
 package com.wonbeomjang.bookselling.Layout.UserManage;
 
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,18 +11,18 @@ public class UserListPanel extends JPanel {
     ArrayList<UserInfoPanel> userInfoPanels = new ArrayList<>();
     public UserListPanel(User[] users) {
         UserInfoPanel userInfoPanel;
-        ArrayList<EndUser> endUsers = new ArrayList<>();
+        ArrayList<User> endUsers = new ArrayList<>();
 
         for(User user: users)
-            if (user instanceof EndUser)
-                endUsers.add((EndUser) user);
+            if (user.getUserRank().equals(UserRank.EndUser))
+                endUsers.add(user);
 
         setLayout(new GridLayout(1 + endUsers.size(), 1));
 
         add(new UserListInfoLabelPanel());
-        for(EndUser endUser: endUsers) {
+        for(User user : endUsers) {
 
-            userInfoPanel = new UserInfoPanel(endUser);
+            userInfoPanel = new UserInfoPanel(user);
 
             add(userInfoPanel);
             userInfoPanels.add(userInfoPanel);

@@ -4,7 +4,7 @@ import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookKeyType;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
 import com.wonbeomjang.bookselling.DataUtils.Book.SearchBook;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
+import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleAttribPanel;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleTextPanel;
 
@@ -17,9 +17,9 @@ public class ModifyBookListPanel extends JPanel {
     ArrayList<BookOnSaleTextPanel> bookOnSaleTextPanels = new ArrayList<>();
     BookOnSaleTextPanel bookOnSaleTextPanel;
     Book[] books;
-    EndUser systemUser;
+    User systemUser;
 
-    public ModifyBookListPanel(EndUser systemUser) {
+    public ModifyBookListPanel(User systemUser) {
         this.systemUser = systemUser;
         books = searchBook.search(systemUser.getUsername(), BookKeyType.Username);
         setLayout(new GridLayout(books.length + 1, 1));

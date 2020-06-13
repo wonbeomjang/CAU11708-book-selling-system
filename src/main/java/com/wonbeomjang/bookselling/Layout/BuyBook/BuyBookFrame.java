@@ -1,9 +1,8 @@
 package com.wonbeomjang.bookselling.Layout.BuyBook;
 
 import com.wonbeomjang.bookselling.DataUtils.Book.Book;
-import com.wonbeomjang.bookselling.DataUtils.User.Admin;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 
 import javax.swing.*;
 import java.util.Observable;
@@ -11,12 +10,11 @@ import java.util.Observer;
 
 public class BuyBookFrame extends JFrame implements Observer {
     BuyBookPanel buyBookPanel;
-    EndUser systemUser;
+    User systemUser;
     public BuyBookFrame(User systemUser) {
-        if(systemUser instanceof Admin) dispose();
+        if(systemUser.getUserRank().equals(UserRank.Admin)) dispose();
 
-        assert systemUser instanceof EndUser;
-        this.systemUser = (EndUser) systemUser;
+        this.systemUser = systemUser;
         buyBookPanel = new BuyBookPanel(systemUser, this);
 
         add(buyBookPanel);

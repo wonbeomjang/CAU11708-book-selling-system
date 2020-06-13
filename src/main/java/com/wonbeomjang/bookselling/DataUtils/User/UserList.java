@@ -1,16 +1,19 @@
 package com.wonbeomjang.bookselling.DataUtils.User;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookSaleList;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class UserList implements Serializable {
-    private int numUsers;
     ArrayList<User> userList;
-    UserListFileManager userListFileManager;
+    String userDatafile;
     BookSaleList bookSaleList = BookSaleList.getInstance();
+    ObjectMapper mapper = new ObjectMapper();
 
     private static final UserList instance = new UserList();
 
@@ -20,21 +23,19 @@ public class UserList implements Serializable {
         return instance;
     }
 
-    public void init(String fileName) {
-        numUsers = 0;
-        this.userListFileManager = new UserListFileManager(fileName);
+    public void init(String userData) {
         try {
-            userList = userListFileManager.readData();
-            numUsers = userList.size();
-        }
-        catch (IOException e) {
-            userList = new ArrayList<User>();
+            userDatafile = userData;
+            User[] users = mapper.readValue(new File(userData), User[].class);
+            userList = new ArrayList<>(Arrays.asList(users));
+        } catch (IOException e) {
+            System.out.println("Create New File");
+            userList = new ArrayList<>();
         }
     }
 
     public boolean addUser(User user) {
       userList.add(user);
-      numUsers++;
       return true;
     }
 
@@ -46,12 +47,11 @@ public class UserList implements Serializable {
         if (!userList.contains(user))
             return false;
         userList.remove(user);
-        numUsers--;
         return true;
     }
 
     public int getNumUsers() {
-        return numUsers;
+        return userList.size();
     }
 
     public User getUser(int index) {
@@ -64,18 +64,23 @@ public class UserList implements Serializable {
 
     public void saveData() {
         for(User user: userList) {
-            if(user instanceof EndUser && ((EndUser)user).getUserState().equals(UserState.Deleted)) {
+            if(user.getUserState().equals(UserState.Deleted)) {
+                userList.remove(user);
                 bookSaleList.refresh(user);
             }
         }
-        userListFileManager.saveData();
+        try {
+            mapper.writeValue(new File(userDatafile), userList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(int i = 0; i < numUsers; i++) {
-            stringBuilder.append(userList.get(i).toString());
+        for (User user : userList) {
+            stringBuilder.append(user.toString());
         }
         return stringBuilder.toString();
     }

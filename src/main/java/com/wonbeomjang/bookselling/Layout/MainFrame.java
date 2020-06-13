@@ -1,8 +1,7 @@
 package com.wonbeomjang.bookselling.Layout;
 
-import com.wonbeomjang.bookselling.DataUtils.User.Admin;
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
+import com.wonbeomjang.bookselling.DataUtils.User.UserRank;
 import com.wonbeomjang.bookselling.Layout.MainMenu.AdminMenuPanel;
 import com.wonbeomjang.bookselling.Layout.MainMenu.EndUserMenuPanel;
 import com.wonbeomjang.bookselling.Layout.SignIn.SignInPanel;
@@ -33,7 +32,7 @@ public class MainFrame extends JFrame implements Observer {
     public void update(Observable o, Object arg) {
         systemUser = (User) arg;
         remove(signInPanel);
-        if(arg instanceof EndUser) {
+        if(((User)arg).getUserRank().equals(UserRank.EndUser)) {
             EndUserMenuPanel endUserMenuPanel = new EndUserMenuPanel(systemUser);
             add(endUserMenuPanel);
 
@@ -44,7 +43,7 @@ public class MainFrame extends JFrame implements Observer {
             revalidate();
             repaint();
         }
-        else if(arg instanceof Admin) {
+        else if(((User)arg).getUserRank().equals(UserRank.Admin)) {
             AdminMenuPanel adminMenuPanel = new AdminMenuPanel(systemUser);
             add(adminMenuPanel);
 

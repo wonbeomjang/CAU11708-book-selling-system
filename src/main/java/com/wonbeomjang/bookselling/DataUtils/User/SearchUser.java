@@ -14,7 +14,7 @@ public class SearchUser implements com.wonbeomjang.bookselling.Layout.Interface.
 
         for(int i = 0; i < numUser; i++) {
             user = userList.getUser(i);
-            if(username == null || username.equals(user.username))
+            if(username == null || username.equals(user.getUsername()))
                 users.add(user);
         }
         return users.toArray(new User[0]);

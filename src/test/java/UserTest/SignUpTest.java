@@ -16,15 +16,17 @@ class SignUpTest {
 
     @BeforeEach
     void setUp() {
-        SetUp.setup();
+        SetUp.setup(true);
 
         userList = UserList.getInstance();
 
-        user = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
-        signUp = new SignUp();
-        signIn = new SignIn();
+        user = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
 
         userList.addUser(user);
+        userList.saveData();
+
+        signUp = new SignUp();
+        signIn = new SignIn();
     }
 
     @Test

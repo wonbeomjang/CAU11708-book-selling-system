@@ -12,8 +12,8 @@ public class ManageUser extends com.wonbeomjang.bookselling.Layout.Interface.Man
 
     @Override
     public boolean change(User user, UserState userState) {
-        if(user instanceof EndUser) {
-            ((EndUser)user).setUserState(userState);
+        if(user.getUserRank().equals(UserRank.EndUser)) {
+            user.setUserState(userState);
             userList.saveData();
             setChanged();
             notifyObservers(user);
@@ -27,8 +27,10 @@ public class ManageUser extends com.wonbeomjang.bookselling.Layout.Interface.Man
 
     @Override
     public boolean delete(User user) {
-        if(user instanceof EndUser) {
-            ((EndUser)user).setUserState(UserState.Deleted);
+        if(user.getUserState().equals(UserState.Deleted))
+            return false;
+        if(user.getUserRank().equals(UserRank.EndUser)) {
+            user.setUserState(UserState.Deleted);
             userList.saveData();
 
             setChanged();

@@ -1,6 +1,5 @@
 package UserTest;
 
-import com.wonbeomjang.bookselling.DataUtils.User.EndUser;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.DataUtils.User.UserList;
 import com.wonbeomjang.bookselling.Utils.SetUp;
@@ -18,12 +17,12 @@ class UserListTest {
 
     @BeforeEach
     void setUp() {
-        SetUp.setup();
+        SetUp.setup(true);
 
         fileName = SetUp.userDataFile;
         userList = UserList.getInstance();
 
-        user1 = new EndUser("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        user1 = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
         numUsers = 0;
 
         userList.addUser(user1);
@@ -33,7 +32,7 @@ class UserListTest {
     void addUser() {
         numUsers = userList.getNumUsers();
 
-        user2 = new EndUser("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
+        user2 = new User("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
         userList.addUser(user2);
 
         assertEquals(userList.getNumUsers(),numUsers + 1);
@@ -46,6 +45,6 @@ class UserListTest {
 
         userList.deleteUser(user1);
         assertEquals(numUsers - 1, userList.getNumUsers());
-        assertFalse(userList.contain(user2));
+        assertFalse(userList.contain(user1));
     }
 }

@@ -1,5 +1,7 @@
 package com.wonbeomjang.bookselling.DataUtils.Book;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Utils.HashFunction;
 
@@ -9,8 +11,11 @@ public class BookOnSale extends Book implements Serializable {
     String price;
     BookCondition condition;
 
-    public BookOnSale(String title, String public_year, String publisher, String author, String price,
-               BookCondition condition, String owner) {
+    @JsonCreator
+    public BookOnSale(@JsonProperty("title") String title, @JsonProperty("public_year") String public_year,
+                      @JsonProperty("publisher") String publisher, @JsonProperty("author") String author,
+                      @JsonProperty("price") String price, @JsonProperty("condition") BookCondition condition,
+                      @JsonProperty("owner") String owner) {
         //ISBN설정해야함
         super(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author, owner);
         if(!price.equals("")) Integer.parseInt(price);

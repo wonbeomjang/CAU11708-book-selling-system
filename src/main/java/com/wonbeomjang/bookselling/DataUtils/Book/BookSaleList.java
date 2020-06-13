@@ -1,27 +1,30 @@
 package com.wonbeomjang.bookselling.DataUtils.Book;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.Predicate;
 
 public class BookSaleList  implements Serializable {
     private ArrayList<Book> books;
-    private BookSaleListFileManager bookSaleListFileManager;
     private String fileName;
     private static final BookSaleList instance = new BookSaleList();
+    ObjectMapper mapper = new ObjectMapper();
 
     private BookSaleList() {}
 
     public void init(String fileName) {
         this.fileName = fileName;
-        bookSaleListFileManager = new BookSaleListFileManager(fileName);
         try {
-            books = bookSaleListFileManager.readData();
-        }
-        catch (IOException e) {
+            BookOnSale[] users = mapper.readValue(new File(fileName), BookOnSale[].class);
+            books = new ArrayList<>(Arrays.asList(users));
+        } catch (IOException e) {
+            System.out.println("Create New File");
             books = new ArrayList<>();
         }
     }
@@ -68,7 +71,11 @@ public class BookSaleList  implements Serializable {
     }
 
     public void saveData() {
-        bookSaleListFileManager.saveData(this);
+        try {
+            mapper.writeValue(new File(fileName), books);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
