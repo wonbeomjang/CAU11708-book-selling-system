@@ -1,4 +1,4 @@
-admin: nayana
-wonbeom: 20182592: 장원범: 0103793: jtiger958@gmail.com: Activate
-1: 1
-3: 3: 3: 3: 3: Activate
+asdf:asdf:asdf:sdfa:asdf:Activate
+asddf:asdf:asdf:sdfa:asdf:Deactivate
+asddf:asdf:asdf:sdfa:asdf:Deleted
+asdfs:asdf
