@@ -6,7 +6,7 @@ import java.awt.*;
 public class MenuSubPanel extends JPanel {
     JButton btn;
     public MenuSubPanel(String menuName, String imagePath) {
-        ImageIcon imageIcon = new ImageIcon(imagePath);
+        ImageIcon imageIcon = new ImageIcon(this.getClass().getResource(imagePath));
 
         Image image = imageIcon.getImage();
         image = image.getScaledInstance(50, 50, Image.SCALE_SMOOTH);

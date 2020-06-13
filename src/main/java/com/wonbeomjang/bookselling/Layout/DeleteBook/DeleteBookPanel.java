@@ -9,7 +9,7 @@ import java.util.Observer;
 
 public class DeleteBookPanel extends JPanel {
     DeleteBookListPanel deleteBookListPanel;
-    JButton saveBtn = new JButton("저장");
+    JButton saveBtn = new JButton("삭제");
     public DeleteBookPanel(User systemUser, Observer observer) {
         setLayout(new BorderLayout());
 

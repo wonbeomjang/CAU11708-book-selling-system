@@ -53,7 +53,6 @@ public class RegisterBtnActionListener implements ActionListener {
             JOptionPane.showMessageDialog(null,"정확한 ISBN이 아닙니다");
             return;
         }
-        System.out.println(isbn);
         registerBook.addBook(title, isbn, publicYear, publisher, author, price, BookCondition.valueOf(condition), user);
     }
 

@@ -39,7 +39,7 @@ class ManageUserTest {
     @Test
     void delete() {
         assertTrue(manageUser.delete(user2));
-        assertEquals(user2.getUserState(), UserState.Deleted);
+        assertFalse(userList.contain(user2));
         assertFalse(manageUser.delete(user3));
     }
 
