@@ -1,6 +1,8 @@
 package com.wonbeomjang.bookselling.DataUtils.User;
 
-public enum UserState {
+import java.io.Serializable;
+
+public enum UserState implements Serializable {
     Deactivate("Deactivate"), Activate("Activate"), Deleted("Deleted");
     private String string;
     UserState(String string) {

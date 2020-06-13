@@ -24,8 +24,7 @@ public class SearchBtnActionListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String key = searchKeyWordPanel.getKeyText().getText();
-        String keyTypeStr = (String)searchKeyWordPanel.getSearchKeyType().getSelectedItem();
-        BookKeyType keyType = BookKeyType.valueOf(keyTypeStr);
+        BookKeyType keyType = (BookKeyType) searchKeyWordPanel.getSearchKeyType().getSelectedItem();
 
         Book[] books = searchBook.search(key, keyType);
 

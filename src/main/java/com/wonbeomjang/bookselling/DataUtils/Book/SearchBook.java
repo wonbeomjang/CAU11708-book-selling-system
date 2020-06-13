@@ -14,6 +14,8 @@ public class SearchBook extends com.wonbeomjang.bookselling.Layout.Interface.Sea
         if (keyType == BookKeyType.ISBN) return book.isbn.equals(key);
         if (keyType == BookKeyType.Author) return book.author.equals(key);
         if (keyType == BookKeyType.Username) return book.owner.equals(key);
+        if (keyType == BookKeyType.Publisher) return book.publisher.equals(key);
+        if (keyType == BookKeyType.PublicYear) return book.public_year.equals(key);
         return false;
     }
 

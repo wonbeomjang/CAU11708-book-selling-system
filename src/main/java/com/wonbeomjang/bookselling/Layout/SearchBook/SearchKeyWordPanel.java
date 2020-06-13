@@ -1,16 +1,16 @@
 package com.wonbeomjang.bookselling.Layout.SearchBook;
 
+import com.wonbeomjang.bookselling.DataUtils.Book.BookKeyType;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class SearchKeyWordPanel extends JPanel {
     JTextField keyText;
     JButton searchBtn;
-    JComboBox<String> searchKeyType;
-    String[] searchKeyTypeStr = {"Title", "ISBN", "Author", "Username"};
+    JComboBox<BookKeyType> searchKeyType = new JComboBox<>(BookKeyType.values());
     public SearchKeyWordPanel() {
         keyText = new JTextField();
-        searchKeyType = new JComboBox<>(searchKeyTypeStr);
         searchBtn = new JButton("검색");
 
         setLayout(new BorderLayout());
@@ -28,7 +28,7 @@ public class SearchKeyWordPanel extends JPanel {
         return searchBtn;
     }
 
-    public JComboBox<String> getSearchKeyType() {
+    public JComboBox<BookKeyType> getSearchKeyType() {
         return searchKeyType;
     }
 }

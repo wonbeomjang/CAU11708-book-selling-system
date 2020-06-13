@@ -1,4 +1,4 @@
-asdf:asdf:asdf:sdfa:asdf:Activate
-asddf:asdf:asdf:sdfa:asdf:Deactivate
-asddf:asdf:asdf:sdfa:asdf:Deleted
-asdfs:asdf
+asdf: asdf: asdf: sdfa: asdf: Activate
+asddf: asdf: asdf: sdfa: asdf: Deactivate
+asdfs: asdf
+2: 2: 2: 2: 2: Activate

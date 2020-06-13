@@ -1,5 +1,7 @@
 package com.wonbeomjang.bookselling.DataUtils.User;
 
+import com.wonbeomjang.bookselling.DataUtils.Book.BookSaleList;
+
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ public class UserList implements Serializable {
     private int numUsers;
     ArrayList<User> userList;
     UserListFileManager userListFileManager;
+    BookSaleList bookSaleList = BookSaleList.getInstance();
 
     private static final UserList instance = new UserList();
 
@@ -60,6 +63,11 @@ public class UserList implements Serializable {
     }
 
     public void saveData() {
+        for(User user: userList) {
+            if(user instanceof EndUser && ((EndUser)user).getUserState().equals(UserState.Deleted)) {
+                bookSaleList.refresh(user);
+            }
+        }
         userListFileManager.saveData();
     }
 
