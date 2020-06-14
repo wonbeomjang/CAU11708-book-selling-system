@@ -23,7 +23,7 @@ class AddBookTest {
         bookSaleList = BookSaleList.getInstance();
 
         addBook = new AddBook();
-        owner = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        owner = new User("wonbeomjang", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "01037937352", "jtiger958" );
     }
 
     @Test

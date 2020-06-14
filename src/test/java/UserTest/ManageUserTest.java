@@ -20,8 +20,8 @@ class ManageUserTest {
 
         manageUser = new ManageUser();
         user1 = new User("wonbeomjangs", "201s82592", "장원범", "jtiger958", "01037937352");
-        user2 = new User("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
-        user3 = new User("wonbeoms", "20182592", "장원범", "jtiger958", "01037937352", UserRank.Admin);
+        user2 = new User("wonbeom", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "jtiger958", "01037937352");
+        user3 = new User("wonbeoms", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "jtiger958", "01037937352", UserRank.Admin);
 
 
         userList.addUser(user1);

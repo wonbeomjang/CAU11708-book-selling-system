@@ -20,7 +20,7 @@ public class DeleteBookListPanel extends JPanel {
             books = searchBook.search(user.getUsername(), BookKeyType.Username);
         }
         else {
-            books = BookSaleList.getInstance().getBooks();
+            books = searchBook.search(null, BookKeyType.Username);
         }
         setLayout(new GridLayout(books.length + 1, 1));
 

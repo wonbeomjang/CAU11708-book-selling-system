@@ -22,7 +22,7 @@ class UserListTest {
         fileName = SetUp.userDataFile;
         userList = UserList.getInstance();
 
-        user1 = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+        user1 = new User("wonbeom", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "01037937352", "jtiger958" );
         numUsers = 0;
 
         userList.addUser(user1);
@@ -32,7 +32,7 @@ class UserListTest {
     void addUser() {
         numUsers = userList.getNumUsers();
 
-        user2 = new User("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
+        user2 = new User("wonbeom", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "jtiger958", "01037937352");
         userList.addUser(user2);
 
         assertEquals(userList.getNumUsers(),numUsers + 1);

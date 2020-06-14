@@ -19,14 +19,12 @@ class SignUpTest {
         SetUp.setup(true);
 
         userList = UserList.getInstance();
-
-        user = new User("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
-
-        userList.addUser(user);
-        userList.saveData();
-
         signUp = new SignUp();
         signIn = new SignIn();
+
+        signUp.signUp("wonbeomjang", "20182592", "장원범", "01037937352", "jtiger958" );
+
+
     }
 
     @Test
@@ -38,8 +36,7 @@ class SignUpTest {
     @Test
     void signUp() {
         numUsers = userList.getNumUsers();
-        signUp.signUp("wonbeom", "20182592", "장원범", "jtiger958", "01037937352");
-        if(signUp.checkUniqueUserName("wonbeom"))
+        if(signUp.signUp("wonbeom", "20182592", "장원범", "jtiger958", "01037937352"))
             assertEquals(numUsers + 1, userList.getNumUsers());
         else
             assertNotEquals(numUsers + 1, userList.getNumUsers());
