@@ -2,80 +2,104 @@ package com.wonbeomjang.bookselling.DataUtils.Book;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.wonbeomjang.bookselling.Utils.HashFunction;
 
-public abstract class Book {
-    protected String title;
-    protected String isbn;
-    protected String public_year;
-    protected String publisher;
-    protected String author;
-    protected String owner;
+import java.io.Serializable;
 
-    @JsonCreator
-    Book(@JsonProperty("title") String title, @JsonProperty("isbn") String isbn, @JsonProperty("public_year") String public_year,
-         @JsonProperty("publisher") String publisher, @JsonProperty("author") String author, @JsonProperty("owner") String owner) {
-        if(!public_year.equals("")) Integer.parseInt(public_year);
-        this.title = title;
-        this.isbn = isbn;
-        this.public_year = public_year;
-        this.publisher = publisher;
-        this.author = author;
+public class Book implements Serializable {
+    private String owner;
+    private String price;
+    private BookCondition condition;
+    private final BookInfo bookInfo;
+
+    public Book(String title, String public_year, String publisher, String author, String price, BookCondition condition, String owner) {
+        if(!price.equals("")) Integer.parseInt(price);
+        bookInfo = new BookInfo(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author);
+        this.price = price;
+        this.condition = condition;
         this.owner = owner;
     }
 
-    public void setOwner(String owner) {
+    @JsonCreator
+    public Book(@JsonProperty("title") String title, @JsonProperty("isbn") String isbn, @JsonProperty("public_year") String public_year,
+                @JsonProperty("publisher") String publisher, @JsonProperty("author") String author,
+                @JsonProperty("price") String price, @JsonProperty("condition") BookCondition condition,
+                @JsonProperty("owner") String owner) {
+        if(!price.equals("")) Integer.parseInt(price);
+        this.bookInfo = new BookInfo(title, isbn, public_year, publisher, author);
+        this.price = price;
+        this.condition = condition;
         this.owner = owner;
+    }
+
+    @Override
+    public String toString() {
+
+        return getTitle() + ": " + getIsbn() +": " + getPublic_year() + ": " + getPublic_year() + ": " + getAuthor()
+                + ": " + price + ": " + condition.toString() + ": " + owner + '\n';
+    }
+
+    public String getTitle() {
+        return bookInfo.getTitle();
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.bookInfo.setTitle(title);
+    }
+
+    public String getIsbn() {
+        return bookInfo.getIsbn();
     }
 
     public void setIsbn(String isbn) {
-        this.isbn = isbn;
+        this.bookInfo.setIsbn(isbn);
     }
 
-    public void setPublic_year(String public_year) {
-        this.public_year = public_year;
+    public String getPublic_year() {
+        return bookInfo.getPublicYear();
+    }
+
+    public void setPublicYear(String publicYear) {
+        this.bookInfo.setPublicYear(publicYear);
+    }
+
+    public String getPublisher() {
+        return bookInfo.getPublisher();
     }
 
     public void setPublisher(String publisher) {
-        this.publisher = publisher;
+        bookInfo.setPublisher(publisher);
+    }
+
+    public String getAuthor() {
+        return bookInfo.getAuthor();
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        bookInfo.setAuthor(author);
     }
 
     public String getOwner() {
         return owner;
     }
 
-    public String getTitle() {
-        return title;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getPrice() {
+        return price;
     }
 
-    public String getPublic_year() {
-        return public_year;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
-    public String getPublisher() {
-        return publisher;
+    public BookCondition getCondition() {
+        return condition;
     }
 
-    public String getAuthor() {
-        return author;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return title + ": " + isbn + ": " + public_year + ": " + publisher + ": " + author + ": " + " " + ": " + " " + ": " +
-                owner + '\n';
+    public void setCondition(BookCondition condition) {
+        this.condition = condition;
     }
 }

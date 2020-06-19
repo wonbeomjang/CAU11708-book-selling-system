@@ -1,6 +1,6 @@
 package com.wonbeomjang.bookselling.ActionListener.ModifyBook;
 
-import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
+import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleTextPanel;
 import com.wonbeomjang.bookselling.Layout.Interface.ModifyBook;
 import com.wonbeomjang.bookselling.Layout.ModifyBook.ModifyBookListPanel;
@@ -23,12 +23,12 @@ public class SaveBtnActionListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ArrayList<BookOnSaleTextPanel> bookOnSaleLabelPanels = modifyBookListPanel.getBookOnSaleTextPanels();
-        BookOnSale newBook;
-        BookOnSale oldBook = null;
+        Book newBook;
+        Book oldBook = null;
         for (BookOnSaleTextPanel bookOnSaleLabelPanel : bookOnSaleLabelPanels) {
             try {
                 oldBook = bookOnSaleLabelPanel.getBook();
-                newBook = (BookOnSale)bookOnSaleLabelPanel.getNewBook();
+                newBook = (Book)bookOnSaleLabelPanel.getNewBook();
 
                 if(!newBook.getIsbn().equals(""))
                     Integer.parseInt(newBook.getIsbn());

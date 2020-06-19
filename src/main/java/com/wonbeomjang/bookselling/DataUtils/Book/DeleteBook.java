@@ -12,7 +12,7 @@ public class DeleteBook extends com.wonbeomjang.bookselling.Layout.Interface.Del
 
     @Override
     public boolean deleteBook(User owner, Book book) {
-        if (book.owner.equals(owner.getUsername()) || owner.getUserRank().equals(UserRank.Admin)) {
+        if (book.getOwner().equals(owner.getUsername()) || owner.getUserRank().equals(UserRank.Admin)) {
             bookSaleList.deleteBook(book);
             setChanged();
             notifyObservers(book);

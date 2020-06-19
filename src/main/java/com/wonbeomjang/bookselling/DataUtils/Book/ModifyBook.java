@@ -11,13 +11,13 @@ public class ModifyBook extends com.wonbeomjang.bookselling.Layout.Interface.Mod
 
         oldBook.setTitle(newBook.getTitle());
         oldBook.setIsbn(newBook.getIsbn());
-        oldBook.setPublic_year(newBook.getPublic_year());
+        oldBook.setPublicYear(newBook.getPublic_year());
         oldBook.setPublisher(newBook.getPublisher());
         oldBook.setAuthor(newBook.getAuthor());
 
-        if(oldBook instanceof BookOnSale && newBook instanceof BookOnSale) {
-            BookOnSale oldBookOnSale = (BookOnSale) oldBook;
-            BookOnSale newBookOnSale = (BookOnSale) newBook;
+        if(oldBook instanceof Book && newBook instanceof Book) {
+            Book oldBookOnSale = (Book) oldBook;
+            Book newBookOnSale = (Book) newBook;
             oldBookOnSale.setPrice(newBookOnSale.getPrice());
             oldBookOnSale.setCondition(newBookOnSale.getCondition());
         }

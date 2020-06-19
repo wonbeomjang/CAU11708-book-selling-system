@@ -21,10 +21,11 @@ public class BookSaleList  implements Serializable {
     public void init(String fileName) {
         this.fileName = fileName;
         try {
-            BookOnSale[] users = mapper.readValue(new File(fileName), BookOnSale[].class);
-            books = new ArrayList<>(Arrays.asList(users));
+            Book[] book = mapper.readValue(new File(fileName), Book[].class);
+            books = new ArrayList<>(Arrays.asList(book));
         } catch (IOException e) {
-            System.out.println("Create New File");
+            e.printStackTrace();
+            System.out.println("Create New Book File");
             books = new ArrayList<>();
         }
     }

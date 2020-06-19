@@ -35,7 +35,7 @@ class AddBookTest {
 
     @Test
     void addBookWithBookObject() {
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
+        book = new Book("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
 
         numBooks = bookSaleList.getNumBooks();
         addBook.addBook(book);

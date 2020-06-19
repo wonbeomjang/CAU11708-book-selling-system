@@ -26,9 +26,9 @@ public class DeleteBookListPanel extends JPanel {
 
         add(new BookOnSaleAttribFrtBlkPanel());
 
-        for(Book book: books) {
-            if(book instanceof BookOnSale) {
-                bookOnSaleLabelPanel = new BookOnSaleLabelPanel((BookOnSale)book);
+        for(Book book : books) {
+            if(book instanceof Book) {
+                bookOnSaleLabelPanel = new BookOnSaleLabelPanel((Book) book);
 
                 bookOnSaleLabelPanels.add(bookOnSaleLabelPanel);
                 add(bookOnSaleLabelPanel);
@@ -40,7 +40,7 @@ public class DeleteBookListPanel extends JPanel {
         return bookOnSaleLabelPanels;
     }
 
-    public Book[] getBooks() {
+    public Book[] getbookOnSales() {
         return books;
     }
 

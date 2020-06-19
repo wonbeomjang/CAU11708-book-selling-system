@@ -6,6 +6,5 @@ public class Main {
     public static void main(String[] args) {
         SetUp.setup();
         new MainFrame();
-        System.out.println(SHA256.encryption("nayana"));
     }
 }

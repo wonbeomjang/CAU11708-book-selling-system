@@ -1,8 +1,7 @@
 package com.wonbeomjang.bookselling.Layout.ModifyBook;
 
-import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookKeyType;
-import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
+import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.SearchBook;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleAttribPanel;
@@ -26,13 +25,11 @@ public class ModifyBookListPanel extends JPanel {
 
         add(new BookOnSaleAttribPanel());
 
-        for(Book book: books) {
-            if(book instanceof BookOnSale) {
-                bookOnSaleTextPanel = new BookOnSaleTextPanel((BookOnSale)book);
+        for(Book book : books) {
+            bookOnSaleTextPanel = new BookOnSaleTextPanel((Book) book);
 
-                bookOnSaleTextPanels.add(bookOnSaleTextPanel);
-                add(bookOnSaleTextPanel);
-            }
+            bookOnSaleTextPanels.add(bookOnSaleTextPanel);
+            add(bookOnSaleTextPanel);
         }
     }
 

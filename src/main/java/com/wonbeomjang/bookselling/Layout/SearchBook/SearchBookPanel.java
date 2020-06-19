@@ -1,9 +1,8 @@
 package com.wonbeomjang.bookselling.Layout.SearchBook;
 
 import com.wonbeomjang.bookselling.ActionListener.SearchBook.SearchBtnActionListener;
-import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookKeyType;
-import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
+import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleAttribFrtBlkPanel;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleLabelPanel;
@@ -39,8 +38,8 @@ public class SearchBookPanel extends JPanel implements Observer {
 
         BookOnSaleLabelPanel bookOnSaleLabelPanel;
 
-        for(Book book: books) {
-            bookOnSaleLabelPanel = new BookOnSaleLabelPanel((BookOnSale) book);
+        for(Book book : books) {
+            bookOnSaleLabelPanel = new BookOnSaleLabelPanel(book);
             if(systemUser.getUsername().equals(book.getOwner())) {
                 bookOnSaleLabelPanel.remove(0);
                 bookOnSaleLabelPanel.add(new JLabel(" "), 0);

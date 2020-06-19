@@ -10,12 +10,13 @@ public class SearchBook extends com.wonbeomjang.bookselling.Layout.Interface.Sea
     }
 
     public boolean compareByKey(Book book, String key, BookKeyType keyType) {
-        if (keyType == BookKeyType.Title) return book.title.equals(key);
-        if (keyType == BookKeyType.ISBN) return book.isbn.equals(key);
-        if (keyType == BookKeyType.Author) return book.author.equals(key);
-        if (keyType == BookKeyType.Username) return book.owner.equals(key);
-        if (keyType == BookKeyType.Publisher) return book.publisher.equals(key);
-        if (keyType == BookKeyType.PublicYear) return book.public_year.equals(key);
+        if (keyType == BookKeyType.Title) return book.getTitle().equals(key);
+        if (keyType == BookKeyType.ISBN) return book.getIsbn().equals(key);
+        if (keyType == BookKeyType.Author) return book.getAuthor().equals(key);
+        if (keyType == BookKeyType.Username) return book.getOwner().equals(key);
+        if (keyType == BookKeyType.Publisher) return book.getPublisher().equals(key);
+        if (keyType == BookKeyType.PublicYear) return book.getPublic_year().equals(key);
+        if (keyType == BookKeyType.ID) return book.getPublic_year().equals(key);
         return false;
     }
 

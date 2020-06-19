@@ -29,7 +29,7 @@ public class UserList implements Serializable {
             User[] users = mapper.readValue(new File(userData), User[].class);
             userList = new ArrayList<>(Arrays.asList(users));
         } catch (IOException e) {
-            System.out.println("Create New File");
+            System.out.println("Create New User File");
             userList = new ArrayList<>();
         }
     }

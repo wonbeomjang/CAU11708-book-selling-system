@@ -1,7 +1,6 @@
 package com.wonbeomjang.bookselling.Layout.SignIn;
 
-import com.wonbeomjang.bookselling.ActionListener.SignIn.SigInBtnActionListener;
-import com.wonbeomjang.bookselling.ActionListener.SignIn.SignInBtnKeyListener;
+import com.wonbeomjang.bookselling.ActionListener.SignIn.SignInBtnActionListener;
 import com.wonbeomjang.bookselling.ActionListener.SignIn.SignUpBtnActionListener;
 
 import javax.swing.*;
@@ -20,8 +19,7 @@ public class SignInPanel extends JPanel {
         add(signInTextPanel, BorderLayout.CENTER);
         add(signInBtnPanel, BorderLayout.EAST);
 
-        signInBtnPanel.getSignInBtn().addKeyListener(new SignInBtnKeyListener(observer, signInTextPanel));
-        signInBtnPanel.getSignInBtn().addActionListener(new SigInBtnActionListener(observer, signInTextPanel));
+        signInBtnPanel.getSignInBtn().addActionListener(new SignInBtnActionListener(observer, signInTextPanel));
         signInBtnPanel.getSignUpBtn().addActionListener(new SignUpBtnActionListener());
     }
 }

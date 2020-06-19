@@ -1,15 +1,15 @@
 package com.wonbeomjang.bookselling.Layout.BookListUp;
 
-import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
+import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class BookOnSaleLabelPanel extends JPanel {
     JCheckBox buyChk;
-    BookOnSale bookOnSale;
-    public BookOnSaleLabelPanel(BookOnSale book) {
-        bookOnSale = book;
+    Book book;
+    public BookOnSaleLabelPanel(Book book) {
+        this.book = book;
         buyChk = new JCheckBox();
 
         setLayout(new GridLayout(1, 8));
@@ -33,7 +33,7 @@ public class BookOnSaleLabelPanel extends JPanel {
         return buyChk.isSelected();
     }
 
-    public BookOnSale getBook() {
-        return bookOnSale;
+    public Book getBook() {
+        return book;
     }
 }

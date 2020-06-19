@@ -1,14 +1,13 @@
 package com.wonbeomjang.bookselling.Layout.BookListUp;
 
-import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookCondition;
-import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
+import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class BookOnSaleTextPanel extends JPanel {
-    BookOnSale bookOnSale;
+    Book book;
     JTextField title;
     JTextField isbn;
     JTextField publicYear;
@@ -17,8 +16,8 @@ public class BookOnSaleTextPanel extends JPanel {
     JTextField price;
     JComboBox<BookCondition> condition;
 
-    public BookOnSaleTextPanel(BookOnSale book) {
-        bookOnSale = book;
+    public BookOnSaleTextPanel(Book book) {
+        this.book = book;
 
         setLayout(new GridLayout(1, 7));
 
@@ -41,12 +40,8 @@ public class BookOnSaleTextPanel extends JPanel {
         add(new JLabel(book.getOwner()));
     }
 
-    public BookOnSale getBook() {
-        return bookOnSale;
-    }
-
-    public Book getBookOnSale() {
-        return bookOnSale;
+    public Book getBook() {
+        return book;
     }
 
     public String getTitle() {
@@ -78,7 +73,7 @@ public class BookOnSaleTextPanel extends JPanel {
     }
 
     public Book getNewBook() {
-        return new BookOnSale(getTitle(), getIsbn(), getPublicYear(), getPublisher(), getAuthor(),
+        return new Book(getTitle(), getIsbn(), getPublicYear(), getPublisher(), getAuthor(),
                 getPrice(), BookCondition.valueOf(getCondition()), "");
     }
 }

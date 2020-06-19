@@ -1,8 +1,7 @@
 package BookTest;
 
-import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookCondition;
-import com.wonbeomjang.bookselling.DataUtils.Book.BookOnSale;
+import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.Book.BuyBook;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Utils.SetUp;
@@ -25,7 +24,7 @@ class BuyBookTest {
 
         buyer = new User("wonbeomjang", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "01037937352", "jtiger958" );
         seller = new User("wonbeomjang", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "jtiger958", "01037937352");
-        book = new BookOnSale("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, seller.getUsername());
+        book = new Book("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, seller.getUsername());
 
         buyBook = new BuyBook();
     }
