@@ -7,6 +7,7 @@ import com.wonbeomjang.bookselling.Utils.HashFunction;
 import java.io.Serializable;
 
 public class Book implements Serializable {
+    private String id;
     private String owner;
     private String price;
     private BookCondition condition;
@@ -24,18 +25,23 @@ public class Book implements Serializable {
     public Book(@JsonProperty("title") String title, @JsonProperty("isbn") String isbn, @JsonProperty("public_year") String public_year,
                 @JsonProperty("publisher") String publisher, @JsonProperty("author") String author,
                 @JsonProperty("price") String price, @JsonProperty("condition") BookCondition condition,
-                @JsonProperty("owner") String owner) {
+                @JsonProperty("owner") String owner, @JsonProperty("ID") String id) {
         if(!price.equals("")) Integer.parseInt(price);
         this.bookInfo = new BookInfo(title, isbn, public_year, publisher, author);
         this.price = price;
         this.condition = condition;
         this.owner = owner;
+        this.id = id;
+    }
+
+    public Book(String title, String isbn, String publicYear, String publisher, String author, String price, BookCondition condition, String owner) {
+        this(title, isbn, publicYear, publisher, author, price, condition, owner, BookSaleList.getInstance().getNextID());
     }
 
     @Override
     public String toString() {
 
-        return getTitle() + ": " + getIsbn() +": " + getPublic_year() + ": " + getPublic_year() + ": " + getAuthor()
+        return getTitle() + ": " + getIsbn() +": " + getPublicYear() + ": " + getPublicYear() + ": " + getAuthor()
                 + ": " + price + ": " + condition.toString() + ": " + owner + '\n';
     }
 
@@ -55,7 +61,7 @@ public class Book implements Serializable {
         this.bookInfo.setIsbn(isbn);
     }
 
-    public String getPublic_year() {
+    public String getPublicYear() {
         return bookInfo.getPublicYear();
     }
 
@@ -101,5 +107,13 @@ public class Book implements Serializable {
 
     public void setCondition(BookCondition condition) {
         this.condition = condition;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

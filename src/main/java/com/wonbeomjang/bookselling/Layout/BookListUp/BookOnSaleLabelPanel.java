@@ -12,12 +12,13 @@ public class BookOnSaleLabelPanel extends JPanel {
         this.book = book;
         buyChk = new JCheckBox();
 
-        setLayout(new GridLayout(1, 8));
+        setLayout(new GridLayout(1, 9));
 
         add(buyChk);
+        add(new JLabel(book.getId()));
         add(new JLabel(book.getTitle()));
         add(new JLabel(book.getIsbn()));
-        add(new JLabel(book.getPublic_year()));
+        add(new JLabel(book.getPublicYear()));
         add(new JLabel(book.getPublisher()));
         add(new JLabel(book.getAuthor()));
         add(new JLabel(book.getPrice()));

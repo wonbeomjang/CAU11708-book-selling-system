@@ -42,7 +42,7 @@ class ModifyBookTest {
     void publicYear() {
         Book newBook = new Book("Ubuntu", "2020", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
         modifyBook.modify(oldBook, newBook);
-        assertEquals(oldBook.getPublic_year(), oldBook.getPublic_year());
+        assertEquals(oldBook.getPublicYear(), oldBook.getPublicYear());
     }
 
     @Test

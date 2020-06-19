@@ -1,11 +1,3 @@
-# book-selling-system
-
-## Class Diagram
-![class-diagram](images/class_diagram.png)
-
-## start demo
-java -jar book-selling-system.jar
-
 ## 실행 방법
 java -jar out/artifacts/bookselling_jar/bookselling.jar
 

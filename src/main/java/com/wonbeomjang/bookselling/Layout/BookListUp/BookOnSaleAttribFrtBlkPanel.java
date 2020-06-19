@@ -5,8 +5,9 @@ import java.awt.*;
 
 public class BookOnSaleAttribFrtBlkPanel extends JPanel {
     public BookOnSaleAttribFrtBlkPanel() {
-        setLayout(new GridLayout(1, 8));
+        setLayout(new GridLayout(1, 9));
         add(new JLabel("    "));
+        add(new JLabel(" 책ID "));
         add(new JLabel(" 제목 "));
         add(new JLabel(" ISBN "));
         add(new JLabel(" 출판년도 "));

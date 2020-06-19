@@ -21,7 +21,7 @@ public class SearchBookPanel extends JPanel implements Observer {
     ArrayList<BookOnSaleLabelPanel> bookOnSaleLabelPanels = new ArrayList<>();
     Observer observer;
     User systemUser;
-    int panWidth = 800;
+    int panWidth = 900;
     int panHeight = 80;
 
     protected void organizePanel(User systemUser, Book[] books) {

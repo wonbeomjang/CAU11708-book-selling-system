@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.function.Predicate;
 
 public class BookSaleList  implements Serializable {
-    private ArrayList<Book> books;
+    static ArrayList<Book> books;
     private String fileName;
     private static final BookSaleList instance = new BookSaleList();
     ObjectMapper mapper = new ObjectMapper();
@@ -24,7 +24,6 @@ public class BookSaleList  implements Serializable {
             Book[] book = mapper.readValue(new File(fileName), Book[].class);
             books = new ArrayList<>(Arrays.asList(book));
         } catch (IOException e) {
-            e.printStackTrace();
             System.out.println("Create New Book File");
             books = new ArrayList<>();
         }
@@ -77,6 +76,10 @@ public class BookSaleList  implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getNextID() {
+        return String.valueOf(Integer.parseInt(books.get(books.size() - 1).getId()) + 1);
     }
 
     @Override

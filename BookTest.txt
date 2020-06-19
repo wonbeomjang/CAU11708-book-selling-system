@@ -1,4 +1,0 @@
-Ubuntu: 9805: 1999: 장원범: 장원범: 1000: Excellent: wonbeomjang
-Ubuntu: 9805: 1999: 장원범: 장원범: 1000: Excellent: wonbeomjang
-2: : : : : : None: 2
-2: : : : : : None: 2

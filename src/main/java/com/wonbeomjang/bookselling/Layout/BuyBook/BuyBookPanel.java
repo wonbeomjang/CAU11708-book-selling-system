@@ -24,7 +24,7 @@ public class BuyBookPanel extends JPanel {
     }
 
     public int getPanWidth() {
-        return searchBookPanel.getPanWidth() + 50;
+        return searchBookPanel.getPanWidth() + 100;
     }
 
     public int getPanHeight() {

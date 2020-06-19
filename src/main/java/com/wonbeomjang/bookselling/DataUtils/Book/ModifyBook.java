@@ -11,7 +11,7 @@ public class ModifyBook extends com.wonbeomjang.bookselling.Layout.Interface.Mod
 
         oldBook.setTitle(newBook.getTitle());
         oldBook.setIsbn(newBook.getIsbn());
-        oldBook.setPublicYear(newBook.getPublic_year());
+        oldBook.setPublicYear(newBook.getPublicYear());
         oldBook.setPublisher(newBook.getPublisher());
         oldBook.setAuthor(newBook.getAuthor());
 

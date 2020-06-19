@@ -38,7 +38,7 @@ public class SaveBtnActionListener implements ActionListener {
 
                 if(oldBook.getTitle().equals(newBook.getTitle())
                 && oldBook.getIsbn().equals(newBook.getIsbn())
-                && oldBook.getPublic_year().equals(newBook.getPublic_year())
+                && oldBook.getPublicYear().equals(newBook.getPublicYear())
                 && oldBook.getPublisher().equals(newBook.getPublisher())
                 && oldBook.getAuthor().equals(newBook.getAuthor())
                 && oldBook.getPrice().equals(newBook.getPrice())

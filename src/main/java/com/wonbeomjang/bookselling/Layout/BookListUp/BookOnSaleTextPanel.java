@@ -23,7 +23,7 @@ public class BookOnSaleTextPanel extends JPanel {
 
         title = new JTextField(book.getTitle());
         isbn = new JTextField(book.getIsbn());
-        publicYear = new JTextField(book.getPublic_year());
+        publicYear = new JTextField(book.getPublicYear());
         publisher = new JTextField(book.getPublisher());
         author = new JTextField(book.getAuthor());
         price = new JTextField(book.getPrice());
