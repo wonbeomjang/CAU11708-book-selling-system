@@ -36,7 +36,7 @@ class BuyBookTest {
     @Test
     void buy() {
         book.setOwner(buyer.getUsername());
-        buyBook.buyBook(buyer, book);
+        buyBook.buyBook(seller, buyer, book);
 
         assertEquals(book.getOwner(), buyer.getUsername());
         assertNotEquals(book.getOwner(), seller);

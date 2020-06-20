@@ -16,6 +16,6 @@ public class SignUpPanel extends JPanel {
         add(signUpTextPanel, BorderLayout.CENTER);
         add(signUpBtn, BorderLayout.EAST);
 
-        signUpBtn.addActionListener(new SignUpBtnActionListener(observer, signUpTextPanel));
+        signUpBtn.addActionListener(new SignUpBtnActionListener(signUpTextPanel, observer));
     }
 }

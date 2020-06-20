@@ -4,6 +4,7 @@ import com.wonbeomjang.bookselling.DataUtils.Book.Book;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Layout.BookListUp.BookOnSaleLabelPanel;
 import com.wonbeomjang.bookselling.Layout.Interface.BuyBook;
+import com.wonbeomjang.bookselling.Layout.Interface.SearchUser;
 import com.wonbeomjang.bookselling.Layout.SearchBook.SearchBookPanel;
 
 import java.awt.event.ActionEvent;
@@ -14,6 +15,7 @@ import java.util.Observer;
 public class BuyBtnActionListener implements ActionListener {
     SearchBookPanel searchBookPanel;
     BuyBook buyBook = new com.wonbeomjang.bookselling.DataUtils.Book.BuyBook();
+    SearchUser searchUser = new com.wonbeomjang.bookselling.DataUtils.User.SearchUser();
     User systemUser;
     Observer observer;
 
@@ -31,7 +33,8 @@ public class BuyBtnActionListener implements ActionListener {
         for(BookOnSaleLabelPanel panel: bookOnSaleLabelPanels) {
             if(panel.isChecked()) {
                 Book book = panel.getBook();
-                buyBook.buyBook(systemUser, book);
+                User seller = searchUser.search(book.getOwner())[0];
+                buyBook.buyBook(seller, systemUser, book);
             }
         }
     }

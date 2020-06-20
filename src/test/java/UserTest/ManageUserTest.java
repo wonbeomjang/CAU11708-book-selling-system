@@ -3,18 +3,19 @@ package UserTest;
 import com.wonbeomjang.bookselling.DataUtils.User.*;
 import com.wonbeomjang.bookselling.Utils.SetUp;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ManageUserTest {
-    static UserList userList;
-    static ManageUser manageUser;
-    static User user1, user2, user3;
-    static UserState userState = UserState.Deactivate;
+    UserList userList;
+    ManageUser manageUser;
+    User user1, user2, user3;
+    UserState userState = UserState.Deactivate;
 
-    @BeforeAll
-    static void setUp() {
+    @BeforeEach
+    void setUp() {
         SetUp.setup(true);
         userList = UserList.getInstance();
 

@@ -1,9 +1,8 @@
 package com.wonbeomjang.bookselling.ActionListener.RegisterBook;
 
-import com.wonbeomjang.bookselling.DataUtils.Book.AddBook;
+import com.wonbeomjang.bookselling.DataUtils.Book.RegisterBook;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookCondition;
 import com.wonbeomjang.bookselling.DataUtils.User.User;
-import com.wonbeomjang.bookselling.Layout.Interface.RegisterBook;
 import com.wonbeomjang.bookselling.Layout.RegisterBook.RegisterBookTextPanel;
 
 import javax.swing.*;
@@ -13,7 +12,7 @@ import java.util.Observer;
 
 public class RegisterBtnActionListener implements ActionListener {
     RegisterBookTextPanel registerBookTextPanel;
-    RegisterBook registerBook;
+    com.wonbeomjang.bookselling.Layout.Interface.RegisterBook registerBook;
     String title;
     String isbn;
     String publicYear;
@@ -25,7 +24,7 @@ public class RegisterBtnActionListener implements ActionListener {
 
     public RegisterBtnActionListener(RegisterBookTextPanel registerBookTextPanel, User user, Observer observer) {
         this.registerBookTextPanel = registerBookTextPanel;
-        this.registerBook = new AddBook();
+        this.registerBook = new RegisterBook();
         this.user = user;
         this.registerBook.addObserver(observer);
     }

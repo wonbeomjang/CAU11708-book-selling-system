@@ -5,19 +5,20 @@ import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.DataUtils.User.UserList;
 import com.wonbeomjang.bookselling.Utils.SetUp;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SearchUserTest {
-    static UserList userList;
-    static SearchUser searchUser;
-    static User user1, user2;
-    static int wonbeomLen;
-    static int userLen;
+    UserList userList;
+    SearchUser searchUser;
+    User user1, user2;
+    int wonbeomLen;
+    int userLen;
 
-    @BeforeAll
-    static void setUp() {
+    @BeforeEach
+    void setUp() {
         SetUp.setup(true);
         userList = UserList.getInstance();
 

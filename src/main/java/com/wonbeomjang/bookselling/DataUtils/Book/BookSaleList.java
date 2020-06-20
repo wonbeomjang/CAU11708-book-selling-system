@@ -27,14 +27,12 @@ public class BookSaleList  implements Serializable {
             System.out.println("Create New Book File");
             books = new ArrayList<>();
         }
+        if (books.size() == 0) return;
+        SortByID.sort(books);
     }
 
     public void refresh(User user) {
-        books.removeIf(new Predicate<Book>() {
-            public boolean test(Book book) {
-                return book.getOwner().equals(user.getUsername());
-            }
-        });
+        books.removeIf(book -> book.getOwner().equals(user.getUsername()));
         saveData();
         init(fileName);
     }
@@ -49,6 +47,7 @@ public class BookSaleList  implements Serializable {
 
     public boolean addBook(Book book) {
         books.add(book);
+        saveData();
         return true;
     }
 
@@ -71,15 +70,36 @@ public class BookSaleList  implements Serializable {
     }
 
     public void saveData() {
-        try {
-            mapper.writeValue(new File(fileName), books);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Thread thread = new Thread(() -> {
+            try {
+                mapper.writeValue(new File(fileName), books);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread.start();
+
     }
 
     public String getNextID() {
+        if(books.size() == 0)
+            return "0";
         return String.valueOf(Integer.parseInt(books.get(books.size() - 1).getId()) + 1);
+    }
+
+    public boolean addBook(String title, String publicYear, String publisher, String author, String price, BookCondition condition, User owner) {
+        Book book = new Book(title, publicYear, publisher, author, price, condition, owner.getUsername());
+        addBook(book);
+        saveData();
+        return true;
+    }
+
+    public boolean addBook(String title, String isbn, String publicYear, String publisher, String author, String price, BookCondition condition, User owner) {
+        Book book = new Book(title, isbn, publicYear, publisher, author, price, condition, owner.getUsername());
+        addBook(book);
+        saveData();
+        return true;
     }
 
     @Override

@@ -30,12 +30,10 @@ public class SignUp extends com.wonbeomjang.bookselling.Layout.Interface.SignUp 
         if(!checkUniqueUserName(username))
             return false;
 
-        User newUser = new User(username, SHA256.encryption(password), name, phoneNumber, email);
-        userList.addUser(newUser);
-        userList.saveData();
+        userList.addUser(username, SHA256.encryption(password), email, phoneNumber, name);
 
         setChanged();
-        notifyObservers(newUser);
+        notifyObservers();
 
         return true;
     }

@@ -1,44 +1,39 @@
 package com.wonbeomjang.bookselling.DataUtils.Book;
 
 import com.wonbeomjang.bookselling.DataUtils.User.User;
-import com.wonbeomjang.bookselling.Layout.Interface.RegisterBook;
 
-public class AddBook extends RegisterBook {
+public class RegisterBook extends com.wonbeomjang.bookselling.Layout.Interface.RegisterBook {
     private final BookSaleList bookSaleList;
 
-    public AddBook() {
+    public RegisterBook() {
         this.bookSaleList = BookSaleList.getInstance();
     }
 
     @Override
     public boolean addBook(String title, String publicYear, String publisher, String author, String price, BookCondition condition, User owner) {
-        Book book = new Book(title, publicYear, publisher, author, price, condition, owner.getUsername());
-        bookSaleList.addBook(book);
-        bookSaleList.saveData();
+        bookSaleList.addBook(title, publicYear, publisher, author, price, condition, owner);
 
         setChanged();
-        notifyObservers(book);
+        notifyObservers();
         return true;
     }
 
     @Override
     public boolean addBook(String title, String isbn, String publicYear, String publisher, String author, String price, BookCondition condition, User owner) {
-        Book book = new Book(title, isbn, publicYear, publisher, author, price, condition, owner.getUsername());
-        bookSaleList.addBook(book);
-        bookSaleList.saveData();
+        bookSaleList.addBook(title, isbn, publicYear, publisher, author, price, condition, owner);
 
         setChanged();
-        notifyObservers(book);
+        notifyObservers();
         return true;
     }
 
     public boolean addBook(Book book) {
         bookSaleList.addBook(book);
-        bookSaleList.saveData();
 
         setChanged();
         notifyObservers(book);
         return true;
     }
+
 
 }

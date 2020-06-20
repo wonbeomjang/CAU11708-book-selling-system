@@ -7,6 +7,7 @@ import com.wonbeomjang.bookselling.DataUtils.User.User;
 import com.wonbeomjang.bookselling.Utils.SetUp;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

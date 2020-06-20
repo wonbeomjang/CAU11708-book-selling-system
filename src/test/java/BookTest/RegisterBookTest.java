@@ -9,9 +9,9 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-class AddBookTest {
+class RegisterBookTest {
     User owner;
-    AddBook addBook;
+    RegisterBook registerBook;
     BookSaleList bookSaleList;
     Book book;
     int numBooks = 0;
@@ -22,14 +22,14 @@ class AddBookTest {
 
         bookSaleList = BookSaleList.getInstance();
 
-        addBook = new AddBook();
+        registerBook = new RegisterBook();
         owner = new User("wonbeomjang", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "01037937352", "jtiger958" );
     }
 
     @Test
     void addBookWithParam() {
         numBooks = bookSaleList.getNumBooks();
-        addBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
+        registerBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
         assertEquals(numBooks + 1, bookSaleList.getNumBooks());
     }
 
@@ -38,7 +38,7 @@ class AddBookTest {
         book = new Book("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner.getUsername());
 
         numBooks = bookSaleList.getNumBooks();
-        addBook.addBook(book);
+        registerBook.addBook(book);
 
         assertEquals(numBooks + 1, bookSaleList.getNumBooks());
         assertTrue(bookSaleList.contain(book));

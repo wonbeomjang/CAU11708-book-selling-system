@@ -12,10 +12,10 @@ public class SetUp {
     public static String testUserDataFile = "userTest.json";
     public static String testBookDataFile = "booksTest.json";
     public static String dataDir = "data";
+    public static File folder = new File(dataDir);
 
     public static void setup() {
 
-        File folder = new File(dataDir);
         if(!folder.exists())
             folder.mkdir();
 
@@ -27,6 +27,7 @@ public class SetUp {
     }
 
     public static void setup(boolean isTest) {
+        if(!isTest) setup();
 
         File folder = new File(dataDir);
         if(!folder.exists())

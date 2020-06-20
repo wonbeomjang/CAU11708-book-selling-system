@@ -7,7 +7,7 @@ import com.wonbeomjang.bookselling.Utils.HashFunction;
 import java.io.Serializable;
 
 public class Book implements Serializable {
-    private String id;
+    private String id = "0";
     private String owner;
     private String price;
     private BookCondition condition;
@@ -42,7 +42,7 @@ public class Book implements Serializable {
     public String toString() {
 
         return getTitle() + ": " + getIsbn() +": " + getPublicYear() + ": " + getPublicYear() + ": " + getAuthor()
-                + ": " + price + ": " + condition.toString() + ": " + owner + '\n';
+                + ": " + price + ": " + condition.toString() + ": " + owner + ": "  + id + '\n';
     }
 
     public String getTitle() {

@@ -6,5 +6,5 @@ import com.wonbeomjang.bookselling.DataUtils.User.User;
 import java.util.Observable;
 
 public abstract class BuyBook extends Observable {
-    public abstract boolean buyBook(User buyer, Book book);
+    public abstract boolean buyBook(User seller, User buyer, Book book);
 }

@@ -2,6 +2,7 @@ package com.wonbeomjang.bookselling.DataUtils.User;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wonbeomjang.bookselling.DataUtils.Book.BookSaleList;
+import com.wonbeomjang.bookselling.Utils.SHA256;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,6 +40,12 @@ public class UserList implements Serializable {
       return true;
     }
 
+    public boolean addUser(String username, String password, String email, String phoneNumber, String name) {
+        addUser(new User(username, password, name, phoneNumber, email));
+        saveData();
+        return true;
+    }
+
     public boolean contain(User user) {
         return userList.contains(user);
     }
@@ -64,11 +71,15 @@ public class UserList implements Serializable {
     }
 
     public void saveData() {
-        try {
-            mapper.writeValue(new File(userDatafile), userList);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Thread thread = new Thread(() -> {
+            try {
+                mapper.writeValue(new File(userDatafile), userList);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread.start();
     }
 
     @Override

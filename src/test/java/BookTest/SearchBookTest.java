@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SearchBookTest {
     SearchBook searchBook;
-    AddBook addBook;
+    RegisterBook registerBook;
     User owner;
     Book book;
     Book[] books;
@@ -22,13 +22,13 @@ class SearchBookTest {
 
 
         owner = new User("wonbeomjang", "3d4574a464a47ff83f69028d2354771ad371bde7c8a83675feb070f5cbd01a66", "장원범", "01037937352", "jtiger958" );
-        addBook = new AddBook();
+        registerBook = new RegisterBook();
         searchBook = new SearchBook();
         book = new Book("DB", "123", "2", "장원범", "65000", BookCondition.Fair, owner.getUsername());
 
-        addBook.addBook(book);
-        addBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
-        addBook.addBook("Linux", "2020", "장원범", "장원범", "6000", BookCondition.Fair, owner);
+        registerBook.addBook(book);
+        registerBook.addBook("Ubuntu", "1999", "장원범", "장원범", "1000", BookCondition.Excellent, owner);
+        registerBook.addBook("Linux", "2020", "장원범", "장원범", "6000", BookCondition.Fair, owner);
     }
 
     @Test

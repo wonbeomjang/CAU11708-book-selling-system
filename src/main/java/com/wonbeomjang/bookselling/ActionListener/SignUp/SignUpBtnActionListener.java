@@ -11,7 +11,7 @@ import java.util.Observer;
 public class SignUpBtnActionListener implements ActionListener {
     private final SignUp signUp = new com.wonbeomjang.bookselling.DataUtils.User.SignUp();
     SignUpTextPanel signUpTextPanel;
-    public SignUpBtnActionListener(Observer observer, SignUpTextPanel signUpTextPanel) {
+    public SignUpBtnActionListener(SignUpTextPanel signUpTextPanel, Observer observer) {
         this.signUpTextPanel = signUpTextPanel;
         signUp.addObserver(observer);
     }
