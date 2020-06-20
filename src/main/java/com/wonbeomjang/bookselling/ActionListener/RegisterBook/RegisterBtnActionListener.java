@@ -42,28 +42,29 @@ public class RegisterBtnActionListener implements ActionListener {
             JOptionPane.showMessageDialog(null,"제목을 입력해주세요");
             return;
         }
-        else if(!checkInt(price)) {
+        else if(!checkFloat(price)) {
             JOptionPane.showMessageDialog(null,"정확한 가격이 아닙니다");
             return;
         } else if(!checkInt(publicYear)) {
             JOptionPane.showMessageDialog(null,"정확한 년도가 아닙니다");
             return;
-        } else if(!checkInt(isbn)) {
+        } else if(!checkISBN(isbn)) {
             JOptionPane.showMessageDialog(null,"정확한 ISBN이 아닙니다");
             return;
         }
         registerBook.addBook(title, isbn, publicYear, publisher, author, price, BookCondition.valueOf(condition), user);
     }
 
+    private boolean checkFloat(String number) {
+        return number.matches("^[+-]?\\d*(\\.?\\d*)$");
+    }
+
     private boolean checkInt(String number) {
-        if(!number.equals("")) {
-            try {
-                Integer.parseInt(number);
-            }
-            catch (Exception exception) {
-                return false;
-            }
-        }
-        return true;
+        return number.matches("^[0-9]*$");
+    }
+
+    private boolean checkISBN(String isbn) {
+        if(isbn.equals("")) return true;
+        return isbn.matches("^(?:ISBN(?:-10)?:? )?(?=[0-9X]{10}$|(?=(?:[0-9]+[- ]){3})[- 0-9X]{13}$)[0-9]{1,5}[- ]?[0-9]+[- ]?[0-9]+[- ]?[0-9X]$");
     }
 }
