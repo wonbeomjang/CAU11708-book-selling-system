@@ -34,7 +34,6 @@ public class BookSaleList  implements Serializable {
     public void refresh(User user) {
         books.removeIf(book -> book.getOwner().equals(user.getUsername()));
         saveData();
-        init(fileName);
     }
 
     public static BookSaleList getInstance() {
