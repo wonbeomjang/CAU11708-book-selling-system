@@ -11,21 +11,10 @@ public class Book implements Serializable {
     private String owner;
     private String price;
     private BookCondition condition;
-    private BookInfo bookInfo;
+    private final BookInfo bookInfo;
 
     public Book(String title, String public_year, String publisher, String author, String price, BookCondition condition, String owner) {
-        if(!price.matches("^[+-]?\\d*(\\.?\\d*)$")) {
-            try {
-                throw new Exception() {
-                    @Override
-                    public String getMessage() {
-                        return "Price is not float";
-                    }
-                };
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        if(!price.equals("")) Float.parseFloat(price);
         bookInfo = new BookInfo(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author);
         this.price = price;
         this.condition = condition;
@@ -37,18 +26,7 @@ public class Book implements Serializable {
                 @JsonProperty("publisher") String publisher, @JsonProperty("author") String author,
                 @JsonProperty("price") String price, @JsonProperty("condition") BookCondition condition,
                 @JsonProperty("owner") String owner, @JsonProperty("ID") String id) {
-        if(!price.matches("^[+-]?\\d*(\\.?\\d*)$")) {
-            try {
-                throw new Exception() {
-                    @Override
-                    public String getMessage() {
-                        return "Price is not float";
-                    }
-                };
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        if(!price.equals("")) Float.parseFloat(price);
         this.bookInfo = new BookInfo(title, isbn, public_year, publisher, author);
         this.price = price;
         this.condition = condition;
