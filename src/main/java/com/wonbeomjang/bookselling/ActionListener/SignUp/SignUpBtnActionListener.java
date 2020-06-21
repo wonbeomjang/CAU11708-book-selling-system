@@ -22,12 +22,11 @@ public class SignUpBtnActionListener implements ActionListener {
         String email = signUpTextPanel.getEmail();
         String phoneNumber = signUpTextPanel.getPhoneNumber();
         String name = signUpTextPanel.getName();
-        System.out.println(username);
 
         if(username.equals("") || password.equals("") || email.equals("") || phoneNumber.equals("") || name.equals(""))
             JOptionPane.showMessageDialog(null, "모든 정보를 입력해주세요");
 
-        else if(!signUp.signUp(username, password, email, phoneNumber, name)) {
+        else if(!signUp.signUp(username, password, email, name, phoneNumber)) {
             JOptionPane.showMessageDialog(null, "존재하는 아이디입니다.");
         }
     }

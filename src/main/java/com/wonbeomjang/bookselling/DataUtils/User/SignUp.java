@@ -22,7 +22,7 @@ public class SignUp extends com.wonbeomjang.bookselling.Layout.Interface.SignUp 
     }
 
     @Override
-    public boolean signUp(String username, String password, String email, String phoneNumber, String name) {
+    public boolean signUp(String username, String password, String email, String name, String phoneNumber) {
 
         if (username.equals("") || password.equals("") || email.equals("") || phoneNumber.equals("") || name.equals(""))
             return false;
@@ -30,7 +30,7 @@ public class SignUp extends com.wonbeomjang.bookselling.Layout.Interface.SignUp 
         if(!checkUniqueUserName(username))
             return false;
 
-        userList.addUser(username, SHA256.encryption(password), email, phoneNumber, name);
+        userList.addUser(username, SHA256.encryption(password), email, name, phoneNumber);
 
         setChanged();
         notifyObservers();

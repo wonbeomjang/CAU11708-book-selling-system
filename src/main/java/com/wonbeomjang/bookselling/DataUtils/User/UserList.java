@@ -40,8 +40,8 @@ public class UserList implements Serializable {
       return true;
     }
 
-    public boolean addUser(String username, String password, String email, String phoneNumber, String name) {
-        addUser(new User(username, password, name, phoneNumber, email));
+    public boolean addUser(String username, String password, String email, String name, String phoneNumber) {
+        addUser(new User(username, password, email, name, phoneNumber));
         saveData();
         return true;
     }
@@ -82,12 +82,4 @@ public class UserList implements Serializable {
         thread.start();
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (User user : userList) {
-            stringBuilder.append(user.toString());
-        }
-        return stringBuilder.toString();
-    }
 }

@@ -38,13 +38,6 @@ public class Book implements Serializable {
         this(title, isbn, publicYear, publisher, author, price, condition, owner, BookSaleList.getInstance().getNextID());
     }
 
-    @Override
-    public String toString() {
-
-        return getTitle() + ": " + getIsbn() +": " + getPublicYear() + ": " + getPublicYear() + ": " + getAuthor()
-                + ": " + price + ": " + condition.toString() + ": " + owner + ": "  + id + '\n';
-    }
-
     public String getTitle() {
         return bookInfo.getTitle();
     }

@@ -78,9 +78,4 @@ public class User {
         return userRank;
     }
 
-    @Override
-    public String toString() {
-
-        return username + ": " + password + ": " + name + ": " + phoneNumber + ": " + email + ": " + userState.toString() + '\n';
-    }
 }

@@ -102,12 +102,4 @@ public class BookSaleList  implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Book book : books) {
-            stringBuilder.append(book.toString());
-        }
-        return stringBuilder.toString();
-    }
 }
