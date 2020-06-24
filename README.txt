@@ -29,3 +29,7 @@ java -jar out/artifacts/bookselling_jar/bookselling.jar
     - data/book.json // 책 데이터 파일 (자동생성)
     - data/userTest.json // User 테스트 데이터 파일 (자동생성)
     - data/bookTest.json // 책 테스트 데이터 파일 (자동생성)
+
+8. 영상
+    - videos/demo.mp4
+    - videos/report.mp4
