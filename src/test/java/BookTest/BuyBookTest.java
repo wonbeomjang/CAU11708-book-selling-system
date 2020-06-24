@@ -29,13 +29,8 @@ class BuyBookTest {
         buyBook = new BuyBook();
     }
 
-    @AfterEach
-    void tearDown() {
-    }
-
     @Test
     void buy() {
-        book.setOwner(buyer.getUsername());
         buyBook.buyBook(seller, buyer, book);
 
         assertEquals(book.getOwner(), buyer.getUsername());

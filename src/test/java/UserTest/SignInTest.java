@@ -10,7 +10,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class SignInTest {
     SignIn signIn;
-    SignUp signUp;
     UserList userList;
     User user1, user2;
 
@@ -37,9 +36,9 @@ class SignInTest {
         assertEquals(user2.getUsername(), signIn.signIn("wonbeom", "20182592").getUsername());
         assertNull(signIn.signIn("wonbesom", "20182592"));
         assertNull(signIn.signIn("wonbeom", "201821592"));
-        ((User)user2).setUserState(UserState.Deactivate);
+        user2.setUserState(UserState.Deactivate);
         assertNull(signIn.signIn("wonbeom", "201825912"));
-        ((User)user2).setUserState(UserState.Deleted);
+        user2.setUserState(UserState.Deleted);
         assertNull(signIn.signIn("wonbeom", "201812592"));
     }
 }

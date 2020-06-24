@@ -12,7 +12,7 @@ class ManageUserTest {
     UserList userList;
     ManageUser manageUser;
     User user1, user2, user3;
-    UserState userState = UserState.Deactivate;
+    UserState userState;
 
     @BeforeEach
     void setUp() {
@@ -33,7 +33,7 @@ class ManageUserTest {
     @Test
     void change() {
         assertTrue(manageUser.change(user1, userState));
-        assertEquals((user1).getUserState(), userState);
+        assertEquals(user1.getUserState(), userState);
         assertFalse(manageUser.change(user3, userState));
     }
 

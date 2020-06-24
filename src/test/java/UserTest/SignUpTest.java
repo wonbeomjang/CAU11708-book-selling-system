@@ -11,7 +11,6 @@ class SignUpTest {
     UserList userList;
     SignUp signUp;
     SignIn signIn;
-    User user;
     int numUsers;
 
     @BeforeEach
@@ -42,10 +41,5 @@ class SignUpTest {
             assertNotEquals(numUsers + 1, userList.getNumUsers());
         assertNotNull(signIn.signIn("wonbeom", "20182592"));
         assertFalse(signUp.signUp("wonbeomjang", "20182592", "jtiger958", "장원범", "01037937352"));
-    }
-
-    @Test
-    void update() {
-
     }
 }
