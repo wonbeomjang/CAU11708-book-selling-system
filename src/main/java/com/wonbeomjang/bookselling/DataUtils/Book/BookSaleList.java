@@ -18,6 +18,10 @@ public class BookSaleList  implements Serializable {
 
     private BookSaleList() {}
 
+    public static BookSaleList getInstance() {
+        return instance;
+    }
+
     public void init(String fileName) {
         this.fileName = fileName;
         try {
@@ -36,9 +40,6 @@ public class BookSaleList  implements Serializable {
         saveData();
     }
 
-    public static BookSaleList getInstance() {
-        return instance;
-    }
 
     public int getNumBooks() {
         return books.size();

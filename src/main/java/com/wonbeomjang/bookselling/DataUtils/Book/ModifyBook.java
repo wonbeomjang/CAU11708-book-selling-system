@@ -1,10 +1,9 @@
 package com.wonbeomjang.bookselling.DataUtils.Book;
 
 public class ModifyBook extends com.wonbeomjang.bookselling.Layout.Interface.ModifyBook {
-    private BookSaleList bookSaleList;
     @Override
     public boolean modify(Book oldBook, Book newBook) {
-        bookSaleList = BookSaleList.getInstance();
+        BookSaleList bookSaleList = BookSaleList.getInstance();
 
         if(!bookSaleList.contain(oldBook))
             return false;
@@ -15,12 +14,8 @@ public class ModifyBook extends com.wonbeomjang.bookselling.Layout.Interface.Mod
         oldBook.setPublisher(newBook.getPublisher());
         oldBook.setAuthor(newBook.getAuthor());
 
-        if(oldBook instanceof Book && newBook instanceof Book) {
-            Book oldBookOnSale = (Book) oldBook;
-            Book newBookOnSale = (Book) newBook;
-            oldBookOnSale.setPrice(newBookOnSale.getPrice());
-            oldBookOnSale.setCondition(newBookOnSale.getCondition());
-        }
+        oldBook.setPrice(newBook.getPrice());
+        oldBook.setCondition(newBook.getCondition());
 
         bookSaleList.saveData();
 

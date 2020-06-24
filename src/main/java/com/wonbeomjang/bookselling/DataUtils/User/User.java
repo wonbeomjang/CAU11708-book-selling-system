@@ -4,22 +4,13 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class User {
-    private String username;
+    private final String username;
     private String password;
     private String name;
     private String email;
     private String phoneNumber;
     private UserState userState;
     private UserRank userRank = UserRank.EndUser;
-
-    public User(String username, String password, String email,  String name, String phoneNumber) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.userState = UserState.Activate;
-    }
 
     @JsonCreator
     public User(@JsonProperty("username") String username, @JsonProperty("password") String password,
@@ -33,6 +24,16 @@ public class User {
         this.userState = UserState.Activate;
         this.userRank = rank;
     }
+
+    public User(String username, String password, String email,  String name, String phoneNumber) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.userState = UserState.Activate;
+    }
+
 
     public String getName() {
         return name;

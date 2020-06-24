@@ -2,7 +2,7 @@ package com.wonbeomjang.bookselling.DataUtils.User;
 
 import java.util.ArrayList;
 
-public class SearchUser implements com.wonbeomjang.bookselling.Layout.Interface.SearchUser {
+public class SearchUser extends com.wonbeomjang.bookselling.Layout.Interface.SearchUser {
     private final UserList userList = UserList.getInstance();
 
     @Override

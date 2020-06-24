@@ -13,13 +13,6 @@ public class Book implements Serializable {
     private BookCondition condition;
     private final BookInfo bookInfo;
 
-    public Book(String title, String public_year, String publisher, String author, String price, BookCondition condition, String owner) {
-        if(!price.equals("")) Float.parseFloat(price);
-        bookInfo = new BookInfo(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author);
-        this.price = price;
-        this.condition = condition;
-        this.owner = owner;
-    }
 
     @JsonCreator
     public Book(@JsonProperty("title") String title, @JsonProperty("isbn") String isbn, @JsonProperty("public_year") String public_year,
@@ -32,6 +25,14 @@ public class Book implements Serializable {
         this.condition = condition;
         this.owner = owner;
         this.id = id;
+    }
+
+    public Book(String title, String public_year, String publisher, String author, String price, BookCondition condition, String owner) {
+        if(!price.equals("")) Float.parseFloat(price);
+        bookInfo = new BookInfo(title, HashFunction.hash(title + public_year + publisher), public_year, publisher, author);
+        this.price = price;
+        this.condition = condition;
+        this.owner = owner;
     }
 
     public Book(String title, String isbn, String publicYear, String publisher, String author, String price, BookCondition condition, String owner) {
